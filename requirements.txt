@@ -3,6 +3,10 @@ scipy
 pandas
 matplotlib
 altair
+geopandas
+json
+altair-viewer
+altair-saver
 metaflow
 tqdm
 filelock
