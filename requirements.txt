@@ -7,6 +7,7 @@ geopandas
 json
 altair-viewer
 altair-saver
+openpyxl
 metaflow
 tqdm
 filelock
