@@ -4,12 +4,6 @@ from PIL import ImageColor
 from matplotlib.colors import LinearSegmentedColormap
 import json
 
-
-def project_dir():
-    current_dir = os.getcwd()
-    return str(Path(current_dir).parents[2])
-
-
 def load_colours():
     with open(f"{project_dir()}/inputs/data/aux/colours.json", "r") as colour_file:
         data = colour_file.read()
