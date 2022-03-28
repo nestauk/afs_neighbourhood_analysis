@@ -1,3 +1,8 @@
+"""
+Functions to retrieve, unzip and download the education statistics regarding Early Years (in particular Good Levels of Development outcomes and the Early Years provision)
+"""
+
+
 from bs4 import BeautifulSoup, SoupStrainer
 import json
 import os
@@ -64,6 +69,9 @@ def get_links(url_):
 
 
 def unzip_file_links(zip_url, **kwargs):
+    """
+    Function to take the URLs of the Early Years datasets and unzip them, extracting the relevant files to /inputs/data/aux.
+    """
     folder_name = kwargs.get("folder_name", "eyfsp")
     extensions = kwargs.get("extensions", (".csv", ".xlsx"))
     mute = kwargs.get("mute", False)
@@ -98,6 +106,9 @@ def unzip_file_links(zip_url, **kwargs):
 
 
 def get_data(**kwargs):
+    """
+    Get the data from the DfE website regarding the Early Years: find the relevant URLs, unzip the files and extract to inputs/data/aux
+    """
 
     urls = get_urls(**kwargs)
 
