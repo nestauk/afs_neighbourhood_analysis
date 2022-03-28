@@ -11,7 +11,7 @@ from io import BytesIO
 from zipfile import ZipFile
 import pandas as pd
 
-from afs_neighbourhood_analysis.utils.utils import project_dir
+from afs_neighbourhood_analysis import PROJECT_DIR
 
 
 def get_urls(**kwargs):
@@ -89,7 +89,7 @@ def unzip_file_links(zip_url, **kwargs):
             print(f"files extracted : {files_to_extract}")
         # Writing the zip file into local file system
         files.extractall(
-            f"{project_dir()}/inputs/data/aux/{folder_name}", members=files_to_extract
+            f"{PROJECT_DIR}/inputs/data/aux/{folder_name}", members=files_to_extract
         )
     else:
         try:
@@ -99,7 +99,7 @@ def unzip_file_links(zip_url, **kwargs):
                 if member_file_ in files.namelist()
             ]
             files.extractall(
-                f"{project_dir()}/inputs/data/aux/{folder_name}", members=extract_files
+                f"{PROJECT_DIR)}/inputs/data/aux/{folder_name}", members=extract_files
             )
         except:
             pass
@@ -111,7 +111,7 @@ def get_data(**kwargs):
     """
 
     urls = get_urls(**kwargs)
-
+    
     for url_ in urls:
         dataset_links = get_links(url_)
         for link_ in dataset_links:
