@@ -81,7 +81,7 @@ def unzip_file_links(zip_url, **kwargs):
     req = requests.get(zip_url)
     files = ZipFile(BytesIO(req.content))
 
-    if member_files == None:
+    if member_files is None:
         files_to_extract = [
             file_ for file_ in files.namelist() if file_.endswith(extensions)
         ]
