@@ -1,4 +1,4 @@
-from afs_neighbourhood_analysis.utils.utils import project_dir
+from afs_neighbourhood_analysis import PROJECT_DIR
 from afs_neighbourhood_analysis.getters.get_education_data import get_data
 
 
