@@ -34,6 +34,7 @@ def get_urls(**kwargs):
         data = json.loads(soup.find("script", type="application/ld+json").string)
         return [data["hasPart"][x]["sameAs"] for x in range(len(data["hasPart"]))]
     except:
+        print("No links found.")
         pass
     try:
         keyword = kwargs.get("keyword", "provision")
@@ -102,6 +103,7 @@ def unzip_file_links(zip_url, **kwargs):
                 f"{PROJECT_DIR}/inputs/data/aux/{folder_name}", members=extract_files
             )
         except:
+            print("Failed to extract files.")
             pass
 
 
