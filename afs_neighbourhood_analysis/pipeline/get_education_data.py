@@ -99,7 +99,7 @@ def unzip_file_links(zip_url, **kwargs):
                 if member_file_ in files.namelist()
             ]
             files.extractall(
-                f"{PROJECT_DIR)}/inputs/data/aux/{folder_name}", members=extract_files
+                f"{PROJECT_DIR}/inputs/data/aux/{folder_name}", members=extract_files
             )
         except:
             pass
@@ -111,8 +111,5 @@ def get_data(**kwargs):
     """
 
     urls = get_urls(**kwargs)
-    
-    for url_ in urls:
-        dataset_links = get_links(url_)
-        for link_ in dataset_links:
-            unzip_file_links(link_, **kwargs)
+
+    [unzip_file_links(link_, **kwargs) for url_ in urls for link_ in get_links(url_)]

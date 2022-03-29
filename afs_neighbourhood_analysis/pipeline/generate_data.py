@@ -1,5 +1,5 @@
 from afs_neighbourhood_analysis import PROJECT_DIR
-from afs_neighbourhood_analysis.getters.get_education_data import get_data
+from afs_neighbourhood_analysis.pipeline.get_education_data import get_data
 
 
 def main():

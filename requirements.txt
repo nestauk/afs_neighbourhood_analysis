@@ -6,6 +6,7 @@ altair
 geopandas
 altair-viewer
 altair-saver
+beautifulsoup4
 openpyxl
 metaflow
 tqdm

@@ -3,9 +3,11 @@ from pathlib import Path
 from PIL import ImageColor
 from matplotlib.colors import LinearSegmentedColormap
 import json
+from afs_neighbourhood_analysis import PROJECT_DIR
+
 
 def load_colours():
-    with open(f"{project_dir()}/inputs/data/aux/colours.json", "r") as colour_file:
+    with open(f"{PROJCT_DIR}/inputs/data/aux/colours.json", "r") as colour_file:
         data = colour_file.read()
     colours = json.loads(data)
     return colours
