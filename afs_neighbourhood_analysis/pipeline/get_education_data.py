@@ -83,11 +83,6 @@ def unzip_file_links(zip_url, **kwargs):
     files = ZipFile(BytesIO(req.content))
 
     if member_files is None:
-        try: 
-            path = os.path.join(PROJECT_DIR, folder_name)
-            os.mkdir(path) 
-        except OSError as error: 
-            print(error)  
         files_to_extract = [
             file_ for file_ in files.namelist() if file_.endswith(extensions)
         ]
