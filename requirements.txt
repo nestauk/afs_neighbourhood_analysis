@@ -12,3 +12,5 @@ tqdm
 filelock
 typer
 sh
+missingno
+pandas-profiling
