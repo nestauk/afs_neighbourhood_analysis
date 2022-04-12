@@ -8,7 +8,7 @@ from fingertips_py import get_data_for_indicator_at_all_available_geographies
 
 
 def clean_fingertips_table(table: pd.DataFrame) -> pd.DataFrame:
-    """Cleans up a fingertips table"""
+    """Cleans up variables fingertips table"""
 
     if type(table) == pd.DataFrame:
         table.columns = [re.sub(" ", "_", col).lower() for col in table.columns]
