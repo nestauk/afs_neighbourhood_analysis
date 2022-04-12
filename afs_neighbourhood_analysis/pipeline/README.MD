@@ -10,7 +10,8 @@ It includes the following steps:
 
 This flow collects tables for all indicators and geographies in each measurement framework available from `fingertips_py`. Note the large number of splits - we need to collect data fronm around 1700 unique indicators.
 
-```python afs_neighbourhood_analysis/pipeline/fingertips/flow.py
+```
+python afs_neighbourhood_analysis/pipeline/fingertips/flow.py
 --production \
 run
 --max-workers 5 \
@@ -21,7 +22,8 @@ run
 
 This flow parses the data. This includes parsing dates and only keeping indicators available at the `district / unitary` level. The data is stored in the flow as a lookup between `framework_id` and the parsed and cleaned dataframe combining all indicators for the framework.
 
-```python afs_neighbourhood_analysis/pipeline/fingertips/flow.py \
+```
+python afs_neighbourhood_analysis/pipeline/fingertips/flow.py \
 --production \
 run
 --max-workers 5
