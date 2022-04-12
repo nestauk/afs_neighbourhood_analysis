@@ -26,7 +26,8 @@ class HealthIndicators(FlowSpec):
 
     @step
     def start(self):
-        """Read the indicator ids that we need to collect"""
+        """Start the flow by
+        reading the indicator ids that we need to collect"""
 
         from fingertips_py import get_all_profiles
 
@@ -40,12 +41,15 @@ class HealthIndicators(FlowSpec):
         from fingertips_py import get_metadata_for_profile_as_dataframe
         from itertools import chain
 
+        # This is a lookup between framework_ids and the indicators they contain
         self.framework_metadata = {
             _id: get_metadata_for_profile_as_dataframe(_id)
             for _id in self.framework_ids
         }
 
+        # This gives us the list of ids to collect data from for each framework
         if self.test_mode is True and not current.is_production:
+
             self.indicator_ids = pipe(
                 chain.from_iterable(
                     [
@@ -55,7 +59,9 @@ class HealthIndicators(FlowSpec):
                 ),
                 set,
                 list,
-            )[:3]
+            )[
+                :3
+            ]  # The test only collects the first three indicators
         else:
             self.indicator_ids = pipe(
                 chain.from_iterable(
@@ -74,7 +80,8 @@ class HealthIndicators(FlowSpec):
     def fetch_tables(self):
         """Fetch indicator table"""
 
-        # from fingertips_py import get_data_for_indicator_at_all_available_geographies
+        # Robust fetch table tries to catch exceptions before they
+        # break the flow
         from utils import robust_fetch_table
 
         self.table = {self.input: robust_fetch_table(self.input)}
@@ -87,6 +94,7 @@ class HealthIndicators(FlowSpec):
 
         from utils import clean_fingertips_table
 
+        # Lookup between indicator ids and tables
         self.indicator_tables = {
             key: clean_fingertips_table(value)
             for input in inputs
@@ -111,6 +119,8 @@ class HealthIndicators(FlowSpec):
             )
             for _id in framework_ids
         }
+
+        # Lookup between framework ids and a list of its indicators
 
         self.framework_tables = {
             frame_id: [
