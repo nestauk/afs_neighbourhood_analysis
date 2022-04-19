@@ -34,7 +34,7 @@ def get_urls(**kwargs):
         data = json.loads(soup.find("script", type="application/ld+json").string)
         return [data["hasPart"][x]["sameAs"] for x in range(len(data["hasPart"]))]
     except:
-        print("No links found.")
+        print("No links found hidden within scripts.")
         pass
     try:
         keyword = kwargs.get("keyword", "provision")
