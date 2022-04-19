@@ -7,7 +7,7 @@ from afs_neighbourhood_analysis import PROJECT_DIR
 
 
 def load_colours():
-    with open(f"{PROJCT_DIR}/inputs/data/aux/colours.json", "r") as colour_file:
+    with open(f"{PROJECT_DIR}/inputs/data/aux/colours.json", "r") as colour_file:
         data = colour_file.read()
     colours = json.loads(data)
     return colours

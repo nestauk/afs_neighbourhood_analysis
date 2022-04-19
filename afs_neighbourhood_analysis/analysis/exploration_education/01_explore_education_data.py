@@ -34,8 +34,9 @@ import geopandas as gpd
 
 # %%
 from afs_neighbourhood_analysis.utils import utils
-from afs_neighbourhood_analysis.getters.get_education_data import get_data
+from afs_neighbourhood_analysis.pipeline.get_education_data import get_data
 from afs_neighbourhood_analysis.pipeline.generate_data import main
+from afs_neighbourhood_analysis import PROJECT_DIR
 
 # %%
 # main()
@@ -51,13 +52,10 @@ alt.themes.register("nestafont", utils.nestafont)
 alt.themes.enable("nestafont")
 
 # %%
-project_dir = utils.project_dir()
+input_fpath = f"{PROJECT_DIR}/inputs/data/aux"
 
 # %%
-input_fpath = f"{project_dir}/inputs/data/aux"
-
-# %%
-output_fpath = f"{project_dir}/outputs"
+output_fpath = f"{PROJECT_DIR}/outputs"
 
 # %% [markdown]
 # ## 2. Read in data
@@ -89,6 +87,25 @@ eyfsp_la_1_key_measures_additional_tables_2013_2019 = pd.read_excel(
 # %%
 eyfsp_la_2_com_lit_maths_additional_tables_2013_2019 = pd.read_excel(
     f"{input_fpath}/eyfsp/EYFSP_LA_2_com_lit_maths_additional_tables_2013_2019.xlsx"
+)
+
+# %% [markdown]
+# #### 2.1.2 2019 LAD 2 ELG additional tables
+
+# %%
+fsm_2019 = pd.read_excel(
+    f"{input_fpath}/eyfsp/EYFSP_LAD_2_ELG_additional_tables_2019.xlsx"
+)
+
+# %%
+fsm_2018 = pd.read_csv(
+    f"{input_fpath}/eyfsp/EYFSP_LAD_2_ELG_additional_tables_2018.csv"
+)
+
+# %%
+ethnicity_fsm_gender_school_readiness = pd.read_csv(
+    f"{input_fpath}/eyfsp/by-ethnicity-gender-and-eligibility-for-free-school-meals-table.csv",
+    header=0,
 )
 
 # %% [markdown]
@@ -223,6 +240,9 @@ eyfsp_la_1_key_measures_additional_tables_2013_2019 = (
         == "Local Authority"
     ]
 )
+
+# %%
+eyfsp_la_1_key_measures_additional_tables_2013_2019
 
 # %%
 eyfsp_la_1_key_measures_additional_tables_2013_2019.drop(
@@ -544,11 +564,28 @@ charts_gld_trends = alt.hconcat(gld_trends, gld_percentage_trends)
 alt.vconcat(charts_2018_2019, charts_gld_trends)
 
 # %% [markdown]
-# ## 5. Maps
+# eyfsp_la_1_key_measures_additional_tables_2013_2019## 5. Maps
+
+# %%
+source = eyfsp_la_1_key_measures_additional_tables_2013_2019
+
+# %%
+source_filtered = source[
+    (source.characteristic == "FSM eligibility")
+    & (source.characteristic_type == "FSM")
+    & (source.gender == "Total")
+    & (source.time_period == 201819)
+    & (source.gld_percent != ".")
+]
 
 # %%
 gld_data_to_plot = county_unitary_authority_boundaries.merge(
     gld_data_to_plot, left_on="ctyua19cd", right_on="new_la_code", how="right"
+)
+
+# %%
+fsm_data_to_plot = county_unitary_authority_boundaries.merge(
+    source_filtered, left_on="ctyua19cd", right_on="new_la_code", how="right"
 )
 
 # %%
@@ -564,8 +601,17 @@ bins = [60, 65, 70, 75, 80, 85, 90]
 labels = ["60-65", "65-70", "70-75", "75-80", "80-85", "85-90"]
 
 # %%
+bins_fsm = [40, 45, 50, 55, 60, 65, 70, 75]
+labels_fsm = ["40-45", "45-50", "50-55", "55-60", "60-65", "65-70", "70-75"]
+
+# %%
 gld_data_to_plot["binned_gld_percent"] = pd.cut(
     gld_data_to_plot.gld_percent, bins, labels=labels
+)
+
+# %%
+fsm_data_to_plot["binned_gld_percent"] = pd.cut(
+    fsm_data_to_plot.gld_percent, bins_fsm, labels=labels_fsm
 )
 
 # %%
@@ -586,10 +632,32 @@ domain = labels
 range_ = ["#2A2B2A", "#5E4955", "#996888", "#C99DA3", "#C6DDF0", "#759FBC"]
 
 # %%
+domain_fsm = labels_fsm
+range_fsm = [
+    "#f0f9e8",
+    "#ccebc5",
+    "#a8ddb5",
+    "#7bccc4",
+    "#4eb3d3",
+    "#2b8cbe",
+    "#08589e",
+]
+
+# %%
 la_select = alt.selection_multi(fields=["la_name"])
 color = alt.condition(
     la_select,
     alt.Color("binned_gld_percent:N", scale=alt.Scale(domain=domain, range=range_)),
+    alt.value("lightgray"),
+)
+
+# %%
+la_select_fsm = alt.selection_multi(fields=["la_name"])
+color = alt.condition(
+    la_select_fsm,
+    alt.Color(
+        "binned_gld_percent:N", scale=alt.Scale(domain=domain_fsm, range=range_fsm)
+    ),
     alt.value("lightgray"),
 )
 
@@ -599,6 +667,28 @@ color_diff = alt.condition(
     la_select,
     alt.Color("binned_gld_diff:N", scale=alt.Scale(scheme="redblue")),
     alt.value("lightgray"),
+)
+
+# %%
+choro_gld_no_london_fsm = (
+    alt.Chart(
+        fsm_data_to_plot[
+            ~fsm_data_to_plot.new_la_code.isin(list(london_boroughs.lad19cd))
+        ]
+    )
+    .mark_geoshape(stroke="black")
+    .encode(
+        color=color,
+        tooltip=[
+            alt.Tooltip("la_name:N", title="LA"),
+            alt.Tooltip("gld_percent:Q", title="Average GLD (%)", format="1.2f"),
+            alt.Tooltip(
+                "number_of_pupils:Q", title="Number of pupils (FSM)", format="1.2f"
+            ),
+        ],
+    )
+    .add_selection(la_select_fsm)
+    .properties(width=500, height=600)
 )
 
 # %%
@@ -663,6 +753,28 @@ choro_gld_london = (
 )
 
 # %%
+choro_gld_london_fsm = (
+    alt.Chart(
+        fsm_data_to_plot[
+            fsm_data_to_plot.new_la_code.isin(list(london_boroughs.lad19cd))
+        ]
+    )
+    .mark_geoshape(stroke="black")
+    .encode(
+        color=color,
+        tooltip=[
+            alt.Tooltip("la_name:N", title="LA"),
+            alt.Tooltip("gld_percent:Q", title="Average GLD (%)", format="1.2f"),
+            alt.Tooltip(
+                "number_of_pupils:Q", title="Number of pupils (FSM)", format="1.2f"
+            ),
+        ],
+    )
+    .add_selection(la_select_fsm)
+    .properties(width=300, height=250)
+)
+
+# %%
 choro_gld_london_diff = (
     alt.Chart(
         gld_diff_to_plot[
@@ -701,6 +813,25 @@ bar_chart_highest = (
         ),
     )
     .add_selection(la_select)
+    .properties(height=250, width=300)
+)
+
+# %%
+bar_chart_highest_fsm = (
+    (alt.Chart(fsm_data_to_plot.sort_values(by="gld_percent", ascending=False)[:20]))
+    .mark_bar(color="#18A48C")
+    .encode(
+        y=alt.Y(
+            "la_name",
+            sort=alt.EncodingSortField("gld_percent", op="sum", order="descending"),
+            title="LAD Region",
+        ),
+        x=alt.X(
+            f"gld_percent",
+            title="LAD with the highest percentage of school ready children",
+        ),
+    )
+    .add_selection(la_select_fsm)
     .properties(height=250, width=300)
 )
 
@@ -745,6 +876,27 @@ bar_chart_lowest = (
 )
 
 # %%
+bar_chart_lowest_fsm = (
+    (
+        alt.Chart(fsm_data_to_plot.sort_values(by="gld_percent", ascending=True)[:20])
+        .mark_bar(color="#FF6E47")
+        .encode(
+            y=alt.Y(
+                "la_name",
+                sort=alt.EncodingSortField("gld_percent", op="sum", order="descending"),
+                title="LAD Region",
+            ),
+            x=alt.X(
+                f"gld_percent",
+                title="LAD with the lowest percentage of school ready children",
+            ),
+        )
+    )
+    .add_selection(la_select_fsm)
+    .properties(height=250, width=300)
+)
+
+# %%
 bar_chart_lowest_diff = (
     (
         alt.Chart(gld_diff_to_plot.sort_values(by="gld_diff", ascending=True)[:20])
@@ -782,6 +934,22 @@ alt.hconcat(choro_gld_no_london, map_and_bar_ldn).configure_view(
 ).resolve_scale(color="independent")
 
 # %%
+map_and_bar_ldn_fsm = alt.vconcat(
+    bar_chart_highest_fsm, choro_gld_london_fsm
+).resolve_scale(color="independent")
+alt.hconcat(choro_gld_no_london_fsm, map_and_bar_ldn_fsm).configure_view(
+    strokeWidth=0
+).resolve_scale(color="independent")
+
+# %%
+map_and_bar_ldn_fsm = alt.vconcat(
+    bar_chart_lowest_fsm, choro_gld_london_fsm
+).resolve_scale(color="independent")
+alt.hconcat(choro_gld_no_london_fsm, map_and_bar_ldn_fsm).configure_view(
+    strokeWidth=0
+).resolve_scale(color="independent")
+
+# %%
 map_and_bar_ldn_diff = alt.vconcat(
     bar_chart_highest_diff, choro_gld_london_diff
 ).resolve_scale(color="independent")
@@ -796,5 +964,118 @@ map_and_bar_ldn_diff = alt.vconcat(
 alt.hconcat(choro_gld_no_london_diff, map_and_bar_ldn_diff).configure_view(
     strokeWidth=0
 ).resolve_scale(color="independent")
+
+# %% [markdown]
+# ## FSM analysis
+
+# %%
+source = eyfsp_la_2_com_lit_maths_additional_tables_2013_2019.copy()
+
+# %%
+source.columns
+
+# %%
+base = alt.Chart(
+    source[(source.geographic_level == "National") & (source.fsm != "Total")]
+)
+
+# %%
+base.mark_bar().encode(
+    x=alt.X("fsm"),
+    y=alt.Y("at_least_expected_percent"),
+    facet=alt.Facet("area_of_learning"),
+)
+
+# %%
+eyfsp_la_1_key_measures_additional_tables_2013_2019[
+    eyfsp_la_1_key_measures_additional_tables_2013_2019.characteristic
+    == "FSM eligibility"
+]
+
+# %%
+fsm_2018.head()
+
+# %%
+base = alt.Chart(
+    fsm_2019[
+        (fsm_2019.geographic_level == "National") & (fsm_2019.FSM_GROUP != "Total")
+    ]
+)
+
+# %%
+base.mark_bar().encode(
+    x=alt.X("FSM_GROUP"),
+    y=alt.Y("emerging_percent"),
+    facet=alt.Facet("elg_category", columns=7),
+    tooltip=alt.Tooltip(["emerging_percent"]),
+)
+
+# %%
+base = alt.Chart(fsm_2018[(fsm_2018.level == "National") & (fsm_2018.fsm != "Total")])
+
+# %%
+base.mark_bar().encode(
+    x=alt.X("fsm"),
+    y=alt.Y("emerging_percent:Q"),
+    facet=alt.Facet("elg_category", columns=7),
+    tooltip=alt.Tooltip(["emerging_percent"]),
+)
+
+# %%
+ethnicity_fsm_gender_school_readiness.head()
+
+# %%
+school_readiness = aps_gld_elg_expr_2013_2019[
+    (aps_gld_elg_expr_2013_2019.time_period == 201819)
+    & (aps_gld_elg_expr_2013_2019.geographic_level == "National")
+    & (aps_gld_elg_expr_2013_2019.gender == "Total")
+].gld_percent[0]
+
+# %%
+school_readiness
+
+# %%
+fsm_gap = pd.melt(
+    ethnicity_fsm_gender_school_readiness,
+    id_vars=["Ethnicity"],
+    value_vars=["Boys_FSM", "Boys_NonFSM", "Girls_FSM", "Girls_NonFSM"],
+)
+
+# %%
+fsm_gap.rename(columns={"variable": "fsm_gender"}, inplace=True)
+
+# %%
+fsm_gap["diff_from_average"] = fsm_gap.value - school_readiness
+
+# %%
+sorted_ethnicity = fsm_gap[fsm_gap["fsm_gender"] == "Girls_NonFSM"].sort_values(
+    by=["diff_from_average"], ascending=False
+)
+
+# %%
+chart_fsm_eth_gend = (
+    alt.Chart(fsm_gap)
+    .mark_circle(size=80)
+    .encode(
+        x=alt.X("diff_from_average"),
+        y=alt.Y("Ethnicity", sort=list(sorted_ethnicity.Ethnicity)),
+        color=alt.Color(
+            "fsm_gender",
+            scale=alt.Scale(
+                domain=["Boys_FSM", "Boys_NonFSM", "Girls_FSM", "Girls_NonFSM"],
+                range=[
+                    nesta_colours[0],
+                    nesta_colours[1],
+                    nesta_colours[2],
+                    nesta_colours[8],
+                ],
+            ),
+        ),
+        tooltip=alt.Tooltip(["diff_from_average"]),
+    )
+)
+
+# %%
+chart_fsm_eth_gend.properties(width=400, height=500)
 
 # %%
