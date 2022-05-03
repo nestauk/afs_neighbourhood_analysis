@@ -15,7 +15,7 @@ python afs_neighbourhood_analysis/pipeline/fingertips/flow.py \
 --production \
 run \
 --max-workers 5 \
---max-number-splits 2000 \
+--max-num-splits 2000 \
 ```
 
 ### Parse the data from NHS
