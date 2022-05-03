@@ -39,6 +39,12 @@ from afs_neighbourhood_analysis.pipeline.generate_data import main
 from afs_neighbourhood_analysis import PROJECT_DIR
 
 # %%
+from afs_neighbourhood_analysis.pipeline.TMP_eyfsp_getter import get_edu_dataframes
+
+# %%
+tmp = get_edu_dataframes()
+
+# %%
 # main()
 
 # %%
@@ -81,20 +87,32 @@ elg_2013_2019 = pd.read_csv(f"{input_fpath}/eyfsp/ELG_2013_2019.csv")
 
 # %%
 eyfsp_la_1_key_measures_additional_tables_2013_2019 = pd.read_excel(
-    f"{input_fpath}/eyfsp/EYFSP_LA_1_key_measures_additional_tables_2013_2019.xlsx"
+    f"{input_fpath}/eyfsp/EYFSP_LA_1_key_measures_additional_tables_2013_2019.xlsx",
+    engine="openpyxl",
 )
 
 # %%
 eyfsp_la_2_com_lit_maths_additional_tables_2013_2019 = pd.read_excel(
-    f"{input_fpath}/eyfsp/EYFSP_LA_2_com_lit_maths_additional_tables_2013_2019.xlsx"
+    f"{input_fpath}/eyfsp/EYFSP_LA_2_com_lit_maths_additional_tables_2013_2019.xlsx",
+    engine="openpyxl",
 )
+
+# %%
+test = pd.read_excel(
+    f"{input_fpath}/eyfsp/EYFSP_LAD_pr_additional_tables_2014_2019.xlsx",
+    engine="openpyxl",
+)
+
+# %%
+areas_of_learning_2013_2019.replace(".", np.nan, inplace=True)
 
 # %% [markdown]
 # #### 2.1.2 2019 LAD 2 ELG additional tables
 
 # %%
 fsm_2019 = pd.read_excel(
-    f"{input_fpath}/eyfsp/EYFSP_LAD_2_ELG_additional_tables_2019.xlsx"
+    f"{input_fpath}/eyfsp/EYFSP_LAD_2_ELG_additional_tables_2019.xlsx",
+    engine="openpyxl",
 )
 
 # %%
