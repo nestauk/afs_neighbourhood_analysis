@@ -23,8 +23,8 @@ run \
 This flow parses the data. This includes parsing dates and only keeping indicators available at the `district / unitary` level. The data is stored in the flow as a lookup between `framework_id` and the parsed and cleaned dataframe combining all indicators for the framework.
 
 ```
-python afs_neighbourhood_analysis/pipeline/fingertips/flow.py \
+python afs_neighbourhood_analysis/pipeline/fingertips/data_parse_flow.py \
 --production \
 run \
---max-workers 5
+--max-workers 2
 ```
