@@ -5,7 +5,7 @@ from afs_neighbourhood_analysis import PROJECT_DIR
 input_fpath = f"{PROJECT_DIR}/outputs"
 
 
-def get_edu_dataframes():
+def early_year_outcomes():
     """
     TEMPORARY getter for retrieving the csv files from afs_neighbourhood_analysis/outputs and converting them into cleaned pd.DataFrames. Stored in a dictionary of dataframes.
 
