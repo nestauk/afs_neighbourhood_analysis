@@ -1,12 +1,14 @@
 numpy
 scipy
-pandas
+pandas=1.2.4
 matplotlib
 altair
 geopandas
-json
 altair-viewer
 altair-saver
+beautifulsoup4
+openpyxl
+xlrd
 metaflow
 tqdm
 filelock
