@@ -1,10 +1,8 @@
 import json
 import logging
 import os
-from typing import Union, List
 
 import pandas as pd
-from requests import get
 from toolz import pipe
 from fingertips_py import (
     get_all_profiles,

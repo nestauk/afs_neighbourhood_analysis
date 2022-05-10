@@ -16,3 +16,5 @@ typer
 sh
 missingno
 pandas-profiling
+statsmodels
+cvxopt
