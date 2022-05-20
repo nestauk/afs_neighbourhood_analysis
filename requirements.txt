@@ -18,3 +18,5 @@ missingno
 pandas-profiling
 statsmodels
 cvxopt
+webdriver-manager
+
