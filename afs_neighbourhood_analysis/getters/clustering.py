@@ -68,11 +68,11 @@ def clustering_diagnostics() -> pd.DataFrame:
     )
 
 
-
 def early_years_for_clustering() -> pd.DataFrame:
     """Reads a standardised version of the early years data"""
 
     return pipe(el_goals(), standardise_early_years)
+
 
 def public_health_for_clustering() -> pd.DataFrame:
     """Reads a processed version of the public health framework data"""
