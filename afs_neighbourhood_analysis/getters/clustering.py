@@ -1,11 +1,27 @@
 # Getters for clustering outputs etc
 
 import pickle
+from functools import partial
 
 import pandas as pd
 from toolz import pipe
 
 from afs_neighbourhood_analysis import PROJECT_DIR
+from afs_neighbourhood_analysis.analysis.feature_selection_scratch import (
+    el_goals,
+    public_health_framework,
+    remove_missing,
+)
+
+from afs_neighbourhood_analysis.pipeline.lad_clustering.cluster_utils import (
+    clustering_consequential_pipe,
+    parse_phf,
+)
+
+from afs_neighbourhood_analysis.pipeline.lad_clustering.conseq_clustering import (
+    most_recent_data,
+    standardise_early_years,
+)
 
 
 def parse_clustering_diagnostics(clustering_result: dict) -> pd.Series:
@@ -49,4 +65,21 @@ def clustering_diagnostics() -> pd.DataFrame:
     return pd.DataFrame([parse_clustering_diagnostics(r) for r in results]).melt(
         id_vars=["pca", "comm_resolution", "num_clusters"],
         var_name="diagnostic_var",
+    )
+
+
+def early_years_for_clustering():
+    """Reads a standardised version of the data"""
+
+    return pipe(el_goals(), standardise_early_years)
+
+
+def public_health_for_clustering():
+    """Reads a processed version of the public health data"""
+
+    return pipe(
+        public_health_framework(),
+        parse_phf,
+        most_recent_data,
+        partial(remove_missing, index_name="indicator_name_expanded"),
     )
