@@ -35,10 +35,15 @@ We have a couple of scripts to prototype the consequential evaluation pipeline.
 
 #### Collect the public health framework data and store it locally
 
-`python afs_neighbourhood_analysis/pipeline/fingertips/fetch_public_health_data.py`
 
 #### Run the consequential clustering pipeline over a parameter grid and save diagnostics
 
 `python afs_neighbourhood_analysis/pipeline/lad_clustering/conseq_clustering.py`
 
 You can get the diagnostics with the `clustering_diagnostics` getter in `afs_neighbourhood_analysis/getters/clustering_diagnostics.py`
+
+#### Run the consequential clustering pipeline over a parameter grid and save diagnostics
+
+```python afs_neighbourhood_analysis/pipeline/lad_clustering/conseq_clustering.py```
+
+You can get the diagnostics from ```afs_neighbourhood_analysis/getters/clustering.py```
