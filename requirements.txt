@@ -19,4 +19,3 @@ pandas-profiling
 statsmodels
 cvxopt
 webdriver-manager
-
