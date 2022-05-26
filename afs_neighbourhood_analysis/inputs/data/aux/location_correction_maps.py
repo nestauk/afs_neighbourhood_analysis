@@ -15,7 +15,7 @@ correction_map = {
     "Bristol": "Bristol, City of",
 }
 
-northamptonshire_map = {
+replace_with_county_map = {
     "Abington": "West Northamptonshire",
     "Brackley": "West Northamptonshire",
     "Brixworth": "West Northamptonshire",
@@ -52,4 +52,5 @@ northamptonshire_map = {
     "Wollaston": "North Northamptonshire",
     "Woodford Halse": "West Northamptonshire",
     "Wootton": "West Northamptonshire",
+    "Berkshire": "West Berkshire",
 }
