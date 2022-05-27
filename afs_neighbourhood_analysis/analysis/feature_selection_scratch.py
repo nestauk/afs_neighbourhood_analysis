@@ -92,7 +92,7 @@ def public_health_framework():
 
     return (
         pd.read_csv(f"{PROJECT_DIR}/inputs/data/public_health_profile.csv")
-        .query("area_type=='Districts & UAs (from Apr 2021)'")
+        # .query("area_type=='Districts & UAs (from Apr 2021)'")
         .reset_index(drop=True)
     )
 
@@ -206,7 +206,9 @@ def make_regression_table(
     return make_integrated_table(ey_wide, fingertips, lag)
 
 
-def remove_missing(int_table: pd.DataFrame, share: float = 0.05):
+def remove_missing(
+    int_table: pd.DataFrame, share: float = 0.05, index_name: str = "index"
+):
     """This function removes variables with a high share of missing lads and
     for the rest, missing LADs
     """
@@ -218,7 +220,7 @@ def remove_missing(int_table: pd.DataFrame, share: float = 0.05):
         .sum(axis=0)
         .reset_index(name="missing_n")
         .query(f"missing_n < {thres}")
-        .reset_index(drop=True)["index"]
+        .reset_index(drop=True)[index_name]
         .tolist()
     )
 
