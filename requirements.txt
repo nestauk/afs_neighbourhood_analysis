@@ -21,3 +21,4 @@ cvxopt
 networkx
 umap-learn
 python-louvain
+shap
