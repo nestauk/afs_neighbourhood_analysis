@@ -81,4 +81,5 @@ def public_health_for_clustering() -> pd.DataFrame:
         public_health_framework(),
         parse_phf,
         most_recent_data,
-        partial(remove_missing, index_name="indicator_name_expanded"))
+        partial(remove_missing, index_name="indicator_name_expanded", share=0.025),
+    )
