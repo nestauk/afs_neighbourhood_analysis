@@ -27,6 +27,8 @@
 
 ## 3. Analysis
 
+See `afs_outperforming_analysis/analysis/clustering/clustering_exploration.py` for a parsed notebook with the analysis so far.
+
 * We use the "best performing" parameter set to extract clusters and analyse the data. So far this includes considering:
   * Differences in EFSYP performance between clusters
   * Evolution of EFSYP permance
