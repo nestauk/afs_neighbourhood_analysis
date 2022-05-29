@@ -83,6 +83,14 @@ def keep_districts(public_health_indicators: pd.DataFrame) -> pd.DataFrame:
     ].reset_index(drop=True)
 
 
+def keep_counties(public_health_indicators: pd.DataFrame) -> pd.DataFrame:
+    """Keeps districts / unitary authorities"""
+
+    return public_health_indicators.loc[
+        public_health_indicators["area_type"].apply(lambda x: "Counties" in x)
+    ].reset_index(drop=True)
+
+
 def parse_health_indicators(health_indicators: pd.DataFrame) -> pd.DataFrame:
     """Applies the pipeline above to health indicators"""
-    return pipe(health_indicators, parse_public_health, keep_districts)
+    return pipe(health_indicators, parse_public_health, keep_counties)

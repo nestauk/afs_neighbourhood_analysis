@@ -28,3 +28,17 @@ python afs_neighbourhood_analysis/pipeline/fingertips/data_parse_flow.py \
 run \
 --max-workers 2
 ```
+
+### Prototype consequential evaluation
+
+We have a couple of scripts to prototype the consequential evaluation pipeline.
+
+#### Collect the public health framework data and store it locally
+
+```python afs_neighbourhood_analysis/pipeline/fingertips/fetch_public_health_data.py``` 
+
+#### Run the consequential clustering pipeline over a parameter grid and save diagnostics
+
+```python afs_neighbourhood_analysis/pipeline/lad_clustering/conseq_clustering.py```
+
+You can get the diagnostics with ```afs_neighbourhood_analysis/getters/clustering/clustering_diagnostics.py```
