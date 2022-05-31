@@ -18,3 +18,4 @@ missingno
 pandas-profiling
 statsmodels
 cvxopt
+ratelim
