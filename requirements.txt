@@ -18,6 +18,7 @@ missingno
 pandas-profiling
 statsmodels
 cvxopt
+webdriver-manager
 networkx
 umap-learn
 python-louvain
