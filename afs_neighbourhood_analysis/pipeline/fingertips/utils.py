@@ -17,9 +17,11 @@ def clean_fingertips_table(table: pd.DataFrame) -> pd.DataFrame:
         pass
 
 
-def robust_fetch_table(indicator_id: int):
+def robust_fetch_table(indicator_id: int, verbose: bool = False):
     """Tries to fetch an indicator robustly"""
 
+    if verbose:
+        print(indicator_id)
     try:
         return get_data_for_indicator_at_all_available_geographies(indicator_id)
 

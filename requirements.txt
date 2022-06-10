@@ -1,6 +1,6 @@
-numpy
+numpy==1.21
 scipy
-pandas=1.2.4
+pandas==1.2.4
 matplotlib
 altair
 geopandas
@@ -19,3 +19,6 @@ pandas-profiling
 statsmodels
 cvxopt
 webdriver-manager
+networkx
+umap-learn
+python-louvain
