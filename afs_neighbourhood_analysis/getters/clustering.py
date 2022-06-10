@@ -74,12 +74,16 @@ def early_years_for_clustering() -> pd.DataFrame:
     return pipe(el_goals(), standardise_early_years)
 
 
-def public_health_for_clustering() -> pd.DataFrame:
-    """Reads a processed version of the public health framework data"""
+def public_health_for_clustering(share: float = 0.025) -> pd.DataFrame:
+    """Reads a processed version of the public health framework data
+
+    Args:
+        share: share of missing values we tolerate in a variable
+    """
 
     return pipe(
         public_health_framework(),
         parse_phf,
         most_recent_data,
-        partial(remove_missing, index_name="indicator_name_expanded", share=0.025),
+        partial(remove_missing, index_name="indicator_name_expanded", share=share),
     )
