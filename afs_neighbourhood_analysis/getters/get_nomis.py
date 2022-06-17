@@ -1,6 +1,3 @@
-from io import StringIO
-import requests
-import os
 import logging
 import pandas as pd
 from datetime import date
@@ -28,9 +25,6 @@ nomis_urls = {
     "jobseekers_allowance": "https://www.nomisweb.co.uk/api/v01/dataset/NM_102_1.data.csv?geography={geo}&date={date}&sex=7&item=1&occupation=524288...524297&age=0&duration=0&destination=0&measures=20100",
     "ra_household_income_per_head": "https://www.nomisweb.co.uk/api/v01/dataset/NM_185_1.data.csv?geography=1807745025...1807745028,1807745030...1807745032,1807745034...1807745083,1807745085,1807745282,1807745283,1807745086...1807745155,1807745157...1807745164,1807745166...1807745170,1807745172...1807745177,1807745179...1807745194,1807745196,1807745197,1807745199,1807745201...1807745218,1807745221,1807745222,1807745224,1807745226...1807745231,1807745233,1807745234,1807745236...1807745244,1807745271...1807745281&component_of_gdhi=0&measure=2&measures=20100",
 }
-
-
-# Read dictionary and append urls
 
 
 def get_nomis():

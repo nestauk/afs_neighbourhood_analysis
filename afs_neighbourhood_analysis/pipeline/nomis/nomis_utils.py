@@ -1,14 +1,5 @@
-from toolz import pipe
-import requests
-import io
-import glob
-import numpy as np
 import pandas as pd
-import geopandas as gpd
 from datetime import datetime
-from itertools import cycle
-from datetime import date
-from dateutil.parser import parse
 
 
 from afs_neighbourhood_analysis import PROJECT_DIR
