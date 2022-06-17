@@ -2,7 +2,7 @@
 
 ## Methodological narrative
 
-Our goal in this project is to identify clusters of local authorities that are similar in a set of background conditions that are useful for explainin differences in their early year outcomes. In follow-up research we will sample these clusters in a survey aimed at understanding early years policies and practices that might explain differences in outcomes. In addition to this, we are interested in identifying _individual_ local authorities that under or over-perform their cluster's early year outcomes. They could be a useful setting for additional research aimed at explaining those differences.
+Our goal in this project is to identify clusters of local authorities that are similar in a set of background conditions that are useful for explaining differences in their early year outcomes. In follow-up research we will sample these clusters in a survey aimed at understanding early years policies and practices that might explain those differences in outcomes. In addition to this, we are interested in identifying _individual_ local authorities that under or over-perform their cluster's early year outcomes. They could be a useful setting for additional research aimed at explaining those differences.
 
 In order to achieve our goals, we have implemented a "consequential clustering" pipeline where we use an array of indicators about local authorities from the Public Health Outcomes Framework (PHOF) to cluster them into groups. We tune the clustering algorithms with the goal of maximising differences in early year outcomes between clusters (that is the "consequential" outcome we are interested in). This requires a number of steps that we describe in detail in section @sec:method.
 

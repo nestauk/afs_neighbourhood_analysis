@@ -85,11 +85,11 @@ def plot_ey_perf(ey_results: pd.DataFrame, year: int, gender: str) -> alt.Chart:
         alt.Chart(ey_results.query(f"year=={year}").query(f"gender=='{gender}'"))
         .mark_boxplot()
         .encode(
-            y="cluster:O",
-            color="cluster:N",
-            x="zscore",
+            y=alt.Y("cluster:O", title="Cluster"),
+            color=alt.Color("cluster:N", title="Cluster"),
+            x=alt.X("zscore", title="Z-score"),
             tooltip=["la_name"],
-            column="indicator",
+            column=alt.Column("indicator", title="Outcome"),
         )
     ).properties(width=200)
 
@@ -276,11 +276,14 @@ def plot_phf_differences(
         .encode(
             x=alt.X(
                 "indicator_name_expanded",
+                title="Indicator",
                 sort=alt.EncodingSortField("rank", order="descending"),
                 axis=alt.Axis(labels=False, ticks=False),
             ),
-            y="cluster:N",
-            color=alt.Color("mean", scale=alt.Scale(scheme="Redblue", reverse=True)),
+            y=alt.Y("cluster:N", title="Cluster"),
+            color=alt.Color(
+                "mean", scale=alt.Scale(scheme="Redblue", reverse=True), title="Mean"
+            ),
             tooltip=["cluster", "indicator_name_expanded", "mean"],
         )
         .properties(width=800, height=300)
