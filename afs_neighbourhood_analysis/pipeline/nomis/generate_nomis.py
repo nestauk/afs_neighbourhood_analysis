@@ -19,6 +19,9 @@ from afs_neighbourhood_analysis.getters.get_nomis import get_nomis
 
 
 def create_nomis():
+    """
+    Fetch all tables for an indicator
+    """
 
     get_nomis()
     print("Generating NOMIS indicators...")
