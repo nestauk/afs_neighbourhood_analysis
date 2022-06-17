@@ -31,7 +31,7 @@ We process the data in the following ways:
 3. We focus on the latest period for which each indicator was collected. We calculate the z-score for each indicator (for each value of an indicator in a C/UA we remove its mean and divide by its standard deviation so they are all in the same scale).
 4. We remove indicators where the percentage of C/UAs with missing data is below 2.5% and then remove a small number of C/UAs that still have missing data in at least one indicator. This includes Rutland, Isles of Scilly and Hammersmith and Fulham. We select this threshold with the goal of balancing indicator breadth versus good coverage of C/UAs. As @fig:complete shows, including indicators with poorer coverage reduces the number of C/UAs that we are able to cluster. The 2.5% of coverage threshold makes it possible for us to cluster most C/UAs using 189 indicators.[^4]
 
-![Trade off between indicator completeness and location completeness in the most recent period. The horizontal axis represents the number of 
+![Trade off between indicator completeness and location completeness in the most recent period. The horizontal axis represents the number of
 Us we are able to include in our clustering for a given level of strictness in indicator coverage. The vertical axis represents the number of indicators we are able to include. A threshold of 1 means including all indicators regardless of their coverage, a threshold of 0 means only including indicators with perfect coverage (there are none).](png/missing_strategy.png){#fig:complete}
 
 [^4]: An option to explore further would be to interpolate missing values in order to increase the number of indicators we are able to include for a given number of C/UAs.
@@ -73,10 +73,10 @@ The process above generates a cluster assignment for each combination of tuning 
 
 ### Results of the consequential clustering evaluation
 
-The heatmaps in @fig:diagnostics show the Z-score in our two measures of inter-cluster heterogeneity in early year outcomes for combinations of parameters.[^1] Blue colours indicate a higher degree of heterogeneity, which is desirable. We use this information to select our clustering algorithm, with five extracted components and a community resolution of 0.7. 
+The heatmaps in @fig:diagnostics show the Z-score in our two measures of inter-cluster heterogeneity in early year outcomes for combinations of parameters.[^1] Blue colours indicate a higher degree of heterogeneity, which is desirable. We use this information to select our clustering algorithm, with five extracted components and a community resolution of 0.7.
 
 We note that a small number of components seem to capture most of the variance in the PHF data, suggesting strong correlations between the variables in it. It would be desirable, as a follow-up, to expand the range of indicators we use in our clustering in order to capture more dimensions of a C/UA sociodemographic and economic situation.
 
-[^1]:We use average early year scores to calculate the measure of heterogeneity in variances.
+[^1]: We use average early year scores to calculate the measure of heterogeneity in variances.
 
 ![Consequential evaluation of clustering results under different parameters (number of principal components extracted and community resolution) and measures of cluster disparity in early year outcomes (silouhette score and variance of median scores by cluster). The color of the cells represents the Zscore, with blue representing higher heterogeneity between clusters, and red representing lower heterogeneity between clusters.](png/clustering_diagnostics.png){#fig:diagnostics}
