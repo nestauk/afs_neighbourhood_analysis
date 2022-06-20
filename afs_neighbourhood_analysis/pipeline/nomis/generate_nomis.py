@@ -47,4 +47,8 @@ def create_nomis():
 
 
 if __name__ == "__main__":
-    create_nomis()
+    """
+    Creates nomis indicators dataframe and saves in directory, locally.
+    """
+    indicators = create_nomis()
+    indicators.to_csv(f"{PROJECT_DIR}/outputs/nomis_indictors.csv", sep=",")
