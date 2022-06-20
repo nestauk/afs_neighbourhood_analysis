@@ -84,11 +84,12 @@ def get_value(data_dict_w_list):
         df_list = []
         for dataset in dataset_list:
             if ("MEASURES_NAME" in dataset.columns) and (
-                dataset["MEASURES_NAME"].str.contains("Value").sum() > 0
+                dataset["MEASURES_NAME"].str.contains("Variable").sum() > 0
             ):
                 dataset["value"] = dataset.loc[
-                    dataset["MEASURES_NAME"] == "Value", "OBS_VALUE"
+                    dataset["MEASURES_NAME"] == "Variable", "OBS_VALUE"
                 ]
+                dataset.dropna(subset=["value"], inplace=True)
                 df_list.append(dataset)
             else:
                 dataset.rename(columns={"OBS_VALUE": "value"}, inplace=True)
