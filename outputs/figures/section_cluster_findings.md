@@ -62,14 +62,6 @@ The cluster assignment procedure with the parameters that maximise variation in 
 
 ![Size, cluster assignment and ethnic diversity by Government Office Region in England](png/year_comparisons.png)
 
-## Gender gap
-
-### Snapshot
-
-![Size, cluster assignment and ethnic diversity by Government Office Region in England](png/gender_snapshot.png)
-
-### Evolution
-
 ## Outperforming and underperforming {#subsec:outperf}
 
 ### State of play
@@ -77,6 +69,16 @@ The cluster assignment procedure with the parameters that maximise variation in 
 ### Historically
 
 ![Size, cluster assignment and ethnic diversity by Government Office Region in England](png/gender_trend.png)
+
+## Gender gap
+
+### Snapshot
+
+![Gender gap snapshot](png/gender_snapshot.png)
+
+### Evolution
+
+![Gender gap trend](png/gender_trend.png)
 
 ### Links between differences in performance and secondary data
 
