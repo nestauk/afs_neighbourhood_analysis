@@ -8,9 +8,28 @@ In order to achieve our goals, we have implemented a "consequential clustering" 
 
 ## Data sources {#sec:data}
 
-### Early Year outcomes
+### Early Years Outcomes
 
-TO BE ADDED
+For our outcome measure, we are using the Early Years Foundation Stage Profile (EYFSP) results. It is conducted at the end of Reception, testing a number of Areas of Learning and, within these, Early Learning Goals. The main domains are:
+1. Communication and language
+2. Physical development
+3. Personal, social and emotional development
+4. Literacy
+5. Maths
+6. Understanding of the world
+7. Expressive arts and design
+Whilst we acknowledge the flaws in the EYFSP (FIND REFS), and the changes made to the assessment over time, it is still one of the only outcome measures we have which is publically available and accessible. The [A Fairer Start mission](https://www.nesta.org.uk/fairer-start/) at [Nesta](https://www.nesta.org.uk/) is using the EYFSP as part of its strategy, with their main goal to narrow the gap of those meeting a Good Level of Development in the EYFSP between those children on Free School Meals and those who are not.
+Leaving aside the lack of alternatives, EYFSP has further advantages - for example, it is published broken down into a number of categories including:
+
+* Local Authority (LA),
+* gender,
+* Area of Learning,
+* Early Learning Goals,
+* ethnicity,
+* Special Education Needs and Disabilities (SEND)
+* and Free School Meals status.
+
+This makes it possible to consider performance in a variety of outcome areas for various groups e.g. do the same LAs outperform when we look at the overall percentage of children reaching a Good Level of Development vs. percentage of children on Free School Meals?
 
 ### Public Health Outcomes Framework
 
