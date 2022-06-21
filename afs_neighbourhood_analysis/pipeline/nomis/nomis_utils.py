@@ -1,15 +1,23 @@
 import pandas as pd
 from datetime import datetime
 
-
-from afs_neighbourhood_analysis import PROJECT_DIR
-
-variable_name_dict = {
+VARIABLE_NAME_DICT = {
     "nomis_ashe_earnings_resident_analysis": "Average annual gross pay of residents",
     "nomis_aps_dependant_children_lone_parent_household_rate": "Percentage of lone parent households with dependant children",
     "nomis_aps_dependant_children_household_rate": "Percentage of households with dependant children",
     "nomis_jobseekers_allowance": "Total number of jobseekers claiming jobseekers allowance",
 }
+
+
+def add_data_source(data_dict):
+    """
+    Create column indicating the data source.
+    """
+    for key, dataset in data_dict.items():
+        dataset["source"] = key.split("_")[1].upper()
+        data_dict[key] = dataset
+
+    return data_dict
 
 
 def get_rename_variable_name(data_dict):
@@ -30,7 +38,7 @@ def get_rename_variable_name(data_dict):
             key == "nomis_ashe_earnings_resident_analysis"
         ):
             dataset.rename(columns={"PAY_NAME": "indicator_name"}, inplace=True)
-            dataset["indicator_name"] = variable_name_dict[key]
+            dataset["indicator_name"] = VARIABLE_NAME_DICT[key]
             df_list = [dataset]
             data_dict[key] = df_list
 
@@ -66,9 +74,9 @@ def get_rename_variable_name(data_dict):
                 df_list = [dataset]
                 data_dict[key] = df_list
         else:
-            for i in variable_name_dict.keys():
+            for i in VARIABLE_NAME_DICT.keys():
                 if i in key.lower():
-                    dataset["indicator_name"] = variable_name_dict[i]
+                    dataset["indicator_name"] = VARIABLE_NAME_DICT[i]
                     df_list = [dataset]
                     data_dict[key] = df_list
 
@@ -194,6 +202,7 @@ def get_columns(data_dict_w_list):
                     "indicator_name",
                     "value",
                     "indicator_name_expanded",
+                    "source",
                 ]
             ].reset_index(drop=True)
             df_list.append(dataset)
