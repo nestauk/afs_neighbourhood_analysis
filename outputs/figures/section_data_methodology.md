@@ -10,7 +10,8 @@ In order to achieve our goals, we have implemented a "consequential clustering" 
 
 ### Early Years Outcomes
 
-For our outcome measure, we are using the Early Years Foundation Stage Profile (EYFSP) results. It is conducted at the end of Reception, testing a number of Areas of Learning and, within these, Early Learning Goals. The main domains are:
+For our outcome measure, we are using the [Early Years Foundation Stage Profile](https://www.gov.uk/government/publications/early-years-foundation-stage-profile-handbook) (EYFSP) results.  A statutory assessment developed by the Department for Education, it is conducted at the end of Reception, testing a number of Areas of Learning and, within these, Early Learning Goals. The main domains are summarised below:
+
 1. Communication and language
 2. Physical development
 3. Personal, social and emotional development
@@ -18,7 +19,9 @@ For our outcome measure, we are using the Early Years Foundation Stage Profile (
 5. Maths
 6. Understanding of the world
 7. Expressive arts and design
-Whilst we acknowledge the flaws in the EYFSP (FIND REFS), and the changes made to the assessment over time, it is still one of the only outcome measures we have which is publically available and accessible. The [A Fairer Start mission](https://www.nesta.org.uk/fairer-start/) at [Nesta](https://www.nesta.org.uk/) is using the EYFSP as part of its strategy, with their main goal to narrow the gap of those meeting a Good Level of Development in the EYFSP between those children on Free School Meals and those who are not.
+
+Whilst we acknowledge the flaws in the EYFSP ([Nursery World](https://www.nurseryworld.co.uk/news/article/eyfs-revisions-muddled-and-inappropriate), [Early Years Educator](https://www.earlyyearseducator.co.uk/features/article/technical-pros-and-cons)), and the changes made to the assessment over time, it is still one of the only outcome measures we have which is publically available and accessible. The [A Fairer Start mission](https://www.nesta.org.uk/fairer-start/) at [Nesta](https://www.nesta.org.uk/) is using the EYFSP as part of its strategy, with their main goal to narrow the gap of those meeting a Good Level of Development in the EYFSP between those children on Free School Meals and those who are not.
+
 Leaving aside the lack of alternatives, EYFSP has further advantages - for example, it is published broken down into a number of categories including:
 
 * Local Authority (LA),
