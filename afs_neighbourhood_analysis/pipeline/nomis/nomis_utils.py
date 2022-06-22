@@ -99,6 +99,15 @@ def get_value(data_dict_w_list):
                 ]
                 dataset.dropna(subset=["value"], inplace=True)
                 df_list.append(dataset)
+
+            elif ("MEASURES_NAME" in dataset.columns) and (
+                dataset["MEASURES_NAME"].str.contains("Value").sum() > 0
+            ):
+                dataset["value"] = dataset.loc[
+                    dataset["MEASURES_NAME"] == "Value", "OBS_VALUE"
+                ]
+                dataset.dropna(subset=["value"], inplace=True)
+                df_list.append(dataset)
             else:
                 dataset.rename(columns={"OBS_VALUE": "value"}, inplace=True)
                 df_list.append(dataset)
@@ -127,35 +136,6 @@ def rename_geocode(data_dict_w_list):
             )
             df_list.append(dataset)
         data_dict_w_list[key] = df_list
-
-    return data_dict_w_list
-
-
-def aggregate_values(data_dict_w_list):
-    """
-    Aggregate values for indicators that need aggregatingfrom dictionary of file names (key) and list of dataframes (values).
-    Examaple: `nomis_jobseekers_allowance` is separated by job type but can be aggregated to get total value for each area.
-    """
-    for key, dataset_list in data_dict_w_list.items():
-        if "nomis_jobseekers_allowance" in key:
-            df_list = []
-            for dataset in dataset_list:
-
-                dataset.groupby(
-                    [
-                        "DATE_NAME",
-                        "DATE_CODE",
-                        "area_name",
-                        "area_code",
-                        "area_type",
-                        "indicator_name",
-                    ]
-                ).agg(sum)["value"].reset_index()
-                df_list.append(dataset)
-            data_dict_w_list[key] = df_list
-
-        else:
-            data_dict_w_list[key] = dataset_list
 
     return data_dict_w_list
 
