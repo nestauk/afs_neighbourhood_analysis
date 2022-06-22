@@ -32,6 +32,8 @@ def create_nomis():
     fetch_nomis()
 
     logger.info("Generating NOMIS indicators...")
+
+    # Create a dictionary with dataset names (keys) and the corresponding raw datasets turned dataframes (values)
     data = {}
     for filename in glob.glob(f"{PROJECT_DIR}/inputs/data/raw/nomis/*.csv"):
         f = filename.replace(f"{PROJECT_DIR}/inputs/data/raw/nomis/", "")

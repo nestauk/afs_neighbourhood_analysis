@@ -12,6 +12,12 @@ VARIABLE_NAME_DICT = {
 def add_data_source(data_dict):
     """
     Create column indicating the data source.
+
+        Parameters:
+            data_dict (dict): A dictionary of filenames (keys) and dataframes (values)
+
+        Returns:
+            data_dict (dict): A dictionary of filenames (keys) and dataframes with new column (values)
     """
     for key, dataset in data_dict.items():
         dataset["source"] = key.split("_")[1].upper()
@@ -25,6 +31,12 @@ def get_rename_variable_name(data_dict):
     This function goes through a dictionary of file names (keys) and datasets (values) and finds the column with the indicator name. It then renames that column name to "indictor name".
     If a dataset has multiple indicator names in one column, this is treated as individual indicators - a subset of the dataset if created for each unique indictor in the dataset.
     Additionally, for the cases where there is no indictor name, `variable_name_dict` is used to map a indicator name (in the `else` portion of the loop)
+
+        Parameters:
+            data_dict (dict): A dictionary of filenames (keys) and dataframes (values)
+
+        Returns:
+            data_dict (dict): A dictionary of filenames (keys) and a corresponding list of dataframes (values)
     """
 
     for key, dataset in data_dict.items():
@@ -86,6 +98,12 @@ def get_rename_variable_name(data_dict):
 def get_value(data_dict_w_list):
     """
     Create value column for each indicator from dictionary of file names (key) and list of dataframes (values)
+
+        Parameters:
+            data_dict_w_list (dict): A dictionary of filenames (keys) and a corresponding list of dataframes (values)
+
+        Returns:
+            data_dict_w_list (dict): A dictionary of filenames (keys) and a corresponding list of dataframes (values)
     """
 
     for key, dataset_list in data_dict_w_list.items():
@@ -119,6 +137,12 @@ def get_value(data_dict_w_list):
 def rename_geocode(data_dict_w_list):
     """
     Create geocode column for each indicator from dictionary of file names (key) and list of dataframes (values)
+
+        Parameters:
+            data_dict_w_list (dict): A dictionary of filenames (keys) and a corresponding list of dataframes (values)
+
+        Returns:
+            data_dict_w_list (dict): A dictionary of filenames (keys) and a corresponding list of dataframes (values)
     """
     for key, dataset_list in data_dict_w_list.items():
         df_list = []
@@ -142,7 +166,15 @@ def rename_geocode(data_dict_w_list):
 
 def validate_date(date):
     """
-    Check whether DATE_CODE value is in right format.
+    Check whether DATE_CODE value is in the right format.
+
+        Parameters:
+            date (str): A string of a date
+
+        Returns:
+            date (datetime): Datetime string
+            or
+            date (str): A string of year
     """
     try:
         return datetime.strptime(date, "%Y-%m").year
@@ -153,6 +185,12 @@ def validate_date(date):
 def get_year(data_dict_w_list):
     """
     Changes date format yyyy-mm to yyyy for every value (else, only takes the year)
+
+        Parameters:
+            data_dict_w_list (dict): A dictionary of filenames (keys) and a corresponding list of dataframes (values)
+
+        Returns:
+            data_dict_w_list (dict): A dictionary of filenames (keys) and a corresponding list of dataframes (values)
     """
     for key, dataset_list in data_dict_w_list.items():
         df_list = []
@@ -167,6 +205,12 @@ def get_year(data_dict_w_list):
 def get_columns(data_dict_w_list):
     """
     Selects columns of interest for dataset
+
+        Parameters:
+            data_dict_w_list (dict): A dictionary of filenames (keys) and a corresponding list of dataframes (values)
+
+        Returns:
+            data_dict_w_list (dict): A dictionary of filenames (keys) and a corresponding list of dataframes (values)
     """
     for key, dataset_list in data_dict_w_list.items():
         df_list = []
@@ -190,12 +234,19 @@ def get_columns(data_dict_w_list):
     return data_dict_w_list
 
 
-def concat_indicators(data_list):
+def concat_indicators(data_dict_w_list):
     """
     Concatenate all NOMIS indicators
+
+        Parameters:
+            data_dict_w_list (dict): A dictionary of filenames (keys) and a corresponding list of dataframes (values)
+
+        Returns:
+            final_indicators (pandas.DataFrame): A dataframe
     """
     data_list_full = []
-    for key, dataset in data_list.items():
+    for key, dataset in data_dict_w_list.items():
         data_list_full.extend(dataset)
+    final_indicators = pd.concat(data_list_full).reset_index(drop=True)
 
-    return pd.concat(data_list_full).reset_index(drop=True)
+    return final_indicators
