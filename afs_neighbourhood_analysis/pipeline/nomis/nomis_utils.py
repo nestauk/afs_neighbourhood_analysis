@@ -215,7 +215,6 @@ def get_columns(data_dict_w_list):
     for key, dataset_list in data_dict_w_list.items():
         df_list = []
         for dataset in dataset_list:
-
             dataset["indicator_name_expanded"] = dataset["indicator_name"]
             dataset = dataset.dropna(subset=["value"])
             dataset = dataset[

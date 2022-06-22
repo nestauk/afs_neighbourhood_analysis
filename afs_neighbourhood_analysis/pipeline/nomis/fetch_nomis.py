@@ -31,7 +31,7 @@ def fetch_nomis():
     """
 
     date_string = ""
-    year_list = [i for i in range(2004, date.today().year)]
+    year_list = [i for i in range(2006, date.today().year)]
     years = []
 
     for year in year_list:
