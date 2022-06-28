@@ -65,11 +65,11 @@ We proceed to explore differences between our clusters in the secondary data tha
 
 This analysis reveals important differences in the health and social conditions of C/UAs in different clusters: Cluster 0, which includes a number of local authorities in the South East and East tend to be less deprived, healthier and have higher life expectancy. By contrast, C/UAs in Cluster 1 tend to have lower life expectancy in the most deprived deciles, important inequalities in life expectancy, and more instances of domestic abuse. Cluster 2, which includes larger cities outside of London and the South East is characterised by high mortality rates from preventable cardiovascular diseases. Cluster 5, including several London boroughs, has a higher prevalence of Sexually Transmitted Diseases (STDs) and lower overweight and obesity rates. Cluster 7, with a number of rural C/UAs spread across the country, tend to have an older population.
 
-We note that our analysis is not seeking to establish a causal link between these variables and early year outcomes, but to capture differences in the local context potentially underpinning and proxying socio-economic differences, challenges and advantages which might be linked to variation in early year outcomes. In that respect, differences between our clusters seem to reflect stark differences in the health and social situation in different parts of the country as well as unique challenges (e.g. around poverty, obesity or crime) that depend on the local context and which we believe should be taken into account when putting in place policies to improve early year outcomes.
+We note that our analysis is not seeking to establish a causal link between these variables and early year outcomes, but to capture differences in the local context potentially underpinning and proxying socio-economic differences, challenges and advantages which might be linked to variation in early year outcomes. In that respect, differences between our clusters seem to reflect stark differences in the health and social situation in different parts of the country as well as unique challenges (e.g. around poverty, obesity or crime) that depend on the local context and which might influence the policies needed to improve early year outcomes.
 
 #### Population size and ethnicity
 
-In @fig:socio we dig further into other differences between the C/UAs assigned into clusters. The horizontal axis captures the ethnic diversity of the population in a C/UA based on 2001 census data, and the size of the circles represents the size of the population according to the most recent estimates from ONS. This shows high levels of ethnic diversity in London boroughs assigned to cluster 5 (and lower levels in those that were assigned to other clusters), and in the larger cities outside London and the South East included in cluster 3. 
+In @fig:socio we dig further into other differences between the C/UAs assigned into clusters. The horizontal axis captures the ethnic diversity of the population in a C/UA based on 2001 census data, and the size of the circles represents the size of the population according to the most recent estimates from ONS. This shows high levels of ethnic diversity in London boroughs assigned to cluster 5 (and lower levels in those that were assigned to other clusters), and in the larger cities outside London and the South East included in cluster 3: in several cases, ethnic diversity appears linked to how C/UAs in a region are assigned to different clusters.
 
 ![Size, cluster assignment and ethnic diversity by Government Office Region in England](png/cluster_demo.png) {#fig:socio}
 
@@ -83,19 +83,41 @@ It shows that, on average, C/UAs in cluster 0 (the cluster with less deprivation
 
 ![Distribution of early year outcomes by indicator and cluster](png/outcomes_2019.png) {#fig:outcome_snap}
 
-![Distribution of early year outcomes by indicator and cluster](png/pairwise.png) {#fig:outcome_snap}
+These results are confirmed by @fig:outcome_pairs, where we compare mean early year outcomes in the average point score between the C/UAs in each pair of clusters. For example, this shows that Cluster 0 has a statistically significant higher score than all the other clusters Clusters 2 (some of the biggest cities outside London and the South East), 3 (including larger C/UAs in the North East and the North West) and 1 tend to perform worse than most other clusters.
+
+![Pairwise comparison of average point score means between C/UAs in clusters. The colour of a cell represents whether the difference between the row C/UA and the column C/UA is positive or negative. Non-coloured cells represents differences in means that are not statistically significant at the 1% level.](png/pairwise.png) {#fig:outcome_pairs}
 
 ### Evolution of differences
 
-![Size, cluster assignment and ethnic diversity by Government Office Region in England](png/year_comparisons.png)
+In @fig:outcome_evolution we present the distribution of early year outcomes in each cluster by indicator and year. The chart suggests that there is strong persistence in the differences between clusters in recent years, consistent with the idea that our clustering assignments are capturing differences between C/UAs linked to long-term differences in outcomes. We expect that these differences in relative performance might have continued into most recent years despite the Covid-19 shock.
+
+The correlation coefficient between cluster ranks based on their average point score in 2013 and 2019 is $\rho = 0.928$ suggesting that the relative ranking of clusters based on their early year performance has barely changed between 2016 and 2019.
+
+![Distribution of differences in performance by cluster, early year performance indicator and year](png/year_comparisons.png) {#fig:outcome_evolution}
 
 ## Outperforming and underperforming {#subsec:outperf}
 
-### State of play
+While @fig:outcome_snap shows important differences between clusters in their early year outcomes, we also see important variation _inside_ clusters, with some C/UAs significantly out or underperforming their peers. Where are they?
 
-### Historically
+### Situation in 2019
 
-![Size, cluster assignment and ethnic diversity by Government Office Region in England](png/gender_trend.png)
+In @outperforming_2019 we present the average point scores for 2019 rescaled _inside_ each cluster. Our goal is to identify those C/UAs that have much higher or lower scores than their peers. Note that in this chart it is not meaningful to compare scores _across_ clusters since, as we showed previously, their mean scores are very different.
+
+![Distribution of average point score performance normalised inside each cluster. We label C/UAs that are over or under 1.2 standard deviations from the mean in the cluster (which has been rescaled to zero). Note that scores are comparable inside clusters but not between cluster.](png/outperforming.png) {#fig:outperforming_2019}
+
+### Historical evolution
+
+Having considered out and underperformance in the most recent year, we also analyse historical trends in @fig:out_trend. This chart shows important variation in the evolution of performance _inside_ clusters, with individual C/UAs experiencing substantial improvements / declines over the considered period. In aggregate terms, and in line with the findings that we discussed above, this is reflected in relative stability in average performance in clusters, perhaps with a couple of exceptions (cluster 4 seems to show a decline in average performance, and cluster 5 (London boroughs) seems to show an improvement in average performance).
+
+![Evolution of performance by cluster and indicator. Black lines represent the median trend for the cluster.](png/year_evol.png) {#fig:out_trend}
+
+We dig further into this using a simple regression framework where, for every C/UA, we fit a linear trend on the evolution of (average point score) performance between 2013 and 2019. A positive coefficient in the trend suggests an improvement in performance and a negative coefficient a decline in performance. We present the results in @fig:reg_chart}, where we also include a horizontal black line depicting the average trend coefficient for C/UAs in each cluster, and a horizontal red dashed line depicting the average trend coefficient for all C/UAs. 
+
+![Trend coefficient by C/UA inside each cluster. The black horizontal line represents the mean trend coefficient for C/UAs in the cluster and the red horizontal dashed line represents the mean trend coefficient for all C/UAs.](png/reg_comparison.png) {#fig:reg_chart}
+
+By comparing each C/UA with its cluster average we are able to identify out / under-performers (we include text labels for those C/UAs which are one standard deviation above or below the average for the cluster). 
+
+When we compare the mean trend-coefficient for cluster with the overall mean trend coefficient, we find that clusters 0 (wealthy C/UAs in London and the South East) and 3 (C/UAs in the North East and the North West) have, on average, outperformed the rest of clusters, while cluster 4 (with a number of towns in the South East, London and the South West) and cluster 6 (wealthy, mostly Southern and older C/UAs) perform worse than the average.
 
 ## Gender gap
 
