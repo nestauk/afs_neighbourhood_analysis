@@ -2,9 +2,19 @@
 
 In this section we present the results of our clustering analysis: 
 
+<!--This is what we have done so far
+-->
+
 * What C/UAs are assigned to what clusters, where are they, how do we interpret the clusters? (@subsec:output} 
 * What are the differences between clusters in early year outcomes in the latest update of the data (2019) and historically?
-* Who are the outperforming and underperforming C/UAs inside each cluster in the latest version of the data and historically? Are these differences linked to structural and contextual differences between C/UAs _inside_ clusters?
+* Who are the outperforming and underperforming C/UAs inside each cluster in the latest version of the data and historically? 
+* How do different clusters perform in terms of gender parity in their average scores, how has gender parity evolved over time, and what are the outperforming and underperforming C/UAs?
+
+<!--These are other things we might do
+* What are the differences between clusters in terms of other secondary data of interest such as access to healthy areas & hazards, census etc.
+* What are the differences between clusters in variables that we know are causally linked to early years outcomes?
+* Are differences in performance between C/UAs in clusters linked to structural and contextual differences between those C/UAs?
+-->
 
 ## Clustering outputs {#subsec:output}
 
@@ -119,15 +129,40 @@ By comparing each C/UA with its cluster average we are able to identify out / un
 
 When we compare the mean trend-coefficient for cluster with the overall mean trend coefficient, we find that clusters 0 (wealthy C/UAs in London and the South East) and 3 (C/UAs in the North East and the North West) have, on average, outperformed the rest of clusters, while cluster 4 (with a number of towns in the South East, London and the South West) and cluster 6 (wealthy, mostly Southern and older C/UAs) perform worse than the average.
 
-## Gender gap
+## Gender parity in outcomes
 
-### Snapshot
+In addition to considering EFSYP performance in 2019 and longitudinally, we have also analysed "gender parity" between clusters and C/UAs, which we define as the ratio between the score for Boys and the score for Girls in an EFSYP indicator. Without exception, this ratio is below 1 (on average boys perform worse than girls in all indicators and C/UAs) so any increases in this ratio represent better gender parity (a decline in the gender gap in performance).
 
-![Gender gap snapshot](png/gender_snapshot.png)
+### Situation in 2019
 
-### Evolution
+@fig:gender_2019 suggests that cluster 0, comprising wealthy C/UAs in London and the South East, and cluster 7, which are older and more rural, tend to have higher gender parity in early year outcomes between girls and boys. Clusters 2 and 3 have lower gender parity. This is confirmed by @fig:gender_pairwise, where we test whether each pair of clusters has significantly different mean gender parity ratios.
 
-![Gender gap trend](png/gender_trend.png)
+![Distribution of gender parity by indicator and cluster, 2019. We define gender parity as the ration between the score for Boys and the score for Girls in a C/UA. Note that the X-axes are not in the same scale across clusters](png/gender_snapshot.png) {#fig:gender_2019}
+
+![Differences in gender parity between C/UAs. Each row represents the difference in means between C/UAs in the row-cluster and C/UAs in the column cluster. Red colours represent situations where the C/UAs in a cluster-row have higher gender parity than those in the column, and vice versa with blue colours. We only colour those differences that are statistically significant at the 5% level.](png/gender_snapshot.png) {#fig:gender_pairwise}
+
+#### Outperforming C/UAs in 2019
+
+@fig:cuas_gender_comparison shows the position of each C/UA in its cluster, focusing on 2019 and the average point score indicator. We display the names of those C/UAs which are either 1.2 standard deviations above or below the mean score for their cluster - these are the "outperforming" and "outperforming" C/UAs in terms of their gender parity outcomes.
+
+![Gender parity ratio by C/UA and cluster. The black line represents the mean parity ratio for all C/UAs in a cluster, and the red dashed line the mean parity for all C/UAs in our data.](png/gender_gap_clusters.png) {#fig:cuas_gender_comparison}
+
+### Evolution of gender parity
+
+@fig:gender_parity_evol presents the evolution in the gender parity ratio by indicator and cluster. It shows that despite some volatility, there has been a general improvement in the gender parity ratio across clusters and indicators (this is perhaps more visible in measures for Communication and Language and for the % achieving expected or good level of development).
+
+![Evolution of gender parity ratio by cluster and indicator](png/gender_trend.png) {#fig:gender_parity_evol}
+
+#### Outperforming and underperforming in gender parity
+
+We conclude this section by considering the evolution in gender parity between 2013 and 2019. Given the volatility in the series for our focus indicator, the average point of score, we will not be fitting linear trends to the data but instead comparing the mean of the gender parity ratio in the first three periods in our data with the mean in the last three periods. We display the results in @fig:gender_parity_trend. 
+
+Consistent with @fig:gender_parity_evol, it shows a generalised improvement in gender parity between 2011-13 and 2017-19. All clusters and most C/UAs experienced an improvement in gender parity during this period. Cluster 0 experienced the biggest improvements in gender parity while Cluster 4 remained stable. We have included text for those C/UAs with a change in gender parity ratio which is 1.3 standard deviations above or below the score for the cluster.
+
+![Changes in gender parity ratio between 2013-2016 and 2017-2019 by C/UA and cluster, focusing on the average point score. The black line represents the average changes for all C/UAs in a cluster, and the red dashed line the average change for all C/UAs in the data.](png/gender_parity_evolution.png) {#fig:gender_parity_trend}
+
+<!--
+Other stuff here e.g.
 
 ### Links between differences in performance and secondary data
 
@@ -136,6 +171,18 @@ When we compare the mean trend-coefficient for cluster with the overall mean tre
 ### Clustering on previous years
 
 ### Comparing to existing clustering based on census data
+-->
+
+### Conclusions
+
+Our analysis has revealed a number of interesting insights about the situation and evolution of early year performance in different parts of England. 
+
+We have detected important differences between a cluster of affluent C/UAs in the Greater South (cluster 0) and other parts in the country, notably a cluster comprising cities in the Midlands, North West and Yorkshire (cluster 2). This suggests is consistent with the idea that the localised (economic and social) challenges faced in different parts of the country play an important role shaping their early years outcomes and the policies that need to be put in place to improve these outcomes. Having said this, we also find some early year challenges in wealthier parts of the country, such as cluster 4, which includes cities in the South such as Bristol, Reading and Southampton, which has experienced a decline in its average point scores between 2013 and 2019 and stagnated in its ability to equalise early year outcomes between boys and girls.
+
+It is very important to highlight what our analysis _has not done_, which is to explain the factors underpinning the differences between clusters as well as between outperforming and underperformign C/UAs inside clusters. Insofar our clustering helps us account for shared contextual factors that shape outcomes, we might expect some of these heterogeneity to be underpinned by differences in policy approaches that we plan to learn about in follow-up work.
+
+
+
 
 
 
