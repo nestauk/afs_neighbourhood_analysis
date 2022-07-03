@@ -100,9 +100,9 @@ def choro_plot(
         base_map.transform_calculate(region=f"datum.properties.{region_name}")
         .mark_geoshape(filled=True, stroke="darkgrey", strokeWidth=0.2)
         .encode(
-            size=f"properties.{count_var}:N",
+            size=f"properties.{count_var}:O",
             color=alt.Color(
-                f"properties.{count_var}:N",
+                f"properties.{count_var}:O",
                 title=count_var_name,
                 scale=alt.Scale(scheme=scheme, type=scale_type),
                 sort="descending",

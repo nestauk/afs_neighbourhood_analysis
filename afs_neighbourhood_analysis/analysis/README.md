@@ -30,14 +30,22 @@
 
 ## 3. Analysis
 
-See `afs_outperforming_analysis/analysis/clustering/clustering_exploration.py` for a python-parsed notebook with the analysis so far.
+Run `afs_outperforming_analysis/analysis/clustering/report_analysis.py` to reproduce all the analysis and produce charts.
 
-- We use the "best performing" parameter set to extract clusters and analyse the data. So far this includes considering:
-  - Differences in EFSYP performance between clusters
-  - Evolution of EFSYP permance
-  - Differences in Gender gap (Boy over Girl EFSYP outcomes in an indicator and area, in all cases <1) between clusters.
-  - Evolution of gender gaps in clusters
-  - Differences in fingertips data across clusters
+This reads a cluster assignment that we undertook separately and yields analyses of...
+
+* Geographic, demographic and secondary differences between clusters
+* Early year performance differences between clusters in 2019 and over time
+* Outperforming and underperfming areas
+* Gender parity in 2019, evolution of differences and out and underperforming areas
+
+All charts are saved in `outputs/figures/`
+
+You can find a write up of the results in `outputs/figures/section_cluster_findings.md`
+
+
+
+
 
 [TODO]
 

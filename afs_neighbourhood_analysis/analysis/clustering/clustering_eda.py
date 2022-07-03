@@ -1,12 +1,17 @@
 import altair as alt
+import geopandas as gp
+import json
 import numpy as np
 import pandas as pd
 import requests
 from scipy.stats import ttest_ind
 from toolz import pipe
 
+from afs_neighbourhood_analysis import PROJECT_DIR
 
 # %%
+
+shape_path = f"{PROJECT_DIR}/inputs/c_au_boundaries.json"
 
 
 # %%
@@ -371,3 +376,19 @@ def plot_gender_gap_comp(gender_gap_table: pd.DataFrame, year: int = 2019) -> al
         .resolve_axis(x="independent")
         .properties(width=200)
     )
+
+
+def fetch_shapefile():
+    """Fetch and save shapefile"""
+    shape_url = "https://ons-inspire.esriuk.com/arcgis/rest/services/Administrative_Boundaries/Counties_and_Unitary_Authorities_December_2017_Boundaries_UK/MapServer/0/query?outFields=*&where=1%3D1&f=geojson"
+
+    with open(shape_path, "w") as outfile:
+        json.dump(requests.get(shape_url).json(), outfile)
+
+
+def shapefile():
+    """Reads shapefile"""
+    return gp.read_file(shape_path)
+
+
+#
