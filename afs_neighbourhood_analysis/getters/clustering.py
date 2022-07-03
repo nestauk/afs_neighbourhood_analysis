@@ -68,18 +68,22 @@ def clustering_diagnostics() -> pd.DataFrame:
     )
 
 
-def early_years_for_clustering():
-    """Reads a standardised version of the data"""
+def early_years_for_clustering() -> pd.DataFrame:
+    """Reads a standardised version of the early years data"""
 
     return pipe(el_goals(), standardise_early_years)
 
 
-def public_health_for_clustering():
-    """Reads a processed version of the public health data"""
+def public_health_for_clustering(share: float = 0.025) -> pd.DataFrame:
+    """Reads a processed version of the public health framework data
+
+    Args:
+        share: share of missing values we tolerate in a variable
+    """
 
     return pipe(
         public_health_framework(),
         parse_phf,
         most_recent_data,
-        partial(remove_missing, index_name="indicator_name_expanded"),
+        partial(remove_missing, index_name="indicator_name_expanded", share=share),
     )

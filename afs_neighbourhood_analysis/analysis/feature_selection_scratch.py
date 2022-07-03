@@ -92,7 +92,7 @@ def public_health_framework():
 
     return (
         pd.read_csv(f"{PROJECT_DIR}/inputs/data/public_health_profile.csv")
-        # .query("area_type=='Districts & UAs (from Apr 2021)'")
+        .query("area_type=='Counties & UAs (from Apr 2021)'")
         .reset_index(drop=True)
     )
 

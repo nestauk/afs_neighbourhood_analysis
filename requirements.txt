@@ -22,3 +22,5 @@ webdriver-manager
 networkx
 umap-learn
 python-louvain
+shap
+tabulate
