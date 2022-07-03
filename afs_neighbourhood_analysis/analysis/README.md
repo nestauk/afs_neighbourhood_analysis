@@ -34,18 +34,14 @@ Run `afs_outperforming_analysis/analysis/clustering/report_analysis.py` to repro
 
 This reads a cluster assignment that we undertook separately and yields analyses of...
 
-* Geographic, demographic and secondary differences between clusters
-* Early year performance differences between clusters in 2019 and over time
-* Outperforming and underperfming areas
-* Gender parity in 2019, evolution of differences and out and underperforming areas
+- Geographic, demographic and secondary differences between clusters
+- Early year performance differences between clusters in 2019 and over time
+- Outperforming and underperfming areas
+- Gender parity in 2019, evolution of differences and out and underperforming areas
 
 All charts are saved in `outputs/figures/`
 
 You can find a write up of the results in `outputs/figures/section_cluster_findings.md`
-
-
-
-
 
 [TODO]
 
