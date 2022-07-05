@@ -139,7 +139,7 @@ In addition to considering EFSYP performance in 2019 and longitudinally, we have
 
 ![Distribution of gender parity by indicator and cluster, 2019. We define gender parity as the ration between the score for Boys and the score for Girls in a C/UA. Note that the X-axes are not in the same scale across clusters](png/gender_snapshot.png) {#fig:gender_2019}
 
-![Differences in gender parity between C/UAs. Each row represents the difference in means between C/UAs in the row-cluster and C/UAs in the column cluster. Red colours represent situations where the C/UAs in a cluster-row have higher gender parity than those in the column, and vice versa with blue colours. We only colour those differences that are statistically significant at the 5% level.](png/gender_snapshot.png) {#fig:gender_pairwise}
+![Differences in gender parity between C/UAs. Each row represents the difference in means between C/UAs in the row-cluster and C/UAs in the column cluster. Red colours represent situations where the C/UAs in a cluster-row have higher gender parity than those in the column, and vice versa with blue colours. We only colour those differences that are statistically significant at the 5% level.](png/gender_difference_comparison.png) {#fig:gender_pairwise}
 
 #### Outperforming C/UAs in 2019
 
