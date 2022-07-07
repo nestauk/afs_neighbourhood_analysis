@@ -42,21 +42,21 @@ The main source of data we use for clustering is the [Public Health Outcomes Fra
 
 It is worth noting that we expect strong overlap / correlation between indicators in PHOF (for example, it includes mortality rates from a wide range of diseases) which we will address downstream using dimensionality reduction techniques.
 
-We also emphasise that we have focused our clustering on PHOF data for reasons of convenience. Our goal is not to cluster local authorities based on causal drivers of early year outcomes but to capture different types of local authority that display variation in those outcomes. Insofar the PHOF data indicators act as proxies for other relevant local conditions that are not included in the analysis (such as for example data about the industrial composition of a location, or about its detailed sociodemographic characteristics), it fulfils our purposes.[^3]
+We also emphasise that we have focused our clustering on PHOF data for reasons of convenience. Our goal is not to cluster local authorities based on causal drivers of early year outcomes but to capture different types of local authority that display variation in those outcomes. Insofar the PHOF data indicators act as proxies for other relevant local conditions that are not included in the analysis (such as for example data about the industrial composition of a location, or about its detailed sociodemographic characteristics), it fulfils our purposes.[^2]
 
-[^3]: Having said this, we would expect that incorporating other relevant dimensions of a local authority context in our analysis would improve the quality and usefulness of our clustering. This is an area for further work.
+[^2]: Having said this, we would expect that incorporating other relevant dimensions of a local authority context in our analysis would improve the quality and usefulness of our clustering. This is an area for further work.
 
 We process the data in the following ways:
 
 1. We remove indicators which are not available at the County / Unitary Authority (C/UA) level at which early year outcomes is released, and with which we want to merge our data.
 2. Some of the indicators in PHFO are available by sex, age and other category types. We create a new indicator for each combinations of categories for which it is available (for example, the indicator "16-17 year olds not in education, employment or training (NEET) or whose activity is not known" is split into "16-17 year olds not in education, employment or training (NEET) or whose activity is not known: Female-16-17 yrs", "16-17 year olds not in education, employment or training (NEET) or whose activity is not known: Male-16-17 yrs" and "16-17 year olds not in education, employment or training (NEET) or whose activity is not known: Persons-16-17 yrs".
 3. We focus on the latest period for which each indicator was collected. We calculate the z-score for each indicator (for each value of an indicator in a C/UA we remove its mean and divide by its standard deviation so they are all in the same scale).
-4. We remove indicators where the percentage of C/UAs with missing data is below 2.5% and then remove a small number of C/UAs that still have missing data in at least one indicator. This includes Rutland, Isles of Scilly and Hammersmith and Fulham. We select this threshold with the goal of balancing indicator breadth versus good coverage of C/UAs. As @fig:complete shows, including indicators with poorer coverage reduces the number of C/UAs that we are able to cluster. The 2.5% of coverage threshold makes it possible for us to cluster most C/UAs using 189 indicators.[^4]
+4. We remove indicators where the percentage of C/UAs with missing data is below 2.5% and then remove a small number of C/UAs that still have missing data in at least one indicator. This includes Rutland, Isles of Scilly and Hammersmith and Fulham. We select this threshold with the goal of balancing indicator breadth versus good coverage of C/UAs. As @fig:complete shows, including indicators with poorer coverage reduces the number of C/UAs that we are able to cluster. The 2.5% of coverage threshold makes it possible for us to cluster most C/UAs using 189 indicators.[^3]
 
 ![Trade off between indicator completeness and location completeness in the most recent period. The horizontal axis represents the number of
 Us we are able to include in our clustering for a given level of strictness in indicator coverage. The vertical axis represents the number of indicators we are able to include. A threshold of 1 means including all indicators regardless of their coverage, a threshold of 0 means only including indicators with perfect coverage (there are none).](png/missing_strategy.png){#fig:complete}
 
-[^4]: An option to explore further would be to interpolate missing values in order to increase the number of indicators we are able to include for a given number of C/UAs.
+[^3]: An option to explore further would be to interpolate missing values in order to increase the number of indicators we are able to include for a given number of C/UAs.
 
 ### Other secondary data
 
@@ -95,10 +95,10 @@ The process above generates a cluster assignment for each combination of tuning 
 
 ### Results of the consequential clustering evaluation
 
-The heatmaps in @fig:diagnostics show the Z-score in our two measures of inter-cluster heterogeneity in early year outcomes for combinations of parameters.[^1] Blue colours indicate a higher degree of heterogeneity, which is desirable. We use this information to select our clustering algorithm, with five extracted components and a community resolution of 0.7.
+The heatmaps in @fig:diagnostics show the Z-score in our two measures of inter-cluster heterogeneity in early year outcomes for combinations of parameters.[^4] Blue colours indicate a higher degree of heterogeneity, which is desirable. We use this information to select our clustering algorithm, with five extracted components and a community resolution of 0.7.
 
 We note that a small number of components seem to capture most of the variance in the PHF data, suggesting strong correlations between the variables in it. It would be desirable, as a follow-up, to expand the range of indicators we use in our clustering in order to capture more dimensions of a C/UA sociodemographic and economic situation.
 
-[^1]: We use average early year scores to calculate the measure of heterogeneity in variances.
+[^4]: We use average early year scores to calculate the measure of heterogeneity in variances.
 
 ![Consequential evaluation of clustering results under different parameters (number of principal components extracted and community resolution) and measures of cluster disparity in early year outcomes (silouhette score and variance of median scores by cluster). The color of the cells represents the Zscore, with blue representing higher heterogeneity between clusters, and red representing lower heterogeneity between clusters.](png/clustering_diagnostics.png){#fig:diagnostics}
