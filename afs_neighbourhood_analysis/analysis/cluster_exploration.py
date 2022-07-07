@@ -981,3 +981,11 @@ merged
 
 # %%
 # Outperforming integrated
+
+# %%
+pd.Series(clust_lu).reset_index(name="cluster").assign(nut=lambda df: df["index"].map(code_nut_lookup)).groupby("cluster")["nut"].apply(lambda x: len(set(x))).median()
+
+# %%
+set(code_nut_lookup.values())
+
+# %%
