@@ -658,7 +658,7 @@ def plot_outperf_trend(perf_coeff_table):
                 legend=None,
             ),
         )
-        .properties(width=50, height=400)
+        .properties(width=100,height=400)
     )
 
     mean_all = alt.Chart().mark_rule(strokeWidth=2).encode(y="mean(trend_coeff)")
@@ -713,6 +713,8 @@ save_altair(
     altair_text_resize(plot_outperf_trend(trend_df)), name="reg_comparison", driver=wd
 )
 
+
+# %%
 plot_outperf_trend(trend_df)
 
 
