@@ -9,10 +9,11 @@ In this section we present the results of our clustering analysis:
 - What are the differences between clusters in early year outcomes in the latest update of the data (2019) and historically?
 - Who are the outperforming and underperforming C/UAs inside each cluster in the latest version of the data and historically?
 - How do different clusters perform in terms of gender parity in their average scores, how has gender parity evolved over time, and what are the outperforming and underperforming C/UAs?
+- What are the differences between clusters in variables that we know are causally linked to early years outcomes?
+
 
 <!--These are other things we might do
 * What are the differences between clusters in terms of other secondary data of interest such as access to healthy areas & hazards, census etc.
-* What are the differences between clusters in variables that we know are causally linked to early years outcomes?
 * Are differences in performance between C/UAs in clusters linked to structural and contextual differences between those C/UAs?
 -->
 
@@ -20,7 +21,7 @@ In this section we present the results of our clustering analysis:
 
 ### Cluster assignment results
 
-The cluster assignment procedure with the parameters that maximise variation in early year outcomes between clusters yields seven clusters. [@tab:assignments] shows the top ten C/UAs per cluster by population.[^1]
+The cluster assignment procedure with the parameters that maximise variation in early year outcomes between clusters yields seven clusters. [@tbl:assignments] shows the top ten C/UAs per cluster by population.[^1]
 
 [^1]: We use mid-2020 all-ages population estimates obtained from ONS [here](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland)
 
@@ -34,8 +35,7 @@ The cluster assignment procedure with the parameters that maximise variation in 
 |    5    | Barnet, Croydon, Newham, Ealing, Enfield, Tower Hamlets, Wandsworth, Brent, Lambeth, Southwark...                                                    |
 |    6    | Kent, Essex, Staffordshire, Nottinghamshire, Derbyshire, Lincolnshire, Warwickshire, Cumbria, Bournemouth, Christchurch and Poole, Cheshire East...  |
 |    7    | Norfolk, West Sussex, Devon, Suffolk, Leicestershire, North Yorkshire, Worcestershire, Cornwall, Somerset, East Sussex...                            |
-
-{#tab:assignments}
+: Top C/UAs by cluster {#tbl:assignments}
 
 ### Geography of clusters
 
@@ -47,7 +47,7 @@ Both charts show some geographic patterns in the clustering such as the prevalen
 
 ![Geography of clusters in England](png/cluster_map.png) {#fig:choropleth}
 
-![Share of C/UAs in a cluster accounted by each Government Office Region](png/cluster_nuts.png) {#fig:nuts}
+![Share of C/UAs in a cluster accounted by each Government Office Region](png/cluster_nuts.png){#fig:nuts}
 
 ### Some differences between cluster constituents
 
@@ -57,7 +57,7 @@ We proceed to explore differences between our clusters in the secondary data tha
 
 #### Clustering variables
 
-@fig:secondary shows the average standardised score for all C/UAs in a cluster for all indicators. We do not show the indicator labels in the horizontal axis because these would be hard to read but instead represent the most salient indicators for each cluster in @tab:secondary (see also [here](https://nesta-slides.s3.eu-west-2.amazonaws.com/second_diffs.html) for an interactive version of the chart). In both cases we only include indicators where the difference in the mean between C/UAs in the cluster and all other C/UAs is statistically different.
+@fig:secondary shows the average standardised score for all C/UAs in a cluster for all indicators. We do not show the indicator labels in the horizontal axis because these would be hard to read but instead represent the most salient indicators for each cluster in @tbl:secondary (see also [here](https://nesta-slides.s3.eu-west-2.amazonaws.com/second_diffs.html) for an interactive version of the chart). In both cases we only include indicators where the difference in the mean between C/UAs in the cluster and all other C/UAs is statistically different.
 
 ![Size, cluster assignment and ethnic diversity by Government Office Region in England](png/second_diffs.png) {#fig:secondary}
 
@@ -71,8 +71,7 @@ We proceed to explore differences between our clusters in the secondary data tha
 |       5 | New STI diagnoses (exc chlamydia aged <25) / 100,000-Persons-15-64 yrs (+), Hip fractures in people aged 65 and over-Persons-65+ yrs (-), Percentage of adults (aged 18+) classified as overweight or obese-Persons-18+ yrs (-), Hip fractures in people aged 80+-Persons-80+ yrs (-), Percentage reporting a long-term Musculoskeletal (MSK) problem-Persons-16+ yrs (-)                                                                                                                           |
 |       6 | Low birth weight of term babies-Persons->=37 weeks gestational age at birth (-), Children in relative low income families (under 16s)-Persons-<16 yrs (-), Children in absolute low income families (under 16s)-Persons-<16 yrs (-), Deprivation score (IMD 2019)-Persons-All ages (-), Supporting information - % aged 65+-Male-65+ yrs (+)                                                                                                                                                        |
 |       7 | Supporting information - % population aged 65+-Female-65+ yrs (+), Supporting information - % population aged 65+-Persons-65+ yrs (+), Supporting information - % population aged 65+-Male-65+ yrs (+), Supporting information - % population aged under 18-Female-<18 yrs (-), Proportion of the population meeting the recommended 5-a-day on a usual day (adults)-Persons-16+ yrs (+)                                                                                                            |
-
-{#tab:secondary}
+: Salient secondary variables by cluster {#tbl:secondary}
 
 This analysis reveals important differences in the health and social conditions of C/UAs in different clusters: Cluster 0, which includes a number of local authorities in the South East and East tend to be less deprived, healthier and have higher life expectancy. By contrast, C/UAs in Cluster 1 tend to have lower life expectancy in the most deprived deciles, important inequalities in life expectancy, and more instances of domestic abuse. Cluster 2, which includes larger cities outside of London and the South East is characterised by high mortality rates from preventable cardiovascular diseases. Cluster 5, including several London boroughs, has a higher prevalence of Sexually Transmitted Diseases (STDs) and lower overweight and obesity rates. Cluster 7, with a number of rural C/UAs spread across the country, tend to have an older population.
 
@@ -166,13 +165,23 @@ Consistent with @fig:gender_parity_evol, it shows a generalised improvement in g
 
 #### **Inter-cluster comparisions**
 
-In addition to looking at all of the indicators which affect the clustering, we can concentrate on those which we know affect school readiness. We can then compare how they differ between the clusters and if we see certain trends.
+Previously, we looked at differences between clusters in _all_ secondary contextual variables, and in their early year outcomes. Here, we focus on those which according to the literature impact on school readiness. Our goal is to drill down into aspects of the local context that might be particularly important for understanding differences in early year outcomes.
 
 ![Differences in means between indicators which are known to affect school readiness for the different clusters.\label(ey_indicators)](png/ey_indicators_domestic_abuse_included.png) {#fig:ey_indicators}
 
-Figure @fig:ey_indicators shows how these indicators vary between the clusters, and highlights those which have the most effect, with the colour scale showing the difference from the mean. As mentioned above, Cluster 0 consists of LAs predominately in the South East and East of England, they're wealthier places with higher life expectancy. We can see these trends remain true for the factors that affect school readiness, with fewer children in low income families and a low infant mortality rate. They do also have better newborn hearing and physical examination coverage (higher numbers are more positive in this case). Cluster 1 by contrast had inequalities in life expectancy, with low life expectancy in the more deprived deciles and more instances of domestic abuse, this is reflected with a higher number of children in low income households and a higher under 18s conception rate than Cluster 0. In Cluster 2 (which contained large cities outside of London) we can immediately notice a number of negative effects. The number of children living in low income households, the infant mortality rate, low birth weights and the under 18s conception rate are all higher than the other clusters. It is notable here that Cluster 4 had no drivers of school readiness significantly contributing. Finally we move onto Clusters 5 (which is mainly the London Boroughs), 6 and 7 (more rural and an aging population). Cluster 5 has a higher low birth weight in full term babies, but in contrast to Cluster 2, has a low under 18s conception rate and low hospital admissions for children. The number of children in low income households for London did not contribute significantly, though it does have poorer newborn hearing coverage - a variable that only appeared also in Cluster 0. Cluster 6 and 7 had no negative drivers of school readiness, it will therefore be interesting to directly compare the school readiness outcomes of these two clusters to clusters 1 and 2.
+Figure @fig:ey_indicators shows how these indicators vary between the clusters, and highlights those with the highest differences (represented in the colour scale) (see also @tbl:salient_causal). 
 
-| cluster | Significantly different variables (known school readiness drivers only)                                                                                                                                                                                                                                                            |
+Cluster 0 consists of wealthier and healthier C/UAs predominately in the South East and East of England. We see that these C/UAs have fewer children in low income families and with a low infant mortality rate. They do also have better newborn hearing and physical examination coverage (higher numbers are better in this case). 
+
+Cluster 1, by contrast, has inequalities in life expectancy, with low life expectancy in the more deprived deciles and more instances of domestic abuse, this is reflected by a higher number of children in low income households and a higher under 18s conception rate than Cluster 0. 
+
+In Cluster 2 (which contained large cities outside of London) we can immediately notice a number of challenges for early years. The number of children living in low income households, the infant mortality rate, low birth weights and the under 18s conception rate are all higher than in the other clusters. 
+
+Clusters 5 (mainly consisting of London Boroughs) has a higher low birth weight in full term babies, but in contrast to Cluster 2, has a low under 18s conception rate and low hospital admissions for children. London does not have a significantly higher number of children in low income households, though it does have poorer newborn hearing coverage - a variable that only appeared also in Cluster 0. 
+
+Cluster 6 and 7 do not have any salient negative drivers of school readiness. It will therefore be interesting to directly compare the school readiness outcomes of these two clusters to clusters 1 and 2, which do.
+
+| Cluster | Significantly different variables (known school readiness drivers only)                                                                                                                                                                                                                                                            |
 | ------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |       0 | Children in relative low income families (under 16s)-Persons-<16 yrs (-), Children in absolute low income families (under 16s)-Persons-<16 yrs (-), Under 18s conception rate / 1,000-Female-<18 yrs (-), Infant mortality rate-Persons-<1 yr (-), Newborn Hearing Screening - Coverage-Persons-<1 yr (+)                          |
 |       1 | Domestic abuse-related incidents and crimes-Persons-16+ yrs (+), Under 18s conception rate / 1,000-Female-<18 yrs (+), Children in absolute low income families (under 16s)-Persons-<16 yrs (+), Children in relative low income families (under 16s)-Persons-<16 yrs (+)                                                          |
@@ -182,18 +191,21 @@ Figure @fig:ey_indicators shows how these indicators vary between the clusters, 
 |       5 | Hospital admissions caused by unintentional and deliberate injuries in children (aged 0-4 years)-Persons-0-4 yrs (-), Under 18s conception rate / 1,000-Female-<18 yrs (-), Low birth weight of term babies-Persons->=37 weeks gestational age at birth (+), Newborn Hearing Screening - Coverage-Persons-<1 yr (-)                |
 |       6 | Low birth weight of term babies-Persons->=37 weeks gestational age at birth (-), Children in relative low income families (under 16s)-Persons-<16 yrs (-), Children in absolute low income families (under 16s)-Persons-<16 yrs (-)                                                                                                |
 |       7 | Low birth weight of term babies-Persons->=37 weeks gestational age at birth (-), Domestic abuse-related incidents and crimes-Persons-16+ yrs (-), Children in relative low income families (under 16s)-Persons-<16 yrs (-), Children in absolute low income families (under 16s)-Persons-<16 yrs (-)                               |
+: Salient causal drivers of early years performance by cluster {#tbl:salient_causal}
 
-We investigate how these indicators relate to the EYFSP variables here. The number of children (<16 years) in absolute low income households and relative low income households, under 18s conception rate and the number of low birth weights for full term babies all were significant for at least four of the seven clusters. We've picked out these indicators to look at the distribution of their scores and how they compare to the outcome measure of EYFSP (Figure @fig:comparison_indicators_ey).
+We investigate how these indicators relate to the EYFSP variables. The number of children (<16 years) in absolute low income households and relative low income households, under 18s conception rate and the number of low birth weights for full term babies all were significant for at least four of the seven clusters. We have picked out these indicators to look at the distribution of their scores and how they compare to EFSYP outcome measures (@fig:comparison_indicators_ey).
 
 ![Comparison between the Z-scores for the four top indicators affecting the clustering and the different outcome measures of the EYFSP.](png/comparison_indicators_ey.png) {#fig:comparison_indicators_ey}
 
-Cluster 0 stands out here in stark contrast to the others, it has noticeably lower scores for the number of children in low income households and consistently higher school readiness. This is in line with previous research which highlights income as one of the biggest factors contributing to school readiness ([Isaacs, J., 2012](https://www.brookings.edu/wp-content/uploads/2016/06/0319_school_disadvantage_isaacs.pdf); [Peterson, J. et al., 2018](https://www.publications.aap.org/pediatrics/article-split/142/5/e20181126/38543/The-Intersection-of-Health-and-Education-to?autologincheck=redirected); [Brophy, S. et al., 2021](https://www.adruk.org/fileadmin/uploads/adruk/Documents/Data_Insight_Risk_factors_for_not_being_ready_to_start_school__February_2021_.pdf); [Cooper, K., 2021](https://journals.sagepub.com/doi/pdf/10.1177/0038038520939397)). However, clusters 6 and 7, which also had no negative drivers of school readiness, do not see such a positive increase in the EYFSP results in comparison. They are much more comparable to Cluster 5, the London boroughs, and Cluster 1 which suggests there is more affecting the school readiness than simply having fewer children in low income households.
+Cluster 0 stands out in stark contrast to the others, it has noticeably lower scores for the number of children in low income households and consistently higher school readiness. This is in line with previous research which highlights income as one of the biggest factors contributing to school readiness ([Isaacs, J., 2012](https://www.brookings.edu/wp-content/uploads/2016/06/0319_school_disadvantage_isaacs.pdf); [Peterson, J. et al., 2018](https://www.publications.aap.org/pediatrics/article-split/142/5/e20181126/38543/The-Intersection-of-Health-and-Education-to?autologincheck=redirected); [Brophy, S. et al., 2021](https://www.adruk.org/fileadmin/uploads/adruk/Documents/Data_Insight_Risk_factors_for_not_being_ready_to_start_school__February_2021_.pdf); [Cooper, K., 2021](https://journals.sagepub.com/doi/pdf/10.1177/0038038520939397)). 
 
-We can also compare this with Cluster 2, a cluster which had a number of children in low income households, but also higher infant mortality rate, a higher conception rate in the under 18s and more full term babies having a low birth weight. The EYFSP for this cluster is lower than all the other clusters, with a smaller interquartile range. However, we can see a number of outliers in the box plot for those reaching an expected level of development and those reaching a good level of development. Those which are doing better than expected are Doncaster and Barking and Dagenham.
+However, clusters 6 and 7, where we found no evidence of negative drivers of school readiness, do not have noticeably higher EFSYP results. Instead, they are more similar to Cluster 5, the London boroughs, and Cluster 1 suggesting unobserved factors moderating or mitigating the impact of higher children in low income households in the C/UAs in those clusters.
 
-Finally, as already mentioned above, cluster 5, 6 and 7 have similar levels of school readiness. However, in the table and Figures @fig:ey_indicators and @fig:comparison_indicators_ey we can see different distributions and significance contributions for the three.
+We can also compare this with Cluster 2, a cluster which had a number of children in low income households, but also higher infant mortality rate, a higher conception rate in the under 18s and more full term babies having a low birth weight. The EYFSP for this cluster is lower than all the other clusters, with a smaller interquartile range. However, we see a number of outliers in the box plot for those reaching an expected level of development and those reaching a good level of development. Those outperforming areas include Doncaster and Barking and Dagenham.
 
-We look at these drivers of school readiness in more detail in the next section, focussing on within cluster comparisons and particularly looking at how the outperformers and underperformers in the EYFSP, differ in these factors.
+Finally, as already mentioned above, cluster 5, 6 and 7 have similar levels of school readiness. However, in @tbl:salient_causal and @fig:ey_indicators and @fig:comparison_indicators_ey we can see different distributions and significance contributions for the three.
+
+We consider these drivers of school readiness in more detail in the next sub-section, focussing on within cluster comparisons and particularly how the outperformers and underperformers in the EYFSP, differ in these factors.
 
 #### **Intra-cluster comparisons**
 
@@ -210,15 +222,3 @@ Other stuff here e.g.
 
 ### Comparing to existing clustering based on census data
 -->
-
-### Conclusions
-
-Our analysis has revealed a number of insights about the situation and evolution of early year performance in different parts of England.
-
-Our clusters reflect in part geography, with clusters 1 and 3 mostly in the North, cluster 5 in London and cluster 4 in the South, and in part demography, with cluster 4 comprising C/UAs with older populations and clusters 2 and 5 more ethnically diverse populations.
-
-When we compare clusters in their early year performance we detect important differences between a cluster of affluent C/UAs in the Greater South East (cluster 0) and other parts in the country, notably a cluster comprising cities in the Midlands, North West and Yorkshire (cluster 2). Clusters 6 and 7, with older populations and lower levels of deprivation, also perform better than clusters in the North. These results are consistent with the idea that the localised (economic and social) challenges faced in different parts of the country shape their early years outcomes and the policies that need to be put in place to improve these outcomes.
-
-Having said this, we also find some early year challenges in wealthier parts of the country, such as cluster 4, which includes cities in the South such as Bristol, Reading and Southampton, which has experienced a decline in its EFSYP average point score between 2013 and 2019 and stagnated in its ability to equalise early year outcomes between boys and girls.
-
-It is very important to highlight what our analysis _has not done_, which is to explain the reason for differences in performance between clusters as well as between outperforming and underperforming C/UAs inside clusters. We will consider some of these questions in follow-on research, with a particular focus on potential differences in policy between C/UAs that might explain differences in outcomes despite similarities in context.
