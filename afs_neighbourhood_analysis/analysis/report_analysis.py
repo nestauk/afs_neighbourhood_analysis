@@ -321,7 +321,7 @@ def plot_outperf_trend(perf_coeff_table):
                 legend=None,
             ),
         )
-        .properties(width=50, height=400)
+        .properties(width=50, height=200)
     )
 
     mean_all = alt.Chart().mark_rule(strokeWidth=2).encode(y="mean(trend_coeff)")
