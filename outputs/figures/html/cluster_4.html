@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm//vega@5"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm//vega-lite@4.17.0"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm//vega-embed@6"
+    ></script>
+  </head>
+  <body>
+    <div id="vis"></div>
+    <script>
+      (function (vegaEmbed) {
+        var spec = {
+          config: {
+            title: { font: "Averta" },
+            axis: {
+              labelFont: "Averta",
+              titleFont: "Averta",
+              labelFontSize: 12,
+              labelLimit: 300,
+              titleFontSize: 14,
+            },
+            header: { labelFont: "Averta", titleFont: "Averta" },
+            legend: {
+              labelFont: "Averta",
+              titleFont: "Averta",
+              labelFontSize: 12,
+              titleFontSize: 14,
+            },
+            text: { labelFont: "Averta", titleFont: "Averta" },
+          },
+          data: { name: "data-687131ab1da5e62620dd1a9769e2017c" },
+          mark: "point",
+          encoding: {
+            color: { field: "nuts_name", title: "Region", type: "nominal" },
+            shape: {
+              field: "out_under",
+              title: "Out/under performer",
+              type: "nominal",
+            },
+            tooltip: [{ field: "indicator_name_expanded", type: "nominal" }],
+            x: {
+              field: "score_x",
+              title: "Indicator score",
+              type: "quantitative",
+            },
+            y: {
+              field: "indicator_name_expanded",
+              title: "Indicator",
+              type: "nominal",
+            },
+          },
+          title: "Cluster 4",
+          $schema: "https://vega.github.io/schema/vega-lite/v4.17.0.json",
+          datasets: {
+            "data-687131ab1da5e62620dd1a9769e2017c": [
+              {
+                area_code: "E06000031",
+                indicator_name_expanded: "Absolute low income",
+                score_x: 0.7721094374719109,
+                cluster: 4,
+                area_name: "Peterborough",
+                out_under: "underperformer",
+                new_la_code: "E06000031",
+                indicator: "3. Achieved Expected Level",
+                score_y: 64.6,
+                zscore: -1.684074714587628,
+                geo_code: "E06000031",
+                nuts_name: "East",
+                population: 202626,
+                ethn_div: 0.7847162088206411,
+              },
+              {
+                area_code: "E06000031",
+                indicator_name_expanded: "Relative low income",
+                score_x: 0.9644392351839883,
+                cluster: 4,
+                area_name: "Peterborough",
+                out_under: "underperformer",
+                new_la_code: "E06000031",
+                indicator: "3. Achieved Expected Level",
+                score_y: 64.6,
+                zscore: -1.684074714587628,
+                geo_code: "E06000031",
+                nuts_name: "East",
+                population: 202626,
+                ethn_div: 0.7847162088206411,
+              },
+              {
+                area_code: "E06000031",
+                indicator_name_expanded: "Incidents of domestic abuse",
+                score_x: -0.4737307741827388,
+                cluster: 4,
+                area_name: "Peterborough",
+                out_under: "underperformer",
+                new_la_code: "E06000031",
+                indicator: "3. Achieved Expected Level",
+                score_y: 64.6,
+                zscore: -1.684074714587628,
+                geo_code: "E06000031",
+                nuts_name: "East",
+                population: 202626,
+                ethn_div: 0.7847162088206411,
+              },
+              {
+                area_code: "E06000031",
+                indicator_name_expanded:
+                  "Hospital admissions for children (0-4y)",
+                score_x: -0.7285331003289213,
+                cluster: 4,
+                area_name: "Peterborough",
+                out_under: "underperformer",
+                new_la_code: "E06000031",
+                indicator: "3. Achieved Expected Level",
+                score_y: 64.6,
+                zscore: -1.684074714587628,
+                geo_code: "E06000031",
+                nuts_name: "East",
+                population: 202626,
+                ethn_div: 0.7847162088206411,
+              },
+              {
+                area_code: "E06000031",
+                indicator_name_expanded: "Infant mortality rate",
+                score_x: 0.33706580250702767,
+                cluster: 4,
+                area_name: "Peterborough",
+                out_under: "underperformer",
+                new_la_code: "E06000031",
+                indicator: "3. Achieved Expected Level",
+                score_y: 64.6,
+                zscore: -1.684074714587628,
+                geo_code: "E06000031",
+                nuts_name: "East",
+                population: 202626,
+                ethn_div: 0.7847162088206411,
+              },
+              {
+                area_code: "E06000031",
+                indicator_name_expanded: "Low birth weight (full term)",
+                score_x: 0.9524469865688703,
+                cluster: 4,
+                area_name: "Peterborough",
+                out_under: "underperformer",
+                new_la_code: "E06000031",
+                indicator: "3. Achieved Expected Level",
+                score_y: 64.6,
+                zscore: -1.684074714587628,
+                geo_code: "E06000031",
+                nuts_name: "East",
+                population: 202626,
+                ethn_div: 0.7847162088206411,
+              },
+              {
+                area_code: "E06000031",
+                indicator_name_expanded: "Newborn hearing screening coverage",
+                score_x: 1.1296126342722868,
+                cluster: 4,
+                area_name: "Peterborough",
+                out_under: "underperformer",
+                new_la_code: "E06000031",
+                indicator: "3. Achieved Expected Level",
+                score_y: 64.6,
+                zscore: -1.684074714587628,
+                geo_code: "E06000031",
+                nuts_name: "East",
+                population: 202626,
+                ethn_div: 0.7847162088206411,
+              },
+              {
+                area_code: "E06000031",
+                indicator_name_expanded:
+                  "<1y physical examination screening coverage",
+                score_x: 0.8706524433996023,
+                cluster: 4,
+                area_name: "Peterborough",
+                out_under: "underperformer",
+                new_la_code: "E06000031",
+                indicator: "3. Achieved Expected Level",
+                score_y: 64.6,
+                zscore: -1.684074714587628,
+                geo_code: "E06000031",
+                nuts_name: "East",
+                population: 202626,
+                ethn_div: 0.7847162088206411,
+              },
+              {
+                area_code: "E06000031",
+                indicator_name_expanded: "Under 18s conception rate",
+                score_x: 0.543781319489042,
+                cluster: 4,
+                area_name: "Peterborough",
+                out_under: "underperformer",
+                new_la_code: "E06000031",
+                indicator: "3. Achieved Expected Level",
+                score_y: 64.6,
+                zscore: -1.684074714587628,
+                geo_code: "E06000031",
+                nuts_name: "East",
+                population: 202626,
+                ethn_div: 0.7847162088206411,
+              },
+              {
+                area_code: "E09000011",
+                indicator_name_expanded: "Absolute low income",
+                score_x: 0.17160391925875118,
+                cluster: 4,
+                area_name: "Greenwich",
+                out_under: "outperformer",
+                new_la_code: "E09000011",
+                indicator: "3. Achieved Expected Level",
+                score_y: 77.6,
+                zscore: 1.859920423422142,
+                geo_code: "E09000011",
+                nuts_name: "London",
+                population: 289034,
+                ethn_div: 1.2565747394361089,
+              },
+              {
+                area_code: "E09000011",
+                indicator_name_expanded: "Relative low income",
+                score_x: 0.2705001692361411,
+                cluster: 4,
+                area_name: "Greenwich",
+                out_under: "outperformer",
+                new_la_code: "E09000011",
+                indicator: "3. Achieved Expected Level",
+                score_y: 77.6,
+                zscore: 1.859920423422142,
+                geo_code: "E09000011",
+                nuts_name: "London",
+                population: 289034,
+                ethn_div: 1.2565747394361089,
+              },
+              {
+                area_code: "E09000011",
+                indicator_name_expanded: "Incidents of domestic abuse",
+                score_x: 0.5703930720067433,
+                cluster: 4,
+                area_name: "Greenwich",
+                out_under: "outperformer",
+                new_la_code: "E09000011",
+                indicator: "3. Achieved Expected Level",
+                score_y: 77.6,
+                zscore: 1.859920423422142,
+                geo_code: "E09000011",
+                nuts_name: "London",
+                population: 289034,
+                ethn_div: 1.2565747394361089,
+              },
+              {
+                area_code: "E09000011",
+                indicator_name_expanded:
+                  "Hospital admissions for children (0-4y)",
+                score_x: 1.2127695553253994,
+                cluster: 4,
+                area_name: "Greenwich",
+                out_under: "outperformer",
+                new_la_code: "E09000011",
+                indicator: "3. Achieved Expected Level",
+                score_y: 77.6,
+                zscore: 1.859920423422142,
+                geo_code: "E09000011",
+                nuts_name: "London",
+                population: 289034,
+                ethn_div: 1.2565747394361089,
+              },
+              {
+                area_code: "E09000011",
+                indicator_name_expanded: "Infant mortality rate",
+                score_x: 0.6463042257699095,
+                cluster: 4,
+                area_name: "Greenwich",
+                out_under: "outperformer",
+                new_la_code: "E09000011",
+                indicator: "3. Achieved Expected Level",
+                score_y: 77.6,
+                zscore: 1.859920423422142,
+                geo_code: "E09000011",
+                nuts_name: "London",
+                population: 289034,
+                ethn_div: 1.2565747394361089,
+              },
+              {
+                area_code: "E09000011",
+                indicator_name_expanded: "Low birth weight (full term)",
+                score_x: -0.14804743499252573,
+                cluster: 4,
+                area_name: "Greenwich",
+                out_under: "outperformer",
+                new_la_code: "E09000011",
+                indicator: "3. Achieved Expected Level",
+                score_y: 77.6,
+                zscore: 1.859920423422142,
+                geo_code: "E09000011",
+                nuts_name: "London",
+                population: 289034,
+                ethn_div: 1.2565747394361089,
+              },
+              {
+                area_code: "E09000011",
+                indicator_name_expanded: "Newborn hearing screening coverage",
+                score_x: 0.5045376860831934,
+                cluster: 4,
+                area_name: "Greenwich",
+                out_under: "outperformer",
+                new_la_code: "E09000011",
+                indicator: "3. Achieved Expected Level",
+                score_y: 77.6,
+                zscore: 1.859920423422142,
+                geo_code: "E09000011",
+                nuts_name: "London",
+                population: 289034,
+                ethn_div: 1.2565747394361089,
+              },
+              {
+                area_code: "E09000011",
+                indicator_name_expanded:
+                  "<1y physical examination screening coverage",
+                score_x: 0.4217825046168202,
+                cluster: 4,
+                area_name: "Greenwich",
+                out_under: "outperformer",
+                new_la_code: "E09000011",
+                indicator: "3. Achieved Expected Level",
+                score_y: 77.6,
+                zscore: 1.859920423422142,
+                geo_code: "E09000011",
+                nuts_name: "London",
+                population: 289034,
+                ethn_div: 1.2565747394361089,
+              },
+              {
+                area_code: "E09000011",
+                indicator_name_expanded: "Under 18s conception rate",
+                score_x: -0.03319962781935746,
+                cluster: 4,
+                area_name: "Greenwich",
+                out_under: "outperformer",
+                new_la_code: "E09000011",
+                indicator: "3. Achieved Expected Level",
+                score_y: 77.6,
+                zscore: 1.859920423422142,
+                geo_code: "E09000011",
+                nuts_name: "London",
+                population: 289034,
+                ethn_div: 1.2565747394361089,
+              },
+            ],
+          },
+        };
+        var embedOpt = { mode: "vega-lite" };
+
+        function showError(el, error) {
+          el.innerHTML =
+            '<div class="error" style="color:red;">' +
+            "<p>JavaScript Error: " +
+            error.message +
+            "</p>" +
+            "<p>This usually means there's a typo in your chart specification. " +
+            "See the javascript console for the full traceback.</p>" +
+            "</div>";
+          throw error;
+        }
+        const el = document.getElementById("vis");
+        vegaEmbed("#vis", spec, embedOpt).catch((error) =>
+          showError(el, error)
+        );
+      })(vegaEmbed);
+    </script>
+  </body>
+</html>
