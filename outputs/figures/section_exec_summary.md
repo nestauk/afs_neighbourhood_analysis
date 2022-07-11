@@ -21,9 +21,9 @@ number_sections: True
 
 # Executive summary
 
-In this repport we use unsupervised machine learning methods to cluster English Counties and United Authorities (C/UAs), compare their school readiness outcomes, and try to identify C/UAs that perform or outperform on those indicators compared to their peers.
+In this report we use unsupervised machine learning methods to cluster English Counties and United Authorities (C/UAs), compare their school readiness outcomes, and try to identify C/UAs that perform or outperform on those indicators compared to their peers.
 
-We use the Fingertips Public Health England (PHE) Framework as our input dataset to cluster the C/UAs. We tune our clustering algorithms to maximise difference in early year outcomes between clusters, and to ensure a robustn assignment of C/UAs to clustesrs. This approach yields 8 clusters.
+We use the Fingertips Public Health England (PHE) Framework as our input dataset to cluster the C/UAs. We tune our clustering algorithms to maximise difference in early year outcomes between clusters, and to ensure a robust assignment of C/UAs to clustesrs. This approach yields 8 clusters.
 
 From here, we look at the Early Years Foundation Stage Profile (EYFSP) results for these clusters, concentrating on the Average Point Score and the Percentage of Children that reach an Expected Level of Development. We also look at how these results change over time, and the gender gap between them.  By comparing within clusters, we can see which C/UAs are "outperforming" relative to the similar C/UAs within their cluster, and which are "underperforming".
 

@@ -45,7 +45,7 @@ We present the geography of clusters in @fig:choropleth and @fig:nuts, which sho
 
 [^6]: The empty spaces in the middle of the map represent C/UAs that were excluded from the analysis as a consequence of missing data (see previous section).
 
-Both charts show some geographic patterns in the clustering such as the prevalence of London boroughs in Cluster 5, a group of contiguous C/UAs in the Sotu South, East and South West in cluster 0, and a band of C/UAs in cluster 1 cutting across the country from Hull to Blackpool. We also note that several large C/UAs in the midlands and the North including Birmingham, Manchester, Nottingham or Leicester are, differently from the C/UAs around them, assigned to Cluster 2.
+Both charts show some geographic patterns in the clustering such as the prevalence of London boroughs in Cluster 5, a group of contiguous C/UAs in the South, East and South West in cluster 0, and a band of C/UAs in cluster 1 cutting across the country from Hull to Blackpool. We also note that several large C/UAs in the midlands and the North including Birmingham, Manchester, Nottingham or Leicester are, differently from the C/UAs around them, assigned to Cluster 2.
 
 ![Geography of clusters in England](png/cluster_map.png){#fig:choropleth}
 
@@ -53,7 +53,7 @@ Both charts show some geographic patterns in the clustering such as the prevalen
 
 ### Some differences between cluster constituents
 
-We proceed to explore differences between our clusters in the secondary data that we used for our clustering (@fig:secondary and @tab:secondary) and in other sociodemographic characteristics such as size of the population and ethnic diversity based on 2001 census data (@fig:socio).[^7]
+We proceed to explore differences between our clusters in the secondary data that we used for our clustering (@fig:secondary and @tbl:secondary) and in other sociodemographic characteristics such as size of the population and ethnic diversity based on 2001 census data (@fig:socio).[^7]
 
 [^7]: We proxy ethnic diversity with the entropy of the distribution of ethnic groups in a C/UA based on census data available [here](https://www.nomisweb.co.uk/census/2011/qs201ew).
 
@@ -171,7 +171,7 @@ Previously, we looked at differences between clusters in _all_ secondary context
 
 ![Differences in means between indicators which are known to affect school readiness for the different clusters.\label(ey_indicators)](png/ey_indicators_domestic_abuse_included.png){#fig:ey_indicators}
 
-Figure @fig:ey_indicators shows how these indicators vary between the clusters, and highlights those with the highest differences (represented in the colour scale) (see also @tbl:salient_causal). 
+@fig:ey_indicators shows how these indicators vary between the clusters, and highlights those with the highest differences (represented in the colour scale) (see also @tbl:salient_causal). 
 
 Cluster 0 consists of wealthier and healthier C/UAs predominately in the South East and East of England. We see that these C/UAs have fewer children in low income families and with a low infant mortality rate. They do also have better newborn hearing and physical examination coverage (higher numbers are better in this case). 
 
@@ -205,7 +205,7 @@ However, clusters 6 and 7, where we found no evidence of negative drivers of sch
 
 We can also compare this with Cluster 2, a cluster which had a number of children in low income households, but also higher infant mortality rate, a higher conception rate in the under 18s and more full term babies having a low birth weight. The EYFSP for this cluster is lower than all the other clusters, with a smaller interquartile range. However, we see a number of outliers in the box plot for those reaching an expected level of development and those reaching a good level of development. Those outperforming areas include Doncaster and Barking and Dagenham.
 
-Finally, as already mentioned above, cluster 5, 6 and 7 have similar levels of school readiness. However, in @tbl:salient_causal and @fig:ey_indicators and @fig:comparison_indicators_ey we can see different distributions and significance contributions for the three.
+Finally, as already mentioned above, cluster 5, 6 and 7 have similar levels of school readiness. However, in @tbl:salient_causal, @fig:ey_indicators and @fig:comparison_indicators_ey we can see different distributions and significance contributions for the three.
 
 We consider these drivers of school readiness in more detail in the next sub-section, focussing on within cluster comparisons and particularly how the outperformers and underperformers in the EYFSP, differ in these factors.
 
