@@ -22,9 +22,9 @@ In this section we present the results of our clustering analysis:
 
 ### Cluster assignment results
 
-The cluster assignment procedure with the parameters that maximise variation in early year outcomes between clusters yields seven clusters. @tbl:assignments shows the top ten C/UAs per cluster by population.[^1]
+The cluster assignment procedure with the parameters that maximise variation in early year outcomes between clusters yields seven clusters. @tbl:assignments shows the top ten C/UAs per cluster by population.[^5]
 
-[^1]: We use mid-2020 all-ages population estimates obtained from ONS [here](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland)
+[^5]: We use mid-2020 all-ages population estimates obtained from ONS [here](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland)
 
 
 |   cluster | Top 10 C/UAs by population                                                                                                                           |
@@ -41,9 +41,9 @@ The cluster assignment procedure with the parameters that maximise variation in 
 
 ### Geography of clusters
 
-We present the geography of clusters in @fig:choropleth and @fig:nuts, which shows the distribution of regions over different clusters.[^2]
+We present the geography of clusters in @fig:choropleth and @fig:nuts, which shows the distribution of regions over different clusters.[^6]
 
-[^2]: The empty spaces in the middle of the map represent C/UAs that were excluded from the analysis as a consequence of missing data (see previous section).
+[^6]: The empty spaces in the middle of the map represent C/UAs that were excluded from the analysis as a consequence of missing data (see previous section).
 
 Both charts show some geographic patterns in the clustering such as the prevalence of London boroughs in Cluster 5, a group of contiguous C/UAs in the Sotu South, East and South West in cluster 0, and a band of C/UAs in cluster 1 cutting across the country from Hull to Blackpool. We also note that several large C/UAs in the midlands and the North including Birmingham, Manchester, Nottingham or Leicester are, differently from the C/UAs around them, assigned to Cluster 2.
 
@@ -53,9 +53,9 @@ Both charts show some geographic patterns in the clustering such as the prevalen
 
 ### Some differences between cluster constituents
 
-We proceed to explore differences between our clusters in the secondary data that we used for our clustering (@fig:secondary and @tab:secondary) and in other sociodemographic characteristics such as size of the population and ethnic diversity based on 2001 census data (@fig:socio).[^3]
+We proceed to explore differences between our clusters in the secondary data that we used for our clustering (@fig:secondary and @tab:secondary) and in other sociodemographic characteristics such as size of the population and ethnic diversity based on 2001 census data (@fig:socio).[^7]
 
-[^3]: We proxy ethnic diversity with the entropy of the distribution of ethnic groups in a C/UA based on census data available [here](https://www.nomisweb.co.uk/census/2011/qs201ew).
+[^7]: We proxy ethnic diversity with the entropy of the distribution of ethnic groups in a C/UA based on census data available [here](https://www.nomisweb.co.uk/census/2011/qs201ew).
 
 #### Clustering variables
 
@@ -109,17 +109,17 @@ The correlation coefficient between cluster ranks based on their average point s
 
 ## Outperforming and underperforming {#subsec:outperf}
 
-While @fig:outcome*snap shows important differences between clusters in their early year outcomes, we also see important variation \_inside* clusters, with some C/UAs significantly out or underperforming their peers. Where are they?
+While @fig:outcome_snap shows important differences between clusters in their early year outcomes, we also see important variation _inside_ clusters, with some C/UAs significantly out or underperforming their peers. Where are they?
 
 ### Situation in 2019
 
-In @outperforming*2019 we present the average point scores for 2019 rescaled \_inside* each cluster. Our goal is to identify those C/UAs that have much higher or lower scores than their peers. Note that in this chart it is not meaningful to compare scores _across_ clusters since, as we showed previously, their mean scores are very different. See [here](https://nesta-slides.s3.eu-west-2.amazonaws.com/outperforming.html) for an interactive version of the chart.
+In @fig:outperforming_2019 we present the average point scores for 2019 rescaled _inside_ each cluster. Our goal is to identify those C/UAs that have much higher or lower scores than their peers. Note that in this chart it is not meaningful to compare scores _across_ clusters since, as we showed previously, their mean scores are very different. See [here](https://nesta-slides.s3.eu-west-2.amazonaws.com/outperforming.html) for an interactive version of the chart.
 
 ![Distribution of average point score performance normalised inside each cluster. We label C/UAs that are over or under 1.2 standard deviations from the mean in the cluster (which has been rescaled to zero). Note that scores are comparable inside clusters but not between cluster.](png/outperforming.png){#fig:outperforming_2019}
 
 ### Historical evolution
 
-Having considered out and underperformance in the most recent year, we also analyse historical trends in @fig:out*trend. This chart shows important variation in the evolution of performance \_inside* clusters, with individual C/UAs experiencing substantial improvements / declines over the considered period. In aggregate terms, and in line with the findings that we discussed above, this is reflected in relative stability in average performance in clusters, perhaps with a couple of exceptions (cluster 4 seems to show a decline in average performance, and cluster 5 (London boroughs) seems to show an improvement in average performance).
+Having considered out and underperformance in the most recent year, we also analyse historical trends in @fig:out_trend. This chart shows important variation in the evolution of performance _inside_ clusters, with individual C/UAs experiencing substantial improvements / declines over the considered period. In aggregate terms, and in line with the findings that we discussed above, this is reflected in relative stability in average performance in clusters, perhaps with a couple of exceptions (cluster 4 seems to show a decline in average performance, and cluster 5 (London boroughs) seems to show an improvement in average performance).
 
 ![Evolution of performance by cluster and indicator. Black lines represent the median trend for the cluster.](png/year_evol.png){#fig:out_trend}
 
@@ -169,7 +169,7 @@ Consistent with @fig:gender_parity_evol, it shows a generalised improvement in g
 
 Previously, we looked at differences between clusters in _all_ secondary contextual variables, and in their early year outcomes. Here, we focus on those which according to the literature impact on school readiness. Our goal is to drill down into aspects of the local context that might be particularly important for understanding differences in early year outcomes.
 
-![Differences in means between indicators which are known to affect school readiness for the different clusters.\label(ey_indicators)](png/ey_indicators_domestic_abuse_included.png) {#fig:ey_indicators}
+![Differences in means between indicators which are known to affect school readiness for the different clusters.\label(ey_indicators)](png/ey_indicators_domestic_abuse_included.png){#fig:ey_indicators}
 
 Figure @fig:ey_indicators shows how these indicators vary between the clusters, and highlights those with the highest differences (represented in the colour scale) (see also @tbl:salient_causal). 
 
@@ -197,7 +197,7 @@ Cluster 6 and 7 do not have any salient negative drivers of school readiness. It
 
 We investigate how these indicators relate to the EYFSP variables. The number of children (<16 years) in absolute low income households and relative low income households, under 18s conception rate and the number of low birth weights for full term babies all were significant for at least four of the seven clusters. We have picked out these indicators to look at the distribution of their scores and how they compare to EFSYP outcome measures (@fig:comparison_indicators_ey).
 
-![Comparison between the Z-scores for the four top indicators affecting the clustering and the different outcome measures of the EYFSP.](png/comparison_indicators_ey.png) {#fig:comparison_indicators_ey}
+![Comparison between the Z-scores for the four top indicators affecting the clustering and the different outcome measures of the EYFSP.](png/comparison_indicators_ey.png){#fig:comparison_indicators_ey}
 
 Cluster 0 stands out in stark contrast to the others, it has noticeably lower scores for the number of children in low income households and consistently higher school readiness. This is in line with previous research which highlights income as one of the biggest factors contributing to school readiness ([Isaacs, J., 2012](https://www.brookings.edu/wp-content/uploads/2016/06/0319_school_disadvantage_isaacs.pdf); [Peterson, J. et al., 2018](https://www.publications.aap.org/pediatrics/article-split/142/5/e20181126/38543/The-Intersection-of-Health-and-Education-to?autologincheck=redirected); [Brophy, S. et al., 2021](https://www.adruk.org/fileadmin/uploads/adruk/Documents/Data_Insight_Risk_factors_for_not_being_ready_to_start_school__February_2021_.pdf); [Cooper, K., 2021](https://journals.sagepub.com/doi/pdf/10.1177/0038038520939397)). 
 
@@ -219,13 +219,13 @@ In order to do this, we present an alternative version of the "outperformers". H
 
 For the intra-cluster comparisons, we first have grouped the clusters with respect to the analysis above. Clusters 0 and 2 had the highest and lowest school readiness, respectively so we compare these two directly. Clusters 1, 5, 6 and 7 had similar levels of school readiness, despite their differences in the drivers of schoool readiness so we have grouped these. Finally, cluster 4 had no significant factors that affect school readiness, so we have separated it out.
 
-First, we compare Cluster 0 and Cluster 2 (Figure @intra_cluster). Cluster 0 is the wealthier LAs based in the East and South East of England, and of the factors which contributed most to the clustering - the number of children in low income families, the infant mortality rate, the under 18s conception rate and the domestic abuse rate - were lower than the rest of the clusters.
+First, we compare Cluster 0 and Cluster 2 (@fig:intra_cluster_0). Cluster 0 is the wealthier LAs based in the East and South East of England, and of the factors which contributed most to the clustering - the number of children in low income families, the infant mortality rate, the under 18s conception rate and the domestic abuse rate - were lower than the rest of the clusters.
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods for clusters 0 and 2.](png/clusters_0_2.png){#fig:intra_cluster}
+![Difference between the indicators for outperforming and underperforming neighbourhoods for clusters 0 and 2.](png/clusters_0_2.png){#fig:intra_cluster_0}
 
 As expected, both the out-performers and the under-performers in Cluster 0 have lower scores in factors that are negatively associated with school readiness. Despite having overall the best school readiness, there is a large interquartile range. The small difference between the indicators for out/under performers suggests that under performance is driven by more than the "classic" drivers of development. In Cluster 2, there is much more variation, but noticably the outperformers tend to have a lower under 18s conception rate, fewer children in low income households, fewer hospital admissions for children and fewer incidents of domestic abuse. This suggests that in more deprived areas, the known factors that influence school readiness have more of an effect.
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods for clusters for 1,5 6 and 7.](png/cluster_1_5_6_7.png){#fig:intra_cluster}
+![Difference between the indicators for outperforming and underperforming neighbourhoods for clusters for 1,5 6 and 7.](png/cluster_1_5_6_7.png){#fig:intra_cluster_1}
 
 
 We now move onto the four clusters 1,5,6 and 7 which had similar levels of school readiness despite substantial differences in context (@fig:ey_indicators). Here, we do not see such a clear divide between the out-performing and under-performing C/UAs. In cluster 1, we see the biggest differences in the hospital admissions for children and the coverage of newborn hearing screening, despite having similarly negative effects to cluster 2 when looking at the indicators which drive the clusters. The London boroughs (cluster 5) do not have a clear divide between the outperforming and underperforming C/UAs, with both being very interspersed. 
@@ -234,7 +234,7 @@ Clusters 6 and 7 are similar, but there is much more variation within the indica
 
 Finally we have cluster 4 which did not have any salient indicators for the drivers of school readiness. It also has fewer out/under-performers as it is a smaller cluster with less notable outliers. Due to this, the differences between the single outperformer in Greenwich and the underperformer in Peterborough, should be not be over-interpreted. The difference between the two is also smaller than the other clusters, without much variation in the indicator scores.
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods for cluster 4.](png/cluster_4_indicators.png){#fig:intra_cluster}
+![Difference between the indicators for outperforming and underperforming neighbourhoods for cluster 4.](png/cluster_4_indicators.png){#fig:intra_cluster_2}
 
 <!--
 We turn to some of the C/UA sociodemographic characteristics that we investigated previously - ethnic diversity and population size - but this time focusing on the outperformers and underperformers of each cluster.
@@ -263,9 +263,9 @@ In Cluster 0, we see that both under-performers, Cambridgeshire and Central Bedf
 
 By contrast, in Cluster 1 indicators have much more overlap between outperforming and underperforming areas. They are also less geographically clustered, with the exception of Hartlepool and Stockton-on-Tees, two neighbouring C/UAs that are outperforming the rest of the cluster. Despite their proximity, in @fig:cluster_1_regions, the two North Eastern C/UAs differ on many of the school readiness indicators. This suggests that other factors are leading Stockton-on-Tees and Hartlepool to perform better in the EYFSP.
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 1.](png/cluster_1.png) {#fig:cluster_1_regions}
+![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 1.](png/cluster_1.png){#fig:cluster_1_regions}
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 1.](png/cluster_1_choropleth_out_under.png) {#fig:cluster_1_choropleth}
+![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 1.](png/cluster_1_choropleth_out_under.png){#fig:cluster_1_choropleth}
 
 
 #### _Cluster 2_
