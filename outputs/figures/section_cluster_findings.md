@@ -10,6 +10,7 @@ In this section we present the results of our clustering analysis:
 - Who are the outperforming and underperforming C/UAs inside each cluster in the latest version of the data and historically?
 - How do different clusters perform in terms of gender parity in their average scores, how has gender parity evolved over time, and what are the outperforming and underperforming C/UAs?
 - What are the differences between clusters in variables that we know are causally linked to early years outcomes?
+- What are the differences _inside_ clusters between outperformers and underperformers? 
 
 
 <!--These are other things we might do
@@ -207,96 +208,106 @@ We can also compare this with Cluster 2, a cluster which had a number of childre
 Finally, as already mentioned above, cluster 5, 6 and 7 have similar levels of school readiness. However, in @tbl:salient_causal and @fig:ey_indicators and @fig:comparison_indicators_ey we can see different distributions and significance contributions for the three.
 
 We consider these drivers of school readiness in more detail in the next sub-section, focussing on within cluster comparisons and particularly how the outperformers and underperformers in the EYFSP, differ in these factors.
+
 ### **Intra-cluster comparisons**
 
-For the intra-cluster comparisons of school readiness, we present an alternative version of the "outperformers". Here, instead of looking at the average point score, we concentrate on the percentage of children reaching the expected level of development. The reason for this is twofold, firstly, the average point score for children does not tell us how many are reaching the required level of development, and secondly, we want to know which C/UAs are doing better than similar C/UAs in ensuring as many as their children as possible are school ready.
+We conclude our analysis by considering differences in performance _inside_ clusters: to which extent are the differences between C/UAs linked to differences in other variables that underscore differences in early year outcomes? One of our goals is to rule out observed differences between C/UAs leaving a residual which might be explained by other ounobserved factors including differences in policy.
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods for clusters 0 and 2.](png/outperformers_percentage_of_children_reaching_expected_level_of_development.png) {#fig:outperformers_percentage}
+In order to do this, we present an alternative version of the "outperformers". Here, instead of looking at the average point score, we concentrate on the percentage of children reaching the expected level of development. The reason for this is twofold, firstly, the average point score for children does not tell us how many are reaching the required level of development, and secondly, we want to know which C/UAs are doing better than similar C/UAs in ensuring as many as their children as possible are school ready.
 
-For the intra-cluster comparisons, we first have grouped the clusters with respect to the analysis above. Clusters 0 and 2 had the highest and lowest school readiness, respectively so we compare these two directly. Clusters 1, 5, 6 and 7 had similar levels of school readiness, despite their differences in the drivers of schoool readiness so we have grouped these. Finally, cluster 4 had no significant factors that affect school readiness, so we have separated this one out.
+![Difference between the indicators for outperforming and underperforming neighbourhoods for clusters 0 and 2.](png/outperformers_percentage_of_children_reaching_expected_level_of_development.png){#fig:outperformers_percentage}
 
+For the intra-cluster comparisons, we first have grouped the clusters with respect to the analysis above. Clusters 0 and 2 had the highest and lowest school readiness, respectively so we compare these two directly. Clusters 1, 5, 6 and 7 had similar levels of school readiness, despite their differences in the drivers of schoool readiness so we have grouped these. Finally, cluster 4 had no significant factors that affect school readiness, so we have separated it out.
 
 First, we compare Cluster 0 and Cluster 2 (Figure @intra_cluster). Cluster 0 is the wealthier LAs based in the East and South East of England, and of the factors which contributed most to the clustering - the number of children in low income families, the infant mortality rate, the under 18s conception rate and the domestic abuse rate - were lower than the rest of the clusters.
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods for clusters 0 and 2.](png/clusters_0_2.png) {#fig:intra_cluster}
+![Difference between the indicators for outperforming and underperforming neighbourhoods for clusters 0 and 2.](png/clusters_0_2.png){#fig:intra_cluster}
 
-As expected, both the out-performers and the under-performers are lower in Cluster 0 on the negative effects of school readiness. Despite having overall the best school readiness, there is a large interquartile range. The small difference between the indicators for out/under performers suggests there is more affecting the under performers for school readiness than the "classic" drivers of development. In Cluster 2, there is a lot more variation, but noticably the outperformers have a lower under 18s conception rate, fewer children in low income households, fewer hospital admissions for children and fewer incidents of domestic abuse. This perhaps highlights that in more deprived areas, the known factors that influence school readiness, do have more of an effect.
+As expected, both the out-performers and the under-performers in Cluster 0 have lower scores in factors that are negatively associated with school readiness. Despite having overall the best school readiness, there is a large interquartile range. The small difference between the indicators for out/under performers suggests that under performance is driven by more than the "classic" drivers of development. In Cluster 2, there is much more variation, but noticably the outperformers tend to have a lower under 18s conception rate, fewer children in low income households, fewer hospital admissions for children and fewer incidents of domestic abuse. This suggests that in more deprived areas, the known factors that influence school readiness have more of an effect.
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods for clusters for 1,5 6 and 7.](png/cluster_1_5_6_7.png) {#fig:intra_cluster}
+![Difference between the indicators for outperforming and underperforming neighbourhoods for clusters for 1,5 6 and 7.](png/cluster_1_5_6_7.png){#fig:intra_cluster}
 
-We now move onto the four clusters 1,5,6 and 7 which had similar levels of school readiness, but with very different indicators (Figure @fig:ey_indicators). Here, we can see there is not such a clear divide between the out-performing and under-performing neighbourhoods. In cluster 1, it is the hospital admissions for children and the coverage of newborn hearing screening which has the biggest separation, despite having similarly negative effects to cluster 2 when looking at the indicators which drive the clusters. The London boroughs (cluster 5) do not have any clear divide between the outperforming and underperforming LAs, with both being very interspersed. 
 
-Clusters 6 and 7 are similar, but there is much more variation within the indicators. With the exception of number of children with a low birth weight at full term and the <1y physical examination screening coverage in cluster 6, there is no divide between the out-performers and under-performers. We look at these in more detail in their individual cluster sections below.
+We now move onto the four clusters 1,5,6 and 7 which had similar levels of school readiness despite substantial differences in context (@fig:ey_indicators). Here, we do not see such a clear divide between the out-performing and under-performing C/UAs. In cluster 1, we see the biggest differences in the hospital admissions for children and the coverage of newborn hearing screening, despite having similarly negative effects to cluster 2 when looking at the indicators which drive the clusters. The London boroughs (cluster 5) do not have a clear divide between the outperforming and underperforming C/UAs, with both being very interspersed. 
 
-Finally we have cluster 4 which didn't have any significant indicators for the drivers of school readiness. It also has fewer out/under-performers as it's a smaller cluster with less notable outliers. Due to this, the differences between the single outperformer in Greenwich and the underperformer in Peterborough, should be not be over interpreted. The difference between the two is also smaller than the other clusters, with not so much variation in the indicator scores.
+Clusters 6 and 7 are similar, but there is much more variation within the indicators. With the exception of number of children with a low birth weight at full term and the <1y physical examination screening coverage in cluster 6, there is no clear divide between the out-performers and under-performers. We look at these in more detail in their individual cluster sections below.
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods for cluster 4.](png/cluster_4_indicators.png) {#fig:intra_cluster}
+Finally we have cluster 4 which did not have any salient indicators for the drivers of school readiness. It also has fewer out/under-performers as it is a smaller cluster with less notable outliers. Due to this, the differences between the single outperformer in Greenwich and the underperformer in Peterborough, should be not be over-interpreted. The difference between the two is also smaller than the other clusters, without much variation in the indicator scores.
 
-Finally, we can look at the characteristics investigated previously - ethnic diversity and population size - but this time concentrated on the outperformers and underperformers of each cluster.
+![Difference between the indicators for outperforming and underperforming neighbourhoods for cluster 4.](png/cluster_4_indicators.png){#fig:intra_cluster}
 
-Figure @fig:out_under_ethnic_diversity shows that there isn't a link between the ethnic diversity of a population and the performance, neither is there a strong relationship between size of the C/UA and the performance. We may tentatively suggest that the bigger the population though, the more likely they are to underperform - with the exception of Surrey, the largest population centres are all underperforming.
+<!--
+We turn to some of the C/UA sociodemographic characteristics that we investigated previously - ethnic diversity and population size - but this time focusing on the outperformers and underperformers of each cluster.
+
+Figure @fig:out_under_ethnic_diversity does not show clear links between the ethnic diversity of a population and out/under performance inside a cluster, neither is there a strong relationship between size of the C/UA and the performance. We may tentatively suggest that the bigger the population though, the more likely they are to underperform - with the exception of Surrey, the largest population centres are all underperforming.
 
 ![Difference in the out-performers and under-performers in each region looking at population size and ethnic diversity.](png/differences_in_region_population_and_ethnic_diversity.png) {#fig:out_under_ethnic_diversity}
 
 We now look at the individual clusters in greater detail.
+-->
 
-### _Cluster 0_
+### Geographical differences inside clusters
 
-We look here at the geographic differences in the out/under-performers and their different indicators. In Cluster 0, we see that both the under-performers are located in the East of England, they are Cambridgeshire and Central Bedfordshire, also next door to each other geographically (Figure @fig:cluster_1_choropleth). As mentioned above, the divide between the out-performers and under-performers is split along the typical drivers of school readiness, suggesting these are some of the contributers to the difference in scores. 
+We conclude this section by looking here at the geographic differences in the out/under-performers and their different indicators. 
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 0.](png/cluster_0.png) {#fig:cluster_0_regions}
+#### _Cluster 0_
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 0.](png/cluster_0_choropleth_out_under.png) {#fig:cluster_0_choropleth}
+In Cluster 0, we see that both under-performers, Cambridgeshire and Central Bedfordshire, are located in the East of England and adjacent geographically (Figure @fig:cluster_1_choropleth). As mentioned above, the divide between the out-performers and under-performers is along the typical drivers of school readiness, suggesting these are some of the contributers to the difference in outcomes. 
+
+![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 0.](png/cluster_0.png){#fig:cluster_0_regions}
+
+![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 0.](png/cluster_0_choropleth_out_under.png){#fig:cluster_0_choropleth}
 
 
+#### _Cluster 1_
 
-### _Cluster 1_
-
-We can compare this to Cluster 1, where the indicators have a lot more overlap between the outperforming and underperforming areas. They are also less geographically clustered, with the exception of Hartlepool and Stockton-on-Tees, two neighbouring LAs who are outperforming the rest of the cluster. Despite their proximity, in Figure @fig:cluster_1_regions, the two North Eastern C/UAs differ on many of the school readiness indicators. This suggests there is something else which is leading Stockton-on-Tees and Hartlepool to perform better in the EYFSP.
+By contrast, in Cluster 1 indicators have much more overlap between outperforming and underperforming areas. They are also less geographically clustered, with the exception of Hartlepool and Stockton-on-Tees, two neighbouring C/UAs that are outperforming the rest of the cluster. Despite their proximity, in @fig:cluster_1_regions, the two North Eastern C/UAs differ on many of the school readiness indicators. This suggests that other factors are leading Stockton-on-Tees and Hartlepool to perform better in the EYFSP.
 
 ![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 1.](png/cluster_1.png) {#fig:cluster_1_regions}
 
 ![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 1.](png/cluster_1_choropleth_out_under.png) {#fig:cluster_1_choropleth}
 
 
-### _Cluster 2_
+#### _Cluster 2_
 
-Cluster 2 was diametrically opposed to Cluster 0. Cluster 0 contains wealthy East and South Eastern C/UAs, characterised by long life expectancy and not many children in low income households. Cluster 2 is predominately Northern and Midland C/UAs, particularly the larger cities outside of London, with low life expectancies, a higher under 18s conception rate and a significant proportion of children in low income households. We saw that the classic factors of school readiness separated the outperformers and underperformers in Cluster 0 and we see the same here. The biggest divide is in the number of children in absolute low income households, with a smaller gap between the hospital admissions for children and the children in relative low income households. Despite the under 18s conception rate contributing significantly, here we can see that Doncaster (Yorkshire and The Humber) sits almost equidistant between Barking and Dagenham and Middlesbrough, this perhaps suggests this is not such a defining factor in the difference in EYFSP results.
+Cluster 2 was diametrically opposed to Cluster 0. Cluster 0 contains wealthy East and South Eastern C/UAs, characterised by long life expectancy and not many children in low income households. Cluster 2 is predominately Northern and Midland C/UAs, particularly the larger cities outside of London, with low life expectancies, a higher under 18s conception rate and a significant proportion of children in low income households. 
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods.](png/cluster_2.png) {#fig:cluster_2_regions}
+We saw that the classic factors of school readiness separated the outperformers and underperformers in Cluster 0 and we see the same here. The biggest divide is in the number of children in absolute low income households, with a smaller gap between the hospital admissions for children and the children in relative low income households. Despite the under 18s conception rate contributing significantly, here we can see that Doncaster (Yorkshire and The Humber) sits almost equidistant between Barking and Dagenham and Middlesbrough, this perhaps suggests this is not such a defining factor in the difference in EYFSP results.
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 2.](png/cluster_2_choropleth_out_under.png) {#fig:cluster_2_choropleth}
+![Difference between the indicators for outperforming and underperforming neighbourhoods.](png/cluster_2.png){#fig:cluster_2_regions}
 
-### _Cluster 3_
+![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 2.](png/cluster_2_choropleth_out_under.png){#fig:cluster_2_choropleth}
 
-The C/UAs in Cluster 3 are all exclusively in the North of England. The three outperforming are in the North East, specifically around Newcastle-upon-Tyne and the two underperforming are in the North West, Liverpool and its close neighbour, Halton. The number of children in low income households is very similar for both, with the clearest differences being in the incidents of domestic abuse, the number of low birth weights and the newborn hearing screening coverage. However, the outperformers have less coverage of newborn hearing tests, which we suggest is not a factor in the differing percentages of children being school ready, but rather indicative of the differing local services.
+#### _Cluster 3_
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods.](png/cluster_3.png) {#fig:cluster_3_regions}
+The C/UAs in Cluster 3 are all exclusively in the North of England. The three outperforming are in the North East, specifically around Newcastle-upon-Tyne and the two underperforming are in the North West, Liverpool and its close neighbour, Halton. The number of children in low income households is very similar for both, with the clearest differences being in the incidents of domestic abuse, the number of low birth weights and the newborn hearing screening coverage. However, the outperformers have less coverage of newborn hearing tests, which could be indicative of differences in their local services.
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 3.](png/cluster_3_choropleth_out_under.png) {#fig:cluster_3_choropleth}
+![Difference between the indicators for outperforming and underperforming neighbourhoods.](png/cluster_3.png){#fig:cluster_3_regions}
 
-We have omitted Cluster 4 due to having a single outperformer and a single underperformer, and the lack of significant contributions from the typical drivers of good levels of development.
+![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 3.](png/cluster_3_choropleth_out_under.png){#fig:cluster_3_choropleth}
 
-### _Cluster 5_
+We have omitted Cluster 4 because it had a single outperformer and a single underperformer, and no salient typical drivers of good levels of development.
 
-We move on instead to Cluster 5 which is exclusively London boroughs. We noted previously how the overlapping outperforming and underperforming neighbourhoods in the EY indicators suggests there are alternative contributors towards school readiness. We can see that the underperformers are somewhat grouped together, with Islington, Hackney and Tower Hamlets clustered. However, these are immediately next door to Waltham Forest, an outperforming neighbourhood. This cluster will be particularly interesting to investigate further with secondary data and the follow-up survey.
+#### _Cluster 5_
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 35.](png/cluster_5_choropleth_out_under.png) {#fig:cluster_5_choropleth}
+We move on to Cluster 5, comprising London boroughs. We noted previously how the overlapping outperforming and underperforming neighbourhoods in the EY indicators suggests there are alternative contributors towards school readiness. We can see that the underperformers are somewhat grouped together, with Islington, Hackney and Tower Hamlets clustered. However, these are immediately next door to Waltham Forest, an outperforming neighbourhood. This cluster will be particularly interesting to investigate further with secondary data and the follow-up survey.
 
-### _Cluster 6_
+![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 5.](png/cluster_5_choropleth_out_under.png) {#fig:cluster_5_choropleth}
 
-Cluster 6 covers a lot of England with the outperformers spread from Northumberland to Bexley, in London. Interestingly, two of the authorities of Greater Manchester - Trafford and Stockport - are not similar at all in terms of percentage of children reaching an expected level of development. Stockport is comparatively underperforming whilst Trafford is overperforming. Both sit within the Greater Manchester Combined Authority, so will have similar local services and policy, and we can see that they are close in terms of the number of children in low income households. This is another example which will benefit from the follow-up survey and secondary data analysis to unpick exactly what is different.
+#### _Cluster 6_
+
+Cluster 6 covers much of England with the outperformers spread from Northumberland to Bexley, in London. Interestingly, two of the authorities of Greater Manchester - Trafford and Stockport - are very different in the percentage of children reaching an expected level of development. Stockport is comparatively underperforming whilst Trafford is overperforming. Both sit within the Greater Manchester Combined Authority, so will have similar local services and policy, and we can see that they are close in terms of the number of children in low income households. This is another example which will benefit from the follow-up survey and secondary data analysis to understand what drives their differences.
 
 ![Difference between the indicators for outperforming and underperforming neighbourhoods.](png/cluster_6.png) {#fig:cluster_6_regions}
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 35.](png/cluster_6_choropleth_out_under.png) {#fig:cluster_6_choropleth}
+![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 6.](png/cluster_6_choropleth_out_under.png) {#fig:cluster_6_choropleth}
 
-### _Cluster 7_
+#### _Cluster 7_
 
-Finally we have Cluster 7, a cluster made up of more rural C/UAs with an older population. The EY indicators also do not have a clear separation between the outperformers and underperformers, nor is there any geographic pattern. In the previous section's analysis, it could be seen that Cluster 0 (the wealthy C/UAs in the East and South East of England) shared similar significant indicators to Cluster 7, especially in terms of the direction and scale of their contribution (i.e. there aren't a lot of children in low income households, there is a low under 18s conception rate.). Yet the outperforming and underperforming C/UAs in Cluster 0 were very clearly separated along these EY features. It is not so clear at all in Cluster 7. They are very interspersed, and there is no separation at all. This suggests that despite the similarity in indicators in terms of significance, in Cluster 7, this is not having a strong effect on the percentage of children who are reaching an expected level of development.
+We conclude with Cluster 7, which is made up of more rural C/UAs with an older population. The EY indicators also do not have a clear separation between the outperformers and underperformers, nor is there any clear geographic pattern. In the previous section's analysis, it could be seen that Cluster 0 (the wealthy C/UAs in the East and South East of England) shared similar salient indicators to Cluster 7, especially in terms of the direction and scale of their contribution (i.e. there are not many children in low income households, there is a low under 18s conception rate.). Yet the outperforming and underperforming C/UAs in Cluster 0 were very clearly separated along these EY features. This is not visible in Cluster 7, where out and underperforming areas are more interspersed. This suggests that despite the similarity in indicators in terms of significance, in Cluster 7, this is not clearly linked to the percentage of children who are reaching an expected level of development.
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods.](png/cluster_7.png) {#fig:cluster_7_regions}
+![Difference between the indicators for outperforming and underperforming neighbourhoods.](png/cluster_7.png){#fig:cluster_7_regions}
 
-![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 35.](png/cluster_7_choropleth_out_under.png) {#fig:cluster_7_choropleth}
+![Difference between the indicators for outperforming and underperforming neighbourhoods and their regions for Cluster 7.](png/cluster_7_choropleth_out_under.png){#fig:cluster_7_choropleth}
 
-To conclude our intra-cluster analysis, we can see it revealed that a number of different factors are contributing towards the school readiness of the children in C/UAs. For some, it seems to be related to the already known drivers, but for others, it appears to be more nuanced. Through some secondary data analysis, we may find more trends, though we can still not claim causality. However, it is clear that the survey which will be conducted after will be key in finding more differences within the outperformers and underperformers.
+To conclude, our intra-cluster analysis suggesta that that a number of different factors are contributing towards the school readiness of the children in C/UAs. For some, it seems to be related to the already known drivers, but for others, it appears to be more nuanced. Additional analyses of secondary data and our follow-up survey should help identify additional factors underpinning the differences between them.
