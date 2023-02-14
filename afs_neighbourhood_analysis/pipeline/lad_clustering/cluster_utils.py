@@ -60,7 +60,7 @@ def clustering_consequential_pipe(
     efsyp_indicator: pd.DataFrame,
     clustering_options,
 ):
-    """Pipeline that calculates variance in EFSYP for clusters across different
+    """Pipeline that calculates variance in EYFSP for clusters across different
     datasets and parameter values
     """
 

@@ -65,11 +65,12 @@ def get_ethnicity():
     )
 
 
-def get_cluster_lookup() -> dict:
+def get_cluster_lookup(**kwargs) -> dict:
     """
     Read lookup between LA and cluster
     """
-    with open(f"{PROJECT_DIR}/inputs/data/cluster_lookup.json", "r") as infile:
+    fname = kwargs.get("fname", "cluster_lookup.json")
+    with open(f"{PROJECT_DIR}/inputs/data/{fname}", "r") as infile:
         return json.load(infile)
 
 

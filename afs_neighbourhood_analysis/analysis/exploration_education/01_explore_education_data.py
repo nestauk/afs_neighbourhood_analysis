@@ -34,6 +34,7 @@ import geopandas as gpd
 
 # %%
 from afs_neighbourhood_analysis.utils import utils
+from afs_neighbourhood_analysis.utils.altair_utils import *
 from afs_neighbourhood_analysis.pipeline.get_education_data import get_data
 from afs_neighbourhood_analysis.pipeline.generate_data import main
 from afs_neighbourhood_analysis import PROJECT_DIR
@@ -54,14 +55,20 @@ for key, val in colours.items():
         nesta_colours = val
 
 # %%
-alt.themes.register("nestafont", utils.nestafont)
-alt.themes.enable("nestafont")
+alt.themes.register('nesta_theme', utils.nesta_theme)
+alt.themes.enable('nesta_theme')
 
 # %%
 input_fpath = f"{PROJECT_DIR}/inputs/data/aux"
 
 # %%
+input_fpath
+
+# %%
 output_fpath = f"{PROJECT_DIR}/outputs"
+
+# %%
+wd = google_chrome_driver_setup()
 
 # %% [markdown]
 # ## 2. Read in data
@@ -191,10 +198,16 @@ IMD_gld_county_grouped = IMD_gld_county.groupby("CTY21NM").mean().reset_index()
 IMD_combined = pd.concat([IMD_gld_grouped, IMD_gld_county_grouped])
 
 # %%
-IMD_combined.dropna(subset="time_period", inplace=True)
+#IMD_combined.dropna(subset="time_period", inplace=True)
 
 # %%
 IMD_combined["la_name"].update(IMD_combined.pop("CTY21NM"))
+
+# %%
+below_national_average = IMD_combined[(IMD_combined.IMD_Decile <= 3.6)].sort_values(by=["IMD_Decile", "gld_percent"])
+
+# %%
+below_national_average[["la_name", "IMD_Decile", "gld_percent"]].head(15)
 
 # %% [markdown]
 # ## 3. Cleaning
@@ -260,7 +273,28 @@ eyfsp_la_1_key_measures_additional_tables_2013_2019 = (
 )
 
 # %%
-eyfsp_la_1_key_measures_additional_tables_2013_2019
+fsm_la = eyfsp_la_1_key_measures_additional_tables_2013_2019[(eyfsp_la_1_key_measures_additional_tables_2013_2019.time_period == 201819) & (eyfsp_la_1_key_measures_additional_tables_2013_2019.characteristic == "FSM eligibility") & (eyfsp_la_1_key_measures_additional_tables_2013_2019.gender == "Total") & (eyfsp_la_1_key_measures_additional_tables_2013_2019.characteristic_type == "FSM")]
+
+# %%
+fsm_la
+
+# %%
+non_fsm = eyfsp_la_1_key_measures_additional_tables_2013_2019[(eyfsp_la_1_key_measures_additional_tables_2013_2019.time_period == 201819) & (eyfsp_la_1_key_measures_additional_tables_2013_2019.characteristic == "FSM eligibility") & (eyfsp_la_1_key_measures_additional_tables_2013_2019.gender == "Total")]
+
+# %%
+fsm_for_isobel[fsm_for_isobel.la_name.isin(["Leeds", "York", "Stockport", "Calderdale", "Bradford", "Wakefield", "Barnsley", "Derbyshire", "Oldham", "Rochdale", "Sheffield", "Tameside", "Kirklees"])].to_csv(f"{output_fpath}/data/fsm_eyfsp_outcomes_neighbouring_LAs")
+
+# %%
+non_fsm_la = eyfsp_la_1_key_measures_additional_tables_2013_2019[(eyfsp_la_1_key_measures_additional_tables_2013_2019.time_period == 201819) & (eyfsp_la_1_key_measures_additional_tables_2013_2019.characteristic == "FSM eligibility") & (eyfsp_la_1_key_measures_additional_tables_2013_2019.gender == "Total") & (eyfsp_la_1_key_measures_additional_tables_2013_2019.characteristic_type == "All_other")]
+
+# %%
+non_fsm_la[non_fsm_la.la_name == "Hackney"]
+
+# %%
+fsm_la = fsm_la.rename(columns={"gld_percent":"gld_percent_fsm"})
+
+# %%
+IMD_combined = IMD_combined.merge(fsm_la[["la_name", "gld_percent_fsm", "new_la_code"]], on="la_name", how="left")
 
 # %%
 eyfsp_la_1_key_measures_additional_tables_2013_2019.drop(
@@ -340,23 +374,96 @@ aps_gld_elg_expr_2013_2019.rename(
 aps_gld_elg_expr_2013_2019.drop(columns="index", inplace=True)
 
 # %%
-chart_IMD = (
-    alt.Chart(IMD_combined)
-    .mark_circle(size=30, color="#0000FF")
+IMD_combined[IMD_combined.la_name.isin(list(london_boroughs.lad19nm))]
+
+# %%
+IMD_combined_renamed_columns = IMD_combined.rename(columns={"gld_percent":"Mean GLD percentage", "IMD_Decile":"Average IMD Decile", "gld_percent_fsm":"Mean GLD percentage (FSM)"})
+
+# %%
+source = IMD_combined_renamed_columns[["la_name","Mean GLD percentage","Average IMD Decile","Mean GLD percentage (FSM)"]]
+
+# %%
+chart_IMD_London = (
+    alt.Chart(source[source.la_name.isin(list(london_boroughs.lad19nm))])
+    .mark_circle(size=30, color="#F6A4B7")
     .encode(
         x=alt.X(
-            "IMD_Decile",
-            title="Mean IMD Decile based on LAs",
+            "Average IMD Decile",
+            title="Mean Index Multiple Deprivation (IMD) Decile for each LA",
             scale=alt.Scale(domain=[1, 10]),
         ),
         y=alt.Y(
-            "gld_percent", title="Mean GLD percentage", scale=alt.Scale(domain=[50, 90])
+            "Mean GLD percentage", title="Mean GLD percentage", scale=alt.Scale(domain=[40, 90])
         ),
-        tooltip=["la_name", "gld_percent", "IMD_Decile"],
+        tooltip=alt.Tooltip(["Mean GLD percentage", "Average IMD Decile", "la_name"],format='.1f'),
     )
-    .properties(title="IMD Decile  (1 - most deprived, 10 - least deprived)")
+    .properties(title="IMD Decile  (1 - most deprived, 10 - least deprived)", width=300)
 )
 
+# %%
+chart_IMD = (
+    alt.Chart(source[~source.la_name.isin(list(london_boroughs.lad19nm))])
+    .mark_circle(size=30, color="#0000FF")
+    .encode(
+        x=alt.X(
+            "Average IMD Decile",
+            title="Mean Index Multiple Deprivation (IMD) Decile for each LA",
+            scale=alt.Scale(domain=[1, 10]),
+        ),
+        y=alt.Y(
+            "Mean GLD percentage", title="Mean GLD percentage", scale=alt.Scale(domain=[40, 90])
+        ),
+        tooltip=alt.Tooltip(["Mean GLD percentage", "Average IMD Decile", "la_name"],format='.1f'),
+    )
+    .properties(title="IMD Decile  (1 - most deprived, 10 - least deprived)", width=300)
+)
+
+# %%
+chart_IMD_London_fsm = (
+    alt.Chart(source[source.la_name.isin(list(london_boroughs.lad19nm))])
+    .mark_circle(size=30, color="#F6A4B7")
+    .encode(
+        x=alt.X(
+            "Average IMD Decile",
+            title="Mean Index Multiple Deprivation (IMD) Decile for each LA",
+            scale=alt.Scale(domain=[1, 10]),
+        ),
+        y=alt.Y(
+            "Mean GLD percentage (FSM)", title="Mean GLD percentage (FSM)", scale=alt.Scale(domain=[40, 90])
+        ),
+        tooltip=alt.Tooltip(["Mean GLD percentage (FSM)", "Average IMD Decile", "la_name"],format='.1f'),
+    )
+    .properties(title="IMD Decile  (1 - most deprived, 10 - least deprived)", width=300)
+)
+
+# %%
+chart_IMD_fsm = (
+    alt.Chart(source[~source.la_name.isin(list(london_boroughs.lad19nm))])
+    .mark_circle(size=30, color="#0000FF")
+    .encode(
+        x=alt.X(
+            "Average IMD Decile",
+            title="Mean Index Multiple Deprivation (IMD) Decile for each LA",
+            scale=alt.Scale(domain=[1, 10]),
+        ),
+        y=alt.Y(
+            "Mean GLD percentage (FSM)", title="Mean GLD percentage (FSM)", scale=alt.Scale(domain=[40, 90])
+        ),
+        tooltip=alt.Tooltip(["Mean GLD percentage (FSM)", "Average IMD Decile", "la_name"],format='.1f'),
+    )
+    .properties(title="IMD Decile  (1 - most deprived, 10 - least deprived)", width=300)
+)
+
+# %%
+IMD_chart = chart_IMD + chart_IMD_London | chart_IMD_fsm + chart_IMD_London_fsm
+
+# %%
+IMD_chart
+
+# %%
+save_altair(altair_text_resize(IMD_chart), "IMD_vs_gld", driver=wd)
+
+# %%
 gld_total = (
     alt.Chart(gld_data_to_plot)
     .mark_bar(color="#0000FF")
@@ -623,12 +730,12 @@ bins_fsm = [40, 45, 50, 55, 60, 65, 70, 75]
 labels_fsm = ["40-45", "45-50", "50-55", "55-60", "60-65", "65-70", "70-75"]
 
 # %%
-gld_data_to_plot["binned_gld_percent"] = pd.cut(
+gld_data_to_plot["Percentage reaching GLD"] = pd.cut(
     gld_data_to_plot.gld_percent, bins, labels=labels
 )
 
 # %%
-fsm_data_to_plot["binned_gld_percent"] = pd.cut(
+fsm_data_to_plot["Percentage reaching GLD"] = pd.cut(
     fsm_data_to_plot.gld_percent, bins_fsm, labels=labels_fsm
 )
 
@@ -637,7 +744,7 @@ bins_diff = [-15, -10, -5, 0, 5, 10, 15, 20]
 labels_diff = ["-15 - -10", "-10 - -5", "-5 - 0", "0-5", "5-10", "10-15", "15-20"]
 
 # %%
-gld_diff_to_plot["binned_gld_diff"] = pd.cut(
+gld_diff_to_plot["Percentage reaching GLD"] = pd.cut(
     gld_diff_to_plot.gld_diff, bins_diff, labels=labels_diff
 )
 
@@ -665,25 +772,26 @@ range_fsm = [
 la_select = alt.selection_multi(fields=["la_name"])
 color = alt.condition(
     la_select,
-    alt.Color("binned_gld_percent:N", scale=alt.Scale(domain=domain, range=range_)),
+    alt.Color("Percentage reaching GLD:N", scale=alt.Scale(domain=domain, range=range_)),
     alt.value("lightgray"),
 )
 
 # %%
 la_select_fsm = alt.selection_multi(fields=["la_name"])
-color = alt.condition(
+color_fsm = alt.condition(
     la_select_fsm,
     alt.Color(
-        "binned_gld_percent:N", scale=alt.Scale(domain=domain_fsm, range=range_fsm)
+        "Percentage reaching GLD:N", scale=alt.Scale(domain=domain_fsm, range=range_fsm)
     ),
     alt.value("lightgray"),
+    title="Good Level of Development Difference"
 )
 
 # %%
 la_select_diff = alt.selection_multi(fields=["la_name"])
 color_diff = alt.condition(
     la_select,
-    alt.Color("binned_gld_diff:N", scale=alt.Scale(scheme="redblue")),
+    alt.Color("Percentage reaching GLD:N", scale=alt.Scale(scheme="redblue")),
     alt.value("lightgray"),
 )
 
@@ -696,12 +804,12 @@ choro_gld_no_london_fsm = (
     )
     .mark_geoshape(stroke="black")
     .encode(
-        color=color,
+        color=color_fsm,
         tooltip=[
             alt.Tooltip("la_name:N", title="LA"),
             alt.Tooltip("gld_percent:Q", title="Average GLD (%)", format="1.2f"),
             alt.Tooltip(
-                "number_of_pupils:Q", title="Number of pupils (FSM)", format="1.2f"
+                "number_of_pupils:Q", title="Number of pupils (FSM)", format=".0f"
             ),
         ],
     )
@@ -779,12 +887,12 @@ choro_gld_london_fsm = (
     )
     .mark_geoshape(stroke="black")
     .encode(
-        color=color,
+        color=color_fsm,
         tooltip=[
             alt.Tooltip("la_name:N", title="LA"),
             alt.Tooltip("gld_percent:Q", title="Average GLD (%)", format="1.2f"),
             alt.Tooltip(
-                "number_of_pupils:Q", title="Number of pupils (FSM)", format="1.2f"
+                "number_of_pupils:Q", title="Number of pupils (FSM)", format=".0f"
             ),
         ],
     )
@@ -956,6 +1064,21 @@ map_and_bar_ldn_fsm = alt.vconcat(
     bar_chart_highest_fsm, choro_gld_london_fsm
 ).resolve_scale(color="independent")
 alt.hconcat(choro_gld_no_london_fsm, map_and_bar_ldn_fsm).configure_view(
+    strokeWidth=0
+).resolve_scale(color="independent")
+
+# %%
+choro_gld_no_london_fsm.properties(title="Map of England (excl. London) showing percentage of pupils on FSM reaching a GLD").configure_view(
+    strokeWidth=0
+).save(f'{output_fpath}/figures/html/choro_gld_no_london_fsm.html')
+
+# %%
+choro_gld_london_fsm.properties(title="Map of London showing percentage of pupils on FSM reaching a GLD").configure_view(
+    strokeWidth=0
+).save(f'{output_fpath}/figures/html/choro_gld_london_fsm.html')
+
+# %%
+alt.hconcat(choro_gld_no_london_fsm, choro_gld_london_fsm).configure_view(
     strokeWidth=0
 ).resolve_scale(color="independent")
 

@@ -43,15 +43,26 @@ def most_recent_data(phf: pd.DataFrame) -> pd.DataFrame:
 def standardise_early_years(early_years: pd.DataFrame) -> pd.DataFrame:
     """Standardises early years indicators"""
 
-    return (
-        early_years.groupby(["year", "gender", "indicator"])
-        .apply(
-            lambda df: (
-                df.assign(zscore=lambda df_2: zscore(df_2["score"], nan_policy="raise"))
+    if len(early_years[early_years.isna()]) != 0:
+        return (
+            early_years.dropna().groupby(["year", "gender", "indicator"])
+            .apply(
+                lambda df: (
+                    df.assign(zscore=lambda df_2: zscore(df_2["score"], nan_policy="raise"))
+                )
             )
+            .reset_index(drop=True)
         )
-        .reset_index(drop=True)
-    )
+    else:
+        return (
+            early_years.groupby(["year", "gender", "indicator"])
+            .apply(
+                lambda df: (
+                    df.assign(zscore=lambda df_2: zscore(df_2["score"], nan_policy="raise"))
+                )
+            )
+            .reset_index(drop=True)
+        )
 
 
 if __name__ == "__main__":

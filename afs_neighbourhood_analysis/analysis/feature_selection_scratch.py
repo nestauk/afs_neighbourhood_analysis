@@ -43,25 +43,17 @@ def get_year_from_period(period: int) -> int:
     return pipe(period, str, lambda string: f"20{string[-2:]}", int)
 
 
-def parse_ey_table(table: pd.DataFrame) -> pd.DataFrame:
+def parse_ey_table(table: pd.DataFrame, characteristic: str) -> pd.DataFrame:
     """
     Parses an early year table.
     """
-
-    return (
-        table.filter(items=EY_VARS_KEEP)
-        .assign(year=lambda df: df["time_period"].apply(get_year_from_period))
-        .query("geographic_level == 'Local Authority'")
-        .drop(axis=1, labels=["time_period", "geographic_level"])
-        .melt(
-            id_vars=["new_la_code", "la_name", "year", "gender"],
-            var_name="indicator",
-            value_name="score",
-        )
-    )
+    if characteristic != None:
+        table = table.query(f"characteristic_type == '{characteristic}'")
+    table = table.filter(items=EY_VARS_KEEP).assign(year=lambda df: df["time_period"].apply(get_year_from_period)).query("geographic_level == 'Local Authority'").drop(axis=1, labels= ["time_period", "geographic_level"]).melt(id_vars=["new_la_code", "la_name", "year", "gender"], var_name="indicator",value_name="score")
+    return table
 
 
-def el_goals() -> pd.DataFrame:
+def el_goals(**kwargs) -> pd.DataFrame:
     """Read generic early year goals table for local authorities.
 
     Variables:
@@ -83,8 +75,9 @@ def el_goals() -> pd.DataFrame:
         tidy dataframe
 
     """
-
-    return pipe(get_edu_dataframes()["ELG_GLD"], parse_ey_table)
+    df_key = kwargs.get("df_key", "ELG_GLD")
+    characteristic = kwargs.get("characteristic", None)
+    return parse_ey_table(table = get_edu_dataframes()[df_key], characteristic=characteristic)
 
 
 def public_health_framework():
@@ -173,7 +166,7 @@ def calc_corr(
 def plot_corr_results(table):
 
     return (
-        alt.Chart(aps_corr)
+        alt.Chart(table)
         .mark_point(filled=True)
         .encode(
             y=alt.Y(

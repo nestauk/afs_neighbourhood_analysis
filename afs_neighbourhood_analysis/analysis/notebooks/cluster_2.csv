@@ -1,0 +1,17 @@
+la_name,cluster,quintiles,score_in_cluster
+West Berkshire,2.0,0,-2.209336638663192
+Central Bedfordshire,2.0,0,-1.4292960858404038
+Bath and North East Somerset,2.0,0,-1.0159631312848567
+Cambridgeshire,2.0,0,-0.8014252127910542
+South Gloucestershire,2.0,1,-0.33705602426230813
+Oxfordshire,2.0,1,-0.31583953774170986
+Wokingham,2.0,1,-0.19564447032441543
+Hertfordshire,2.0,2,-0.14980147897786525
+Surrey,2.0,2,0.07054614283483511
+Windsor and Maidenhead,2.0,2,0.2003583928054598
+Kingston upon Thames,2.0,3,0.6511716541067695
+Sutton,2.0,3,0.9358570990285672
+Hampshire,2.0,3,0.9843321368871708
+Richmond upon Thames,2.0,4,1.2021968415416158
+Bromley,2.0,4,1.3252227326011365
+Bracknell Forest,2.0,4,1.522539540466908

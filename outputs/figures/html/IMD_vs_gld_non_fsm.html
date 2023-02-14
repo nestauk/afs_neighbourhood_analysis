@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm//vega@5"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm//vega-lite@4.17.0"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm//vega-embed@6"
+    ></script>
+  </head>
+  <body>
+    <div id="vis"></div>
+    <script>
+      (function (vegaEmbed) {
+        var spec = {
+          config: {
+            view: { continuousHeight: 300, continuousWidth: 400 },
+            range: {
+              category: [
+                "#0F294A",
+                "#0000FF",
+                "#18A48C",
+                "#97D9E3",
+                "#9A1BBE",
+                "#A59BEE",
+                "#F6A4B7",
+                "#EB003B",
+                "#FF6E47",
+                "#FDB633",
+                "#D2C9C0",
+              ],
+            },
+            title: { font: "Averta" },
+            axis: {
+              labelFont: "Averta",
+              titleFont: "Averta",
+              labelFontSize: 12,
+              labelLimit: 300,
+              titleFontSize: 14,
+            },
+            header: { labelFont: "Averta", titleFont: "Averta" },
+            legend: {
+              labelFont: "Averta",
+              titleFont: "Averta",
+              labelFontSize: 12,
+              titleFontSize: 14,
+            },
+          },
+          layer: [
+            {
+              data: { name: "data-0b97e1026f119d26603dc966bdceb9aa" },
+              mark: { type: "circle", color: "#0000FF", size: 30 },
+              encoding: {
+                tooltip: [
+                  {
+                    field: "Mean GLD percentage",
+                    format: ".1f",
+                    type: "quantitative",
+                  },
+                  {
+                    field: "Average IMD Decile",
+                    format: ".1f",
+                    type: "quantitative",
+                  },
+                  { field: "la_name", format: ".1f", type: "nominal" },
+                ],
+                x: {
+                  field: "Average IMD Decile",
+                  scale: { domain: [1, 10] },
+                  title:
+                    "Mean Index Multiple Deprivation (IMD) Decile for each LA",
+                  type: "quantitative",
+                },
+                y: {
+                  field: "Mean GLD percentage",
+                  scale: { domain: [40, 90] },
+                  title: "Mean GLD percentage",
+                  type: "quantitative",
+                },
+              },
+              title: "IMD Decile  (1 - most deprived, 10 - least deprived)",
+              width: 300,
+            },
+            {
+              data: { name: "data-a127917939c881599e7c7f1ee32dbd35" },
+              mark: { type: "circle", color: "#F6A4B7", size: 30 },
+              encoding: {
+                tooltip: [
+                  {
+                    field: "Mean GLD percentage",
+                    format: ".1f",
+                    type: "quantitative",
+                  },
+                  {
+                    field: "Average IMD Decile",
+                    format: ".1f",
+                    type: "quantitative",
+                  },
+                  { field: "la_name", format: ".1f", type: "nominal" },
+                ],
+                x: {
+                  field: "Average IMD Decile",
+                  scale: { domain: [1, 10] },
+                  title:
+                    "Mean Index Multiple Deprivation (IMD) Decile for each LA",
+                  type: "quantitative",
+                },
+                y: {
+                  field: "Mean GLD percentage",
+                  scale: { domain: [40, 90] },
+                  title: "Mean GLD percentage",
+                  type: "quantitative",
+                },
+              },
+              title: "IMD Decile  (1 - most deprived, 10 - least deprived)",
+              width: 300,
+            },
+            {
+              data: { name: "data-421a143d305c7414b00d3a93f75d2906" },
+              mark: { type: "rule", color: "#FDB633" },
+              encoding: { y: { field: "y", type: "quantitative" } },
+            },
+          ],
+          $schema: "https://vega.github.io/schema/vega-lite/v4.17.0.json",
+          datasets: {
+            "data-0b97e1026f119d26603dc966bdceb9aa": [
+              {
+                la_name: "Barnsley",
+                "Mean GLD percentage": 70.4,
+                "Average IMD Decile": 3.82312925170068,
+                "Mean GLD percentage (FSM)": 59,
+              },
+              {
+                la_name: "Bath and North East Somerset",
+                "Mean GLD percentage": 74.0,
+                "Average IMD Decile": 7.495652173913044,
+                "Mean GLD percentage (FSM)": 46,
+              },
+              {
+                la_name: "Bedford Borough",
+                "Mean GLD percentage": 69.1,
+                "Average IMD Decile": 5.796116504854369,
+                "Mean GLD percentage (FSM)": 53,
+              },
+              {
+                la_name: "Birmingham",
+                "Mean GLD percentage": 68.0,
+                "Average IMD Decile": 2.890453834115806,
+                "Mean GLD percentage (FSM)": 60,
+              },
+              {
+                la_name: "Blackburn with Darwen",
+                "Mean GLD percentage": 68.4,
+                "Average IMD Decile": 3.318681318681319,
+                "Mean GLD percentage (FSM)": 59,
+              },
+              {
+                la_name: "Blackpool",
+                "Mean GLD percentage": 67.9,
+                "Average IMD Decile": 2.4148936170212765,
+                "Mean GLD percentage (FSM)": 58,
+              },
+              {
+                la_name: "Bolton",
+                "Mean GLD percentage": 67.3,
+                "Average IMD Decile": 4.209039548022599,
+                "Mean GLD percentage (FSM)": 52,
+              },
+              {
+                la_name: "Bournemouth Christchurch and Poole",
+                "Mean GLD percentage": 73.8,
+                "Average IMD Decile": 6.064377682403434,
+                "Mean GLD percentage (FSM)": 58,
+              },
+              {
+                la_name: "Bracknell Forest",
+                "Mean GLD percentage": 76.4,
+                "Average IMD Decile": 7.96,
+                "Mean GLD percentage (FSM)": 60,
+              },
+              {
+                la_name: "Bradford",
+                "Mean GLD percentage": 68.0,
+                "Average IMD Decile": 3.629032258064516,
+                "Mean GLD percentage (FSM)": 55,
+              },
+              {
+                la_name: "Brighton and Hove",
+                "Mean GLD percentage": 71.5,
+                "Average IMD Decile": 5.551515151515152,
+                "Mean GLD percentage (FSM)": 52,
+              },
+              {
+                la_name: "Bristol City of",
+                "Mean GLD percentage": 70.6,
+                "Average IMD Decile": 4.634980988593156,
+                "Mean GLD percentage (FSM)": 53,
+              },
+              {
+                la_name: "Bury",
+                "Mean GLD percentage": 71.4,
+                "Average IMD Decile": 5.216666666666667,
+                "Mean GLD percentage (FSM)": 60,
+              },
+              {
+                la_name: "Calderdale",
+                "Mean GLD percentage": 70.5,
+                "Average IMD Decile": 4.4765625,
+                "Mean GLD percentage (FSM)": 51,
+              },
+              {
+                la_name: "Central Bedfordshire",
+                "Mean GLD percentage": 72.5,
+                "Average IMD Decile": 7.528662420382165,
+                "Mean GLD percentage (FSM)": 44,
+              },
+              {
+                la_name: "Cheshire East",
+                "Mean GLD percentage": 72.8,
+                "Average IMD Decile": 7.1068376068376065,
+                "Mean GLD percentage (FSM)": 50,
+              },
+              {
+                la_name: "Cheshire West and Chester",
+                "Mean GLD percentage": 71.8,
+                "Average IMD Decile": 6.231132075471698,
+                "Mean GLD percentage (FSM)": 52,
+              },
+              {
+                la_name: "Cornwall",
+                "Mean GLD percentage": 70.3,
+                "Average IMD Decile": 4.542944785276074,
+                "Mean GLD percentage (FSM)": 51,
+              },
+              {
+                la_name: "Coventry",
+                "Mean GLD percentage": 69.0,
+                "Average IMD Decile": 4.6923076923076925,
+                "Mean GLD percentage (FSM)": 54,
+              },
+              {
+                la_name: "Darlington",
+                "Mean GLD percentage": 71.7,
+                "Average IMD Decile": 4.815384615384615,
+                "Mean GLD percentage (FSM)": 61,
+              },
+              {
+                la_name: "Derby",
+                "Mean GLD percentage": 70.7,
+                "Average IMD Decile": 4.9072847682119205,
+                "Mean GLD percentage (FSM)": 60,
+              },
+              {
+                la_name: "Doncaster",
+                "Mean GLD percentage": 72.5,
+                "Average IMD Decile": 3.9536082474226806,
+                "Mean GLD percentage (FSM)": 58,
+              },
+              {
+                la_name: "Dorset",
+                "Mean GLD percentage": 71.5,
+                "Average IMD Decile": 6.502283105022831,
+                "Mean GLD percentage (FSM)": 54,
+              },
+              {
+                la_name: "Dudley",
+                "Mean GLD percentage": 67.1,
+                "Average IMD Decile": 5.079601990049751,
+                "Mean GLD percentage (FSM)": 48,
+              },
+              {
+                la_name: "Durham",
+                "Mean GLD percentage": 71.8,
+                "Average IMD Decile": 4.262345679012346,
+                "Mean GLD percentage (FSM)": 55,
+              },
+              {
+                la_name: "East Riding of Yorkshire",
+                "Mean GLD percentage": 73.8,
+                "Average IMD Decile": 6.757142857142857,
+                "Mean GLD percentage (FSM)": 55,
+              },
+              {
+                la_name: "Gateshead",
+                "Mean GLD percentage": 73.4,
+                "Average IMD Decile": 4.253968253968254,
+                "Mean GLD percentage (FSM)": 53,
+              },
+              {
+                la_name: "Halton",
+                "Mean GLD percentage": 66.1,
+                "Average IMD Decile": 3.7974683544303796,
+                "Mean GLD percentage (FSM)": 48,
+              },
+              {
+                la_name: "Hartlepool",
+                "Mean GLD percentage": 72.2,
+                "Average IMD Decile": 3.689655172413793,
+                "Mean GLD percentage (FSM)": 62,
+              },
+              {
+                la_name: "Herefordshire",
+                "Mean GLD percentage": 75.4,
+                "Average IMD Decile": 5.525862068965517,
+                "Mean GLD percentage (FSM)": 53,
+              },
+              {
+                la_name: "Isle of Wight",
+                "Mean GLD percentage": 71.5,
+                "Average IMD Decile": 4.595505617977528,
+                "Mean GLD percentage (FSM)": 54,
+              },
+              {
+                la_name: "Isles of Scilly",
+                "Mean GLD percentage": 78.6,
+                "Average IMD Decile": 7.0,
+                "Mean GLD percentage (FSM)": ".",
+              },
+              {
+                la_name: "Kingston Upon Hull City of",
+                "Mean GLD percentage": 67.7,
+                "Average IMD Decile": 2.9518072289156625,
+                "Mean GLD percentage (FSM)": 59,
+              },
+              {
+                la_name: "Kirklees",
+                "Mean GLD percentage": 69.7,
+                "Average IMD Decile": 4.714285714285714,
+                "Mean GLD percentage (FSM)": 55,
+              },
+              {
+                la_name: "Knowsley",
+                "Mean GLD percentage": 67.8,
+                "Average IMD Decile": 2.561224489795918,
+                "Mean GLD percentage (FSM)": 54,
+              },
+              {
+                la_name: "Leeds",
+                "Mean GLD percentage": 66.4,
+                "Average IMD Decile": 4.796680497925311,
+                "Mean GLD percentage (FSM)": 48,
+              },
+              {
+                la_name: "Leicester",
+                "Mean GLD percentage": 67.7,
+                "Average IMD Decile": 3.5833333333333335,
+                "Mean GLD percentage (FSM)": 61,
+              },
+              {
+                la_name: "Liverpool",
+                "Mean GLD percentage": 64.9,
+                "Average IMD Decile": 2.751677852348993,
+                "Mean GLD percentage (FSM)": 51,
+              },
+              {
+                la_name: "Luton",
+                "Mean GLD percentage": 68.4,
+                "Average IMD Decile": 4.322314049586777,
+                "Mean GLD percentage (FSM)": 65,
+              },
+              {
+                la_name: "Manchester",
+                "Mean GLD percentage": 65.8,
+                "Average IMD Decile": 2.5425531914893615,
+                "Mean GLD percentage (FSM)": 61,
+              },
+              {
+                la_name: "Medway",
+                "Mean GLD percentage": 73.7,
+                "Average IMD Decile": 4.9079754601226995,
+                "Mean GLD percentage (FSM)": 58,
+              },
+              {
+                la_name: "Middlesbrough",
+                "Mean GLD percentage": 63.1,
+                "Average IMD Decile": 3.383720930232558,
+                "Mean GLD percentage (FSM)": 55,
+              },
+              {
+                la_name: "Milton Keynes",
+                "Mean GLD percentage": 73.3,
+                "Average IMD Decile": 6.1381578947368425,
+                "Mean GLD percentage (FSM)": 57,
+              },
+              {
+                la_name: "Newcastle upon Tyne",
+                "Mean GLD percentage": 70.4,
+                "Average IMD Decile": 4.525714285714286,
+                "Mean GLD percentage (FSM)": 61,
+              },
+              {
+                la_name: "North East Lincolnshire",
+                "Mean GLD percentage": 71.2,
+                "Average IMD Decile": 4.2924528301886795,
+                "Mean GLD percentage (FSM)": 61,
+              },
+              {
+                la_name: "North Lincolnshire",
+                "Mean GLD percentage": 71.7,
+                "Average IMD Decile": 5.326732673267327,
+                "Mean GLD percentage (FSM)": 55,
+              },
+              {
+                la_name: "North Somerset",
+                "Mean GLD percentage": 74.7,
+                "Average IMD Decile": 6.874074074074074,
+                "Mean GLD percentage (FSM)": 55,
+              },
+              {
+                la_name: "North Tyneside",
+                "Mean GLD percentage": 72.0,
+                "Average IMD Decile": 5.450381679389313,
+                "Mean GLD percentage (FSM)": 54,
+              },
+              {
+                la_name: "Northumberland",
+                "Mean GLD percentage": 74.8,
+                "Average IMD Decile": 5.401015228426396,
+                "Mean GLD percentage (FSM)": 61,
+              },
+              {
+                la_name: "Nottingham",
+                "Mean GLD percentage": 66.9,
+                "Average IMD Decile": 2.9615384615384617,
+                "Mean GLD percentage (FSM)": 57,
+              },
+              {
+                la_name: "Oldham",
+                "Mean GLD percentage": 68.1,
+                "Average IMD Decile": 3.8439716312056738,
+                "Mean GLD percentage (FSM)": 57,
+              },
+              {
+                la_name: "Peterborough",
+                "Mean GLD percentage": 67.0,
+                "Average IMD Decile": 4.223214285714286,
+                "Mean GLD percentage (FSM)": 57,
+              },
+              {
+                la_name: "Plymouth",
+                "Mean GLD percentage": 68.3,
+                "Average IMD Decile": 4.478260869565218,
+                "Mean GLD percentage (FSM)": 55,
+              },
+              {
+                la_name: "Portsmouth",
+                "Mean GLD percentage": 69.4,
+                "Average IMD Decile": 4.288,
+                "Mean GLD percentage (FSM)": 54,
+              },
+              {
+                la_name: "Reading",
+                "Mean GLD percentage": 69.2,
+                "Average IMD Decile": 5.474226804123711,
+                "Mean GLD percentage (FSM)": 57,
+              },
+              {
+                la_name: "Redcar and Cleveland",
+                "Mean GLD percentage": 71.1,
+                "Average IMD Decile": 4.340909090909091,
+                "Mean GLD percentage (FSM)": 53,
+              },
+              {
+                la_name: "Rochdale",
+                "Mean GLD percentage": 66.0,
+                "Average IMD Decile": 3.544776119402985,
+                "Mean GLD percentage (FSM)": 53,
+              },
+              {
+                la_name: "Rotherham",
+                "Mean GLD percentage": 70.3,
+                "Average IMD Decile": 4.149700598802395,
+                "Mean GLD percentage (FSM)": 56,
+              },
+              {
+                la_name: "Rutland",
+                "Mean GLD percentage": 77.8,
+                "Average IMD Decile": 8.478260869565217,
+                "Mean GLD percentage (FSM)": 50,
+              },
+              {
+                la_name: "Salford",
+                "Mean GLD percentage": 67.7,
+                "Average IMD Decile": 3.533333333333333,
+                "Mean GLD percentage (FSM)": 60,
+              },
+              {
+                la_name: "Sandwell",
+                "Mean GLD percentage": 66.8,
+                "Average IMD Decile": 2.8118279569892475,
+                "Mean GLD percentage (FSM)": 58,
+              },
+              {
+                la_name: "Sefton",
+                "Mean GLD percentage": 68.8,
+                "Average IMD Decile": 4.761904761904762,
+                "Mean GLD percentage (FSM)": 54,
+              },
+              {
+                la_name: "Sheffield",
+                "Mean GLD percentage": 70.0,
+                "Average IMD Decile": 4.83768115942029,
+                "Mean GLD percentage (FSM)": 54,
+              },
+              {
+                la_name: "Shropshire",
+                "Mean GLD percentage": 72.6,
+                "Average IMD Decile": 5.891191709844559,
+                "Mean GLD percentage (FSM)": 54,
+              },
+              {
+                la_name: "Slough",
+                "Mean GLD percentage": 74.3,
+                "Average IMD Decile": 4.5375,
+                "Mean GLD percentage (FSM)": 69,
+              },
+              {
+                la_name: "Solihull",
+                "Mean GLD percentage": 72.6,
+                "Average IMD Decile": 6.567164179104478,
+                "Mean GLD percentage (FSM)": 56,
+              },
+              {
+                la_name: "South Gloucestershire",
+                "Mean GLD percentage": 76.8,
+                "Average IMD Decile": 7.5636363636363635,
+                "Mean GLD percentage (FSM)": 50,
+              },
+              {
+                la_name: "South Tyneside",
+                "Mean GLD percentage": 73.3,
+                "Average IMD Decile": 3.6470588235294117,
+                "Mean GLD percentage (FSM)": 60,
+              },
+              {
+                la_name: "Southampton",
+                "Mean GLD percentage": 71.1,
+                "Average IMD Decile": 4.114864864864865,
+                "Mean GLD percentage (FSM)": 57,
+              },
+              {
+                la_name: "Southend-on-Sea",
+                "Mean GLD percentage": 74.0,
+                "Average IMD Decile": 5.5046728971962615,
+                "Mean GLD percentage (FSM)": 58,
+              },
+              {
+                la_name: "St. Helens",
+                "Mean GLD percentage": 70.2,
+                "Average IMD Decile": 3.957983193277311,
+                "Mean GLD percentage (FSM)": 52,
+              },
+              {
+                la_name: "Stockport",
+                "Mean GLD percentage": 70.4,
+                "Average IMD Decile": 5.921052631578948,
+                "Mean GLD percentage (FSM)": 46,
+              },
+              {
+                la_name: "Stockton-on-Tees",
+                "Mean GLD percentage": 73.8,
+                "Average IMD Decile": 5.208333333333333,
+                "Mean GLD percentage (FSM)": 58,
+              },
+              {
+                la_name: "Stoke-on-Trent",
+                "Mean GLD percentage": 67.0,
+                "Average IMD Decile": 3.3710691823899372,
+                "Mean GLD percentage (FSM)": 56,
+              },
+              {
+                la_name: "Sunderland",
+                "Mean GLD percentage": 72.6,
+                "Average IMD Decile": 3.827027027027027,
+                "Mean GLD percentage (FSM)": 63,
+              },
+              {
+                la_name: "Swindon",
+                "Mean GLD percentage": 71.2,
+                "Average IMD Decile": 6.181818181818182,
+                "Mean GLD percentage (FSM)": 54,
+              },
+              {
+                la_name: "Tameside",
+                "Mean GLD percentage": 66.9,
+                "Average IMD Decile": 3.6382978723404253,
+                "Mean GLD percentage (FSM)": 54,
+              },
+              {
+                la_name: "Telford and Wrekin",
+                "Mean GLD percentage": 71.3,
+                "Average IMD Decile": 4.833333333333333,
+                "Mean GLD percentage (FSM)": 61,
+              },
+              {
+                la_name: "Thurrock",
+                "Mean GLD percentage": 73.7,
+                "Average IMD Decile": 5.26530612244898,
+                "Mean GLD percentage (FSM)": 67,
+              },
+              {
+                la_name: "Torbay",
+                "Mean GLD percentage": 70.8,
+                "Average IMD Decile": 4.134831460674158,
+                "Mean GLD percentage (FSM)": 53,
+              },
+              {
+                la_name: "Trafford",
+                "Mean GLD percentage": 74.7,
+                "Average IMD Decile": 6.77536231884058,
+                "Mean GLD percentage (FSM)": 56,
+              },
+              {
+                la_name: "Wakefield",
+                "Mean GLD percentage": 70.8,
+                "Average IMD Decile": 4.3349282296650715,
+                "Mean GLD percentage (FSM)": 54,
+              },
+              {
+                la_name: "Walsall",
+                "Mean GLD percentage": 67.5,
+                "Average IMD Decile": 3.8323353293413174,
+                "Mean GLD percentage (FSM)": 57,
+              },
+              {
+                la_name: "Warrington",
+                "Mean GLD percentage": 73.6,
+                "Average IMD Decile": 6.165354330708661,
+                "Mean GLD percentage (FSM)": 61,
+              },
+              {
+                la_name: "West Berkshire",
+                "Mean GLD percentage": 74.6,
+                "Average IMD Decile": 8.072164948453608,
+                "Mean GLD percentage (FSM)": 41,
+              },
+              {
+                la_name: "Wigan",
+                "Mean GLD percentage": 67.9,
+                "Average IMD Decile": 4.885,
+                "Mean GLD percentage (FSM)": 51,
+              },
+              {
+                la_name: "Wiltshire",
+                "Mean GLD percentage": 72.4,
+                "Average IMD Decile": 7.007017543859649,
+                "Mean GLD percentage (FSM)": 49,
+              },
+              {
+                la_name: "Windsor and Maidenhead",
+                "Mean GLD percentage": 74.3,
+                "Average IMD Decile": 8.48314606741573,
+                "Mean GLD percentage (FSM)": 53,
+              },
+              {
+                la_name: "Wirral",
+                "Mean GLD percentage": 69.3,
+                "Average IMD Decile": 4.635922330097087,
+                "Mean GLD percentage (FSM)": 50,
+              },
+              {
+                la_name: "Wokingham",
+                "Mean GLD percentage": 77.1,
+                "Average IMD Decile": 9.272727272727273,
+                "Mean GLD percentage (FSM)": 51,
+              },
+              {
+                la_name: "Wolverhampton",
+                "Mean GLD percentage": 69.5,
+                "Average IMD Decile": 3.537974683544304,
+                "Mean GLD percentage (FSM)": 60,
+              },
+              {
+                la_name: "York",
+                "Mean GLD percentage": 75.6,
+                "Average IMD Decile": 7.641666666666667,
+                "Mean GLD percentage (FSM)": 53,
+              },
+              {
+                la_name: "Cambridgeshire",
+                "Mean GLD percentage": 71.4,
+                "Average IMD Decile": 6.806722896668549,
+                "Mean GLD percentage (FSM)": 47,
+              },
+              {
+                la_name: "Cumbria",
+                "Mean GLD percentage": 70.6,
+                "Average IMD Decile": 5.362118953042611,
+                "Mean GLD percentage (FSM)": 50,
+              },
+              {
+                la_name: "Derbyshire",
+                "Mean GLD percentage": 70.8,
+                "Average IMD Decile": 6.023569533914732,
+                "Mean GLD percentage (FSM)": 53,
+              },
+              {
+                la_name: "Devon",
+                "Mean GLD percentage": 72.7,
+                "Average IMD Decile": 5.991042799052684,
+                "Mean GLD percentage (FSM)": 55,
+              },
+              {
+                la_name: "East Sussex",
+                "Mean GLD percentage": 76.0,
+                "Average IMD Decile": 5.485679759182396,
+                "Mean GLD percentage (FSM)": 62,
+              },
+              {
+                la_name: "Essex",
+                "Mean GLD percentage": 74.4,
+                "Average IMD Decile": 6.501356870552402,
+                "Mean GLD percentage (FSM)": 56,
+              },
+              {
+                la_name: "Gloucestershire",
+                "Mean GLD percentage": 71.9,
+                "Average IMD Decile": 6.8401173847465415,
+                "Mean GLD percentage (FSM)": 52,
+              },
+              {
+                la_name: "Greater Manchester",
+                "Mean GLD percentage": null,
+                "Average IMD Decile": 4.411005331288058,
+                "Mean GLD percentage (FSM)": null,
+              },
+              {
+                la_name: "Hampshire",
+                "Mean GLD percentage": 77.0,
+                "Average IMD Decile": 7.420547794584523,
+                "Mean GLD percentage (FSM)": 58,
+              },
+              {
+                la_name: "Hertfordshire",
+                "Mean GLD percentage": 73.0,
+                "Average IMD Decile": 7.1242366823872985,
+                "Mean GLD percentage (FSM)": 51,
+              },
+              {
+                la_name: "Inner London",
+                "Mean GLD percentage": null,
+                "Average IMD Decile": 4.469453265089254,
+                "Mean GLD percentage (FSM)": null,
+              },
+              {
+                la_name: "Kent",
+                "Mean GLD percentage": 74.0,
+                "Average IMD Decile": 5.800580989841605,
+                "Mean GLD percentage (FSM)": 57,
+              },
+              {
+                la_name: "Lancashire",
+                "Mean GLD percentage": 69.2,
+                "Average IMD Decile": 5.29212283722292,
+                "Mean GLD percentage (FSM)": 52,
+              },
+              {
+                la_name: "Leicestershire",
+                "Mean GLD percentage": 72.1,
+                "Average IMD Decile": 7.420518622976437,
+                "Mean GLD percentage (FSM)": 49,
+              },
+              {
+                la_name: "Lincolnshire",
+                "Mean GLD percentage": 69.6,
+                "Average IMD Decile": 5.5575724311906285,
+                "Mean GLD percentage (FSM)": 56,
+              },
+              {
+                la_name: "Merseyside",
+                "Mean GLD percentage": null,
+                "Average IMD Decile": 3.7337425254848142,
+                "Mean GLD percentage (FSM)": null,
+              },
+              {
+                la_name: "Norfolk",
+                "Mean GLD percentage": 72.5,
+                "Average IMD Decile": 5.281107025379986,
+                "Mean GLD percentage (FSM)": 55,
+              },
+              {
+                la_name: "North Yorkshire",
+                "Mean GLD percentage": 72.8,
+                "Average IMD Decile": 6.808436857950113,
+                "Mean GLD percentage (FSM)": 51,
+              },
+              {
+                la_name: "Nottinghamshire",
+                "Mean GLD percentage": 70.5,
+                "Average IMD Decile": 5.935303990285681,
+                "Mean GLD percentage (FSM)": 51,
+              },
+              {
+                la_name: "Outer London",
+                "Mean GLD percentage": null,
+                "Average IMD Decile": 5.736510364050884,
+                "Mean GLD percentage (FSM)": null,
+              },
+              {
+                la_name: "Oxfordshire",
+                "Mean GLD percentage": 73.5,
+                "Average IMD Decile": 7.7380952202357465,
+                "Mean GLD percentage (FSM)": 50,
+              },
+              {
+                la_name: "Somerset",
+                "Mean GLD percentage": 71.4,
+                "Average IMD Decile": 5.706881225570546,
+                "Mean GLD percentage (FSM)": 53,
+              },
+              {
+                la_name: "South Yorkshire",
+                "Mean GLD percentage": null,
+                "Average IMD Decile": 4.1910298143365114,
+                "Mean GLD percentage (FSM)": null,
+              },
+              {
+                la_name: "Staffordshire",
+                "Mean GLD percentage": 74.4,
+                "Average IMD Decile": 6.282451012623051,
+                "Mean GLD percentage (FSM)": 56,
+              },
+              {
+                la_name: "Suffolk",
+                "Mean GLD percentage": 70.7,
+                "Average IMD Decile": 6.0541672315806085,
+                "Mean GLD percentage (FSM)": 55,
+              },
+              {
+                la_name: "Surrey",
+                "Mean GLD percentage": 78.3,
+                "Average IMD Decile": 8.022156924105921,
+                "Mean GLD percentage (FSM)": 52,
+              },
+              {
+                la_name: "Tyne and Wear",
+                "Mean GLD percentage": null,
+                "Average IMD Decile": 4.340830013925658,
+                "Mean GLD percentage (FSM)": null,
+              },
+              {
+                la_name: "Warwickshire",
+                "Mean GLD percentage": 71.8,
+                "Average IMD Decile": 6.5149131933675575,
+                "Mean GLD percentage (FSM)": 55,
+              },
+              {
+                la_name: "West Midlands",
+                "Mean GLD percentage": null,
+                "Average IMD Decile": 4.201666523636085,
+                "Mean GLD percentage (FSM)": null,
+              },
+              {
+                la_name: "West Sussex",
+                "Mean GLD percentage": 71.9,
+                "Average IMD Decile": 6.728624731545175,
+                "Mean GLD percentage (FSM)": 51,
+              },
+              {
+                la_name: "West Yorkshire",
+                "Mean GLD percentage": null,
+                "Average IMD Decile": 4.390297839988123,
+                "Mean GLD percentage (FSM)": null,
+              },
+              {
+                la_name: "Worcestershire",
+                "Mean GLD percentage": 72.0,
+                "Average IMD Decile": 6.149578582337203,
+                "Mean GLD percentage (FSM)": 52,
+              },
+            ],
+            "data-a127917939c881599e7c7f1ee32dbd35": [
+              {
+                la_name: "Barking and Dagenham",
+                "Mean GLD percentage": 72.4,
+                "Average IMD Decile": 2.6818181818181817,
+                "Mean GLD percentage (FSM)": 66,
+              },
+              {
+                la_name: "Barnet",
+                "Mean GLD percentage": 74.3,
+                "Average IMD Decile": 6.38388625592417,
+                "Mean GLD percentage (FSM)": 63,
+              },
+              {
+                la_name: "Bexley",
+                "Mean GLD percentage": 76.7,
+                "Average IMD Decile": 6.506849315068493,
+                "Mean GLD percentage (FSM)": 65,
+              },
+              {
+                la_name: "Brent",
+                "Mean GLD percentage": 71.8,
+                "Average IMD Decile": 4.161849710982659,
+                "Mean GLD percentage (FSM)": 66,
+              },
+              {
+                la_name: "Bromley",
+                "Mean GLD percentage": 78.2,
+                "Average IMD Decile": 7.106598984771574,
+                "Mean GLD percentage (FSM)": 59,
+              },
+              {
+                la_name: "Camden",
+                "Mean GLD percentage": 72.8,
+                "Average IMD Decile": 5.406015037593985,
+                "Mean GLD percentage (FSM)": 63,
+              },
+              {
+                la_name: "City of London",
+                "Mean GLD percentage": 85.1,
+                "Average IMD Decile": 6.666666666666667,
+                "Mean GLD percentage (FSM)": 75,
+              },
+              {
+                la_name: "Croydon",
+                "Mean GLD percentage": 74.6,
+                "Average IMD Decile": 5.0227272727272725,
+                "Mean GLD percentage (FSM)": 66,
+              },
+              {
+                la_name: "Ealing",
+                "Mean GLD percentage": 70.9,
+                "Average IMD Decile": 4.795918367346939,
+                "Mean GLD percentage (FSM)": 62,
+              },
+              {
+                la_name: "Enfield",
+                "Mean GLD percentage": 69.7,
+                "Average IMD Decile": 4.382513661202186,
+                "Mean GLD percentage (FSM)": 60,
+              },
+              {
+                la_name: "Greenwich",
+                "Mean GLD percentage": 77.9,
+                "Average IMD Decile": 4.317880794701987,
+                "Mean GLD percentage (FSM)": 70,
+              },
+              {
+                la_name: "Hackney",
+                "Mean GLD percentage": 69.6,
+                "Average IMD Decile": 2.7430555555555554,
+                "Mean GLD percentage (FSM)": 69,
+              },
+              {
+                la_name: "Hammersmith and Fulham",
+                "Mean GLD percentage": 73.2,
+                "Average IMD Decile": 4.823008849557522,
+                "Mean GLD percentage (FSM)": 63,
+              },
+              {
+                la_name: "Haringey",
+                "Mean GLD percentage": 74.6,
+                "Average IMD Decile": 3.9034482758620688,
+                "Mean GLD percentage (FSM)": 65,
+              },
+              {
+                la_name: "Harrow",
+                "Mean GLD percentage": 75.0,
+                "Average IMD Decile": 6.554744525547445,
+                "Mean GLD percentage (FSM)": 66,
+              },
+              {
+                la_name: "Havering",
+                "Mean GLD percentage": 71.7,
+                "Average IMD Decile": 6.346666666666667,
+                "Mean GLD percentage (FSM)": 50,
+              },
+              {
+                la_name: "Hillingdon",
+                "Mean GLD percentage": 74.7,
+                "Average IMD Decile": 5.906832298136646,
+                "Mean GLD percentage (FSM)": 64,
+              },
+              {
+                la_name: "Hounslow",
+                "Mean GLD percentage": 73.8,
+                "Average IMD Decile": 4.830985915492958,
+                "Mean GLD percentage (FSM)": 66,
+              },
+              {
+                la_name: "Islington",
+                "Mean GLD percentage": 71.0,
+                "Average IMD Decile": 3.6422764227642275,
+                "Mean GLD percentage (FSM)": 64,
+              },
+              {
+                la_name: "Kensington and Chelsea",
+                "Mean GLD percentage": 70.0,
+                "Average IMD Decile": 5.213592233009709,
+                "Mean GLD percentage (FSM)": 60,
+              },
+              {
+                la_name: "Kingston upon Thames",
+                "Mean GLD percentage": 75.9,
+                "Average IMD Decile": 7.622448979591836,
+                "Mean GLD percentage (FSM)": 56,
+              },
+              {
+                la_name: "Lambeth",
+                "Mean GLD percentage": 71.5,
+                "Average IMD Decile": 3.949438202247191,
+                "Mean GLD percentage (FSM)": 62,
+              },
+              {
+                la_name: "Lewisham",
+                "Mean GLD percentage": 76.4,
+                "Average IMD Decile": 3.7633136094674557,
+                "Mean GLD percentage (FSM)": 66,
+              },
+              {
+                la_name: "Merton",
+                "Mean GLD percentage": 75.5,
+                "Average IMD Decile": 6.887096774193548,
+                "Mean GLD percentage (FSM)": 62,
+              },
+              {
+                la_name: "Newham",
+                "Mean GLD percentage": 75.9,
+                "Average IMD Decile": 3.091463414634146,
+                "Mean GLD percentage (FSM)": 71,
+              },
+              {
+                la_name: "Redbridge",
+                "Mean GLD percentage": 75.6,
+                "Average IMD Decile": 5.987577639751553,
+                "Mean GLD percentage (FSM)": 63,
+              },
+              {
+                la_name: "Richmond upon Thames",
+                "Mean GLD percentage": 80.6,
+                "Average IMD Decile": 8.321739130434782,
+                "Mean GLD percentage (FSM)": 58,
+              },
+              {
+                la_name: "Southwark",
+                "Mean GLD percentage": 74.1,
+                "Average IMD Decile": 4.024096385542169,
+                "Mean GLD percentage (FSM)": 67,
+              },
+              {
+                la_name: "Sutton",
+                "Mean GLD percentage": 73.3,
+                "Average IMD Decile": 7.099173553719008,
+                "Mean GLD percentage (FSM)": 57,
+              },
+              {
+                la_name: "Tower Hamlets",
+                "Mean GLD percentage": 69.9,
+                "Average IMD Decile": 3.6805555555555554,
+                "Mean GLD percentage (FSM)": 66,
+              },
+              {
+                la_name: "Waltham Forest",
+                "Mean GLD percentage": 76.4,
+                "Average IMD Decile": 4.076388888888889,
+                "Mean GLD percentage (FSM)": 65,
+              },
+              {
+                la_name: "Wandsworth",
+                "Mean GLD percentage": 76.3,
+                "Average IMD Decile": 6.212290502793296,
+                "Mean GLD percentage (FSM)": 60,
+              },
+              {
+                la_name: "Westminster",
+                "Mean GLD percentage": 70.6,
+                "Average IMD Decile": 5.453125,
+                "Mean GLD percentage (FSM)": 68,
+              },
+            ],
+            "data-421a143d305c7414b00d3a93f75d2906": [{ y: 71.8 }],
+          },
+        };
+        var embedOpt = { mode: "vega-lite" };
+
+        function showError(el, error) {
+          el.innerHTML =
+            '<div class="error" style="color:red;">' +
+            "<p>JavaScript Error: " +
+            error.message +
+            "</p>" +
+            "<p>This usually means there's a typo in your chart specification. " +
+            "See the javascript console for the full traceback.</p>" +
+            "</div>";
+          throw error;
+        }
+        const el = document.getElementById("vis");
+        vegaEmbed("#vis", spec, embedOpt).catch((error) =>
+          showError(el, error)
+        );
+      })(vegaEmbed);
+    </script>
+  </body>
+</html>

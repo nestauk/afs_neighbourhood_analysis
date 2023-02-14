@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm//vega@5"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm//vega-lite@4.17.0"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm//vega-embed@6"
+    ></script>
+  </head>
+  <body>
+    <div id="vis"></div>
+    <script>
+      (function (vegaEmbed) {
+        var spec = {
+          config: {
+            title: { font: "Averta" },
+            axis: {
+              labelFont: "Averta",
+              titleFont: "Averta",
+              labelFontSize: 12,
+              labelLimit: 300,
+              titleFontSize: 14,
+            },
+            header: { labelFont: "Averta", titleFont: "Averta" },
+            legend: {
+              labelFont: "Averta",
+              titleFont: "Averta",
+              labelFontSize: 12,
+              titleFontSize: 14,
+            },
+          },
+          data: { name: "data-7646bcc8b360e8fd017c9bd0d3a0afc4" },
+          mark: "bar",
+          encoding: {
+            color: { field: "region", title: "Region", type: "nominal" },
+            x: {
+              axis: { format: "%" },
+              field: "share",
+              title: "% of cluster",
+              type: "quantitative",
+            },
+            y: { field: "cluster", title: "Cluster", type: "ordinal" },
+          },
+          height: 175,
+          width: 400,
+          $schema: "https://vega.github.io/schema/vega-lite/v4.17.0.json",
+          datasets: {
+            "data-7646bcc8b360e8fd017c9bd0d3a0afc4": [
+              { cluster: 0, region: "East", share: 0.13333333333333333 },
+              {
+                cluster: 0,
+                region: "East Midlands (England)",
+                share: 0.03333333333333333,
+              },
+              { cluster: 0, region: "London", share: 0.03333333333333333 },
+              {
+                cluster: 0,
+                region: "North East (England)",
+                share: 0.13333333333333333,
+              },
+              {
+                cluster: 0,
+                region: "North West (England)",
+                share: 0.06666666666666667,
+              },
+              {
+                cluster: 0,
+                region: "South East (England)",
+                share: 0.13333333333333333,
+              },
+              {
+                cluster: 0,
+                region: "South West (England)",
+                share: 0.06666666666666667,
+              },
+              { cluster: 0, region: "West Midlands (England)", share: 0.1 },
+              { cluster: 0, region: "Yorkshire and The Humber", share: 0.3 },
+              { cluster: 1, region: "East", share: 0.0 },
+              {
+                cluster: 1,
+                region: "East Midlands (England)",
+                share: 0.1111111111111111,
+              },
+              { cluster: 1, region: "London", share: 0.05555555555555555 },
+              {
+                cluster: 1,
+                region: "North East (England)",
+                share: 0.05555555555555555,
+              },
+              {
+                cluster: 1,
+                region: "North West (England)",
+                share: 0.3888888888888889,
+              },
+              { cluster: 1, region: "South East (England)", share: 0.0 },
+              { cluster: 1, region: "South West (England)", share: 0.0 },
+              {
+                cluster: 1,
+                region: "West Midlands (England)",
+                share: 0.2777777777777778,
+              },
+              {
+                cluster: 1,
+                region: "Yorkshire and The Humber",
+                share: 0.1111111111111111,
+              },
+              { cluster: 2, region: "East", share: 0.1875 },
+              { cluster: 2, region: "East Midlands (England)", share: 0.0 },
+              { cluster: 2, region: "London", share: 0.25 },
+              { cluster: 2, region: "North East (England)", share: 0.0 },
+              { cluster: 2, region: "North West (England)", share: 0.0 },
+              { cluster: 2, region: "South East (England)", share: 0.4375 },
+              { cluster: 2, region: "South West (England)", share: 0.125 },
+              { cluster: 2, region: "West Midlands (England)", share: 0.0 },
+              { cluster: 2, region: "Yorkshire and The Humber", share: 0.0 },
+              { cluster: 3, region: "East", share: 0.0 },
+              { cluster: 3, region: "East Midlands (England)", share: 0.0 },
+              { cluster: 3, region: "London", share: 0.9583333333333334 },
+              { cluster: 3, region: "North East (England)", share: 0.0 },
+              { cluster: 3, region: "North West (England)", share: 0.0 },
+              {
+                cluster: 3,
+                region: "South East (England)",
+                share: 0.041666666666666664,
+              },
+              { cluster: 3, region: "South West (England)", share: 0.0 },
+              { cluster: 3, region: "West Midlands (England)", share: 0.0 },
+              { cluster: 3, region: "Yorkshire and The Humber", share: 0.0 },
+              { cluster: 4, region: "East", share: 0.10526315789473684 },
+              {
+                cluster: 4,
+                region: "East Midlands (England)",
+                share: 0.10526315789473684,
+              },
+              { cluster: 4, region: "London", share: 0.0 },
+              { cluster: 4, region: "North East (England)", share: 0.0 },
+              {
+                cluster: 4,
+                region: "North West (England)",
+                share: 0.05263157894736842,
+              },
+              {
+                cluster: 4,
+                region: "South East (England)",
+                share: 0.15789473684210525,
+              },
+              {
+                cluster: 4,
+                region: "South West (England)",
+                share: 0.3157894736842105,
+              },
+              {
+                cluster: 4,
+                region: "West Midlands (England)",
+                share: 0.15789473684210525,
+              },
+              {
+                cluster: 4,
+                region: "Yorkshire and The Humber",
+                share: 0.10526315789473684,
+              },
+              { cluster: 5, region: "East", share: 0.0 },
+              { cluster: 5, region: "East Midlands (England)", share: 0.0 },
+              { cluster: 5, region: "London", share: 0.0 },
+              { cluster: 5, region: "North East (England)", share: 0.4 },
+              {
+                cluster: 5,
+                region: "North West (England)",
+                share: 0.5333333333333333,
+              },
+              { cluster: 5, region: "South East (England)", share: 0.0 },
+              { cluster: 5, region: "South West (England)", share: 0.0 },
+              { cluster: 5, region: "West Midlands (England)", share: 0.0 },
+              {
+                cluster: 5,
+                region: "Yorkshire and The Humber",
+                share: 0.06666666666666667,
+              },
+              { cluster: 6, region: "East", share: 0.09090909090909091 },
+              {
+                cluster: 6,
+                region: "East Midlands (England)",
+                share: 0.09090909090909091,
+              },
+              { cluster: 6, region: "London", share: 0.09090909090909091 },
+              {
+                cluster: 6,
+                region: "North East (England)",
+                share: 0.045454545454545456,
+              },
+              {
+                cluster: 6,
+                region: "North West (England)",
+                share: 0.22727272727272727,
+              },
+              {
+                cluster: 6,
+                region: "South East (England)",
+                share: 0.13636363636363635,
+              },
+              {
+                cluster: 6,
+                region: "South West (England)",
+                share: 0.13636363636363635,
+              },
+              {
+                cluster: 6,
+                region: "West Midlands (England)",
+                share: 0.13636363636363635,
+              },
+              {
+                cluster: 6,
+                region: "Yorkshire and The Humber",
+                share: 0.045454545454545456,
+              },
+            ],
+          },
+        };
+        var embedOpt = { mode: "vega-lite" };
+
+        function showError(el, error) {
+          el.innerHTML =
+            '<div class="error" style="color:red;">' +
+            "<p>JavaScript Error: " +
+            error.message +
+            "</p>" +
+            "<p>This usually means there's a typo in your chart specification. " +
+            "See the javascript console for the full traceback.</p>" +
+            "</div>";
+          throw error;
+        }
+        const el = document.getElementById("vis");
+        vegaEmbed("#vis", spec, embedOpt).catch((error) =>
+          showError(el, error)
+        );
+      })(vegaEmbed);
+    </script>
+  </body>
+</html>

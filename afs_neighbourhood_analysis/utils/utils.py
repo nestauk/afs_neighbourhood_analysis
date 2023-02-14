@@ -5,6 +5,7 @@ from matplotlib.colors import LinearSegmentedColormap
 import json
 from afs_neighbourhood_analysis import PROJECT_DIR
 import pandas as pd
+import altair as alt
 
 
 def load_colours():
@@ -14,18 +15,18 @@ def load_colours():
     return colours
 
 
-def nestafont():
-    font = "Averta"
-
+def nesta_theme():
+    font="Averta"
     return {
-        "config": {
+        'config': {
+            'view': {'continuousHeight': 300, 'continuousWidth': 400},  # from the default theme
+            'range': {'category': ['#0F294A', '#0000FF', '#18A48C', '#97D9E3', '#9A1BBE', "#A59BEE", "#F6A4B7", "#EB003B", "#FF6E47", "#FDB633", "#D2C9C0"]},
             "title": {"font": font},
             "axis": {"labelFont": font, "titleFont": font},
             "header": {"labelFont": font, "titleFont": font},
             "legend": {"labelFont": font, "titleFont": font},
         }
     }
-
 
 def hex_to_cm(array, **kwargs):
     rgb = [(ImageColor.getcolor(i, "RGB")) for i in array if i != "#FFFFFF"]

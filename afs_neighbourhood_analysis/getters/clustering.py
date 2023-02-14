@@ -42,7 +42,7 @@ def parse_clustering_diagnostics(clustering_result: dict) -> pd.Series:
     return pd.Series({**out_dict, **var_dict})
 
 
-def clustering_diagnostics() -> pd.DataFrame:
+def clustering_diagnostics(fname = "cluster_grid_search_results.p") -> pd.DataFrame:
     """Reads clustering diagnostics.
     Contents:
         pca: number of dimensions used in PCA
@@ -58,7 +58,7 @@ def clustering_diagnostics() -> pd.DataFrame:
     """
 
     with open(
-        f"{PROJECT_DIR}/inputs/data/cluster_grid_search_results.p", "rb"
+        f"{PROJECT_DIR}/inputs/data/{fname}", "rb"
     ) as infile:
         results = pickle.load(infile)
 
